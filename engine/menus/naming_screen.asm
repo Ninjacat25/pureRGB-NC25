@@ -136,7 +136,14 @@ DisplayNamingScreenWrap:
 .inputLoop
 	ld a, [wCurrentMenuItem]
 	push af
+	ld a, [wNamingScreenType]
+	cp NAME_BALL_SCREEN
+	jr z, .getBallColor
 	farcall AnimatePartyMon_ForceSpeed1
+	jr .skipBallColor
+.getBallColor
+	callfar GetCustomBallColor
+.skipBallColor
 	pop af
 	ld [wCurrentMenuItem], a
 	call JoypadLowSensitivity
@@ -462,7 +469,11 @@ PrintNamingText:
 	ld de, RivalsTextString
 	dec a
 	jr z, .notNickname
+	dec a
 	ld a, [wCurPartySpecies]
+	jr z, .pokemon
+	jr .pokeballName
+.pokemon
 	ld [wMonPartySpriteSpecies], a
 	push af
 	farcall LoadNicknameMonSprite ; mechanicalpennote: CHANGED: new code for choosing which sprite displays on the nicknaming menus
@@ -482,9 +493,14 @@ PrintNamingText:
 	call PlaceString
 	ld l, c
 	ld h, b
+.addNameText
 	ld de, NameTextString
 .placeString
 	jp PlaceString
+.pokeballName
+	hlcoord 3, 3
+	call .addNameText
+	jpfar CustomPokeballRename
 
 YourTextString:
 	db "YOUR @"
@@ -492,8 +508,7 @@ YourTextString:
 RivalsTextString:
 	db "RIVAL's @"
 
+NicknameTextString:
+	db "NICK"
 NameTextString:
 	db "NAME?@"
-
-NicknameTextString:
-	db "NICKNAME?@"

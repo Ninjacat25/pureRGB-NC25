@@ -37,6 +37,7 @@ INCLUDE "engine/events/display_pokedex.asm"
 INCLUDE "engine/menus/menu_list_tm_name_loader.asm" ; PureRGBnote: ADDED: code for showing TM names in list menus
 INCLUDE "engine/menus/wrap_list_menu.asm" ; PureRGBnote: ADDED: code for wrapping to the bottom and top of lists by pressing dpad left
 INCLUDE "engine/menus/custom_list_menu.asm"
+INCLUDE "engine/gfx/flip_sprite_oam.asm"
 
 
 SECTION "bank3", ROMX
@@ -468,3 +469,6 @@ INCLUDE "data/pokemon/metric_measurements.asm"
 INCLUDE "engine/battle/end_of_battle.asm" ; moved from battle engine 1
 INCLUDE "engine/menus/item_menu_count_box.asm"
 INCLUDE "engine/battle/get_fitness_trainer_party.asm"
+INCLUDE "engine/battle/animations/custom_send_out_mon_ball_poof_animations.asm"
+INCLUDE "engine/menus/ball_customization_menu.asm"
+INCLUDE "engine/events/camera.asm"

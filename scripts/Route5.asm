@@ -20,6 +20,7 @@ Route5_TextPointers:
 	dw_const Route5Rookie2Text,              TEXT_ROUTE5_ROOKIE2
 	dw_const Route5Rookie3Text,              TEXT_ROUTE5_ROOKIE3
 	dw_const Route5TamerText,                TEXT_ROUTE5_TAMER
+	dw_const Route5BugCatcherText,           TEXT_ROUTE5_BUG_CATCHER
 	dw_const PickUpItemText,                 TEXT_ROUTE5_ITEM1 ; PureRGBnote: ADDED: new item on this route.
 	dw_const Route5UndergroundPathSignText,  TEXT_ROUTE5_UNDERGROUND_PATH_SIGN
 
@@ -116,4 +117,8 @@ Route5AfterBattleText4:
 
 Route5UndergroundPathSignText:
 	text_far _Route5UndergroundPathSignText
+	text_end
+
+Route5BugCatcherText:
+	text_far _Route5BugCatcherText
 	text_end

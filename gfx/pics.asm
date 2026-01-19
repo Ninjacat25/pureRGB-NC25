@@ -689,9 +689,39 @@ PowerPlantStormTiles:: INCBIN "gfx/overworld/storm.2bpp"
 VerticalPipeTiles:: INCBIN "gfx/overworld/vertical_pipe.2bpp"
 HyperBeamBubble:: INCBIN "gfx/overworld/bubble.2bpp"
 ApexPrompt:: INCBIN "gfx/font/apex.1bpp"
+StatExpPrompt:: INCBIN "gfx/font/stat_exp.1bpp"
 IceCrystalLarge:: INCBIN "gfx/overworld/ice_crystal_large.2bpp"
 LearnsetMenuUI2BPP:: INCBIN "gfx/pokedex/learnset_menu_2bpp.2bpp"
 LearnsetMenuUI1BPP:: INCBIN "gfx/pokedex/learnset_menu_1bpp.1bpp"
 MetricGraphics:: INCBIN "gfx/pokedex/metric.1bpp"
-StatExpPrompt:: INCBIN "gfx/font/stat_exp.1bpp"
 DojoBetaTiles:: INCBIN "gfx/unused_prototype_sprites/dojo_beta.2bpp"
+BallAnimTiles:: INCBIN "gfx/battle/ball_anim.2bpp"
+
+GrimerPeekingSprite:: INCBIN "gfx/sprites/grimer_peeking.2bpp"
+
+SECTION "Extra Tiles", ROMX
+
+HouseBetaTiles:: INCBIN "gfx/unused_prototype_sprites/house_beta.2bpp"
+SmallPCPic:: INCBIN "gfx/overworld/small_pc.2bpp"
+
+SECTION "Camera Pics", ROMX
+
+; order of these matters
+CustomPokeballCameraPics::
+PokemonBreederCameraPic:: INCBIN "gfx/camera/pokemon_breeder.2bpp"
+PsyduckCameraPic:: INCBIN "gfx/camera/psyduck.2bpp"
+FlareonCameraPic:: INCBIN "gfx/camera/flareon.2bpp"
+JigglypuffCameraPic:: INCBIN "gfx/camera/jigglypuff.2bpp"
+JolteonCameraPic:: INCBIN "gfx/camera/jolteon.2bpp"
+PorygonCameraPic:: INCBIN "gfx/camera/porygon.2bpp"
+FossilCameraPic:: INCBIN "gfx/camera/fossil.2bpp"
+ArticunoCameraPic:: INCBIN "gfx/camera/articuno.2bpp"
+AbraCameraPic:: INCBIN "gfx/camera/abra.2bpp"
+PidgeotCameraPic:: INCBIN "gfx/camera/pidgeot.2bpp"
+GrimerCameraPic:: INCBIN "gfx/camera/grimer.2bpp"
+GastlyCameraPic:: INCBIN "gfx/camera/gastly.2bpp"
+ScytherCameraPic:: INCBIN "gfx/camera/scyther.2bpp"
+LassCameraPic:: INCBIN "gfx/camera/lass.2bpp"
+MankeyCameraPic:: INCBIN "gfx/camera/mankey.2bpp"
+GamblerCameraPic:: INCBIN "gfx/camera/gambler.2bpp"
+DragonairCameraPic:: INCBIN "gfx/camera/dragonair.2bpp"

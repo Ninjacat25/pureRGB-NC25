@@ -55,4 +55,5 @@ SpecialEffectPointers:
 	special_effect SE_CROSSHAIR_SCANS_OPPONENT, AnimationCrosshairScansOpponent ; $CF
 	special_effect SE_DIVINE_PROTECTION, AnimationDivineProtection ; $CE
 	special_effect SE_LOAD_POKEDOLL, AnimationLoadPokeDoll ; $CD
+	special_effect SE_SEND_OUT_MON_POOF_ANIM, AnimationSendOutMonPoofJump ; $CC
 	db -1 ; end

@@ -13,6 +13,8 @@ sHallOfFamePalettes:: ds HOF_TEAM_CAPACITY
 ; hall of fame data, contains species, level, and nickname of each pokemon for each team
 sHallOfFame:: ds HOF_TEAM * HOF_TEAM_CAPACITY
 
+sCustomBallNames:: ds NAME_LENGTH * NUM_CUSTOM_BALLS ; 176
+
 
 SECTION "Save Data", SRAM
 

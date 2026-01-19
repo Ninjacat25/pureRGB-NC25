@@ -331,7 +331,8 @@ SilphCo7FSilphWorkerM1Text:
 	ld hl, .HaveThisPokemonText
 	rst _PrintText
 	lb bc, LAPRAS, 40 ; PureRGBnote: CHANGED: lapras level increased to keep up with party level
-	call GivePokemon
+	ld a, BALL_DATA_GREAT << 3
+	call GivePokemonCommon
 	jr nc, .done
 	ld a, [wAddedToParty]
 	and a

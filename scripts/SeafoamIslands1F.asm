@@ -507,11 +507,6 @@ DragonairEventTransformText:
 	text_far _DragonairEventTransformText3
 	text_end
 .powerupAnimation
-	; sparkle tile from battle animations
-	ld de, MoveAnimationTiles0 tile 28
-	ld hl, vNPCSprites tile $77
-	lb bc, BANK(MoveAnimationTiles0), 1
-	call CopyVideoData
 	; disable sprite update routine so we can manipulate some sparkle sprites without map sprite code running
 	ld a, $FF
 	ld [wUpdateSpritesEnabled], a
@@ -529,15 +524,30 @@ DragonairEventTransformText:
 	ldh [rOBPD], a ; white
 	ldh [rOBPD], a ; white
 .notGBC
+	; sparkle tile from battle animations
+	ld de, MoveAnimationTiles0 tile 28
+	ld hl, vNPCSprites tile $C4
+	lb bc, BANK(MoveAnimationTiles0), 1
+	call CopyVideoData
 	ld hl, wShadowOAMSprite39TileID
-	ld [hl], $77
-	ld hl, wShadowOAMSprite39Attributes
+	ld de, SparkleSpriteStartingCoords
+	jr TilePowerUpLoop
+
+JolteonTilePowerUpLoop::
+	ld hl, wShadowOAMSprite08TileID
+	ld de, JolteonSparkleSpriteStartingCoords
+TilePowerUpLoop::
+	ld [hl], $C4
+	inc hl
 	ld [hl], 1
-	ld hl, wShadowOAMSprite39YCoord
+	dec hl
+	dec hl
+	dec hl
+	push hl
 	ld c, 2
 .powerUpLoopStart
+	push de
 	push bc
-	ld de, SparkleSpriteStartingCoords
 	ld b, 4
 .powerUpLoop
 	ld a, [de]
@@ -568,11 +578,12 @@ DragonairEventTransformText:
 	jr nz, .powerUpLoop
 	call GBPalNormal
 	pop bc
+	pop de
 	dec c
 	jr nz, .powerUpLoopStart
-	; move sparkle offscreen
-	ld hl, wShadowOAMSprite39YCoord
-	ld [hl], $A0
+	; move sprite offscreen after
+	pop hl
+	ld [hl], 0
 	inc hl
 	ld [hl], 0
 	ret
@@ -585,7 +596,6 @@ DragonairEventTransformText:
 	dec [hl] 
 	ret
 
-
 SparkleSpriteStartingCoords:
 	; y pixel coord, x pixel coord, x iteration, y iteration
 	; 1 = increment pixel, 0 = decrement pixel
@@ -593,6 +603,14 @@ SparkleSpriteStartingCoords:
 	db $5C, $58, 0, 0 ; bottom right
 	db $44, $58, 0, 1 ; top right
 	db $5C, $40, 1, 0 ; bottom left
+
+JolteonSparkleSpriteStartingCoords:
+	; y pixel coord, x pixel coord, x iteration, y iteration
+	; 1 = increment pixel, 0 = decrement pixel
+	db $44, $70, 1, 1 ; top left
+	db $5C, $88, 0, 0 ; bottom right
+	db $44, $88, 0, 1 ; top right
+	db $5C, $70, 1, 0 ; bottom left
 
 
 

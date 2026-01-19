@@ -32,4 +32,12 @@ ClearVariablesOnEnterMap::
 	xor a
 	ld [wReplacedMapMusic], a ; clear this variable in places where we don't have replaced map music
 ;;;;;;;;;;
+	ld hl, wStatusFlags2
+	bit BIT_WILD_ENCOUNTER_COOLDOWN, [hl]
+	jr z, .skipGivingThreeStepsOfNoRandomBattles
+	ld a, 3 ; minimum number of steps between battles
+	ld [wNumberOfNoRandomBattleStepsLeft], a
+.skipGivingThreeStepsOfNoRandomBattles
+	ld hl, wStatusFlags3
+	res BIT_NO_NPC_FACE_PLAYER, [hl]
 	ret

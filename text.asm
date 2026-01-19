@@ -300,6 +300,10 @@ INCLUDE "text/VermilionFitnessClub.asm"
 INCLUDE "text/CeladonBackAlley.asm"
 INCLUDE "text/FightingDojoExpertClub.asm"
 
+SECTION "Text 14", ROMX
+INCLUDE "text/CeruleanBallDesigner.asm"
+INCLUDE "text/CameraEvents.asm"
+
 SECTION "Pokédex Text", ROMX
 
 INCLUDE "data/pokemon/dex_text.asm"

@@ -24,7 +24,7 @@ ItemNames::
 	li "ROCK"
 	li "OLD COIN"
 	li "TOPSECRETKEY"
-	li "UNUSED3"
+	li "CAMERA"
 	li "UNUSED4"
 	li "UNUSED5"
 	li "UNUSED6"

@@ -97,20 +97,25 @@
 	const SPRITE_SNAKE                     ; $5c
 	const SPRITE_FITNESS_GIRL              ; $5d
 	const SPRITE_HOOLIGAN                  ; $5e
+	const SPRITE_BALL_DESIGNER             ; $5f
+	const SPRITE_CAT2                      ; $60
 DEF FIRST_STILL_SPRITE EQU const_value
-	const SPRITE_POKE_BALL                 ; $5f
-	const SPRITE_FOSSIL                    ; $60
-	const SPRITE_BOULDER                   ; $61
-	const SPRITE_PAPER                     ; $62
-	const SPRITE_POKEDEX                   ; $63
-	const SPRITE_CLIPBOARD                 ; $64
-	const SPRITE_SNORLAX                   ; $65
-	const SPRITE_OLD_AMBER                 ; $66
-	const SPRITE_GAMBLER_ASLEEP            ; $67
-	const SPRITE_MONSTER2_STILL            ; $68
-	const SPRITE_POKE_BALL2			 	   ; $69
-	const SPRITE_DARK_CHANNELER            ; $6a
-	const SPRITE_BOOMBOX                   ; $6b
-	const SPRITE_NOTHING_STILL             ; $6c
-	const SPRITE_SCUBA_DIVER               ; $6d
+	const SPRITE_POKE_BALL                 ; $61
+	const SPRITE_FOSSIL                    ; $62
+	const SPRITE_BOULDER                   ; $63
+	const SPRITE_PAPER                     ; $64
+	const SPRITE_POKEDEX                   ; $65
+	const SPRITE_CLIPBOARD                 ; $66
+	const SPRITE_SNORLAX                   ; $67
+	const SPRITE_OLD_AMBER                 ; $68
+	const SPRITE_GAMBLER_ASLEEP            ; $69
+	const SPRITE_MONSTER2_STILL            ; $6a
+	const SPRITE_POKE_BALL2			 	   ; $6b
+	const SPRITE_DARK_CHANNELER            ; $6c
+	const SPRITE_BOOMBOX                   ; $6d
+	const SPRITE_NOTHING_STILL             ; $6e
+	const SPRITE_SCUBA_DIVER               ; $6f
+	const SPRITE_CAMERA                    ; $70
+	const SPRITE_SHADOW                    ; $71
+	const SPRITE_QUADRUPED                 ; $72
 DEF NUM_SPRITES EQU const_value - 1

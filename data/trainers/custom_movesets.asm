@@ -20,6 +20,7 @@
 	const ELITE_FOUR_RIVAL1_MOVESET
 	const ELITE_FOUR_RIVAL2_MOVESET
 	const ELITE_FOUR_RIVAL3_MOVESET
+	const METRONOME_GAMBLER_MOVESET
 
 ; input d = which moveset
 LoadTrainerMoveSet:
@@ -70,6 +71,7 @@ MoveSetMappings:
 	dw EliteFourRivalMoveset1
 	dw EliteFourRivalMoveset2
 	dw EliteFourRivalMoveset3
+	dw MetronomeGamblerMoveset
 
 ChampArenaErikaMoveset:
 	; victreebel
@@ -678,3 +680,20 @@ EliteFourRivalMoveset3:
 	db SLEEP_POWDER
 	db GROWTH
 	db FLASH
+
+MetronomeGamblerMoveset:
+	; meowth
+	db METRONOME
+	db NO_MOVE
+	db NO_MOVE
+	db NO_MOVE
+	; kadabra
+	db METRONOME
+	db NO_MOVE
+	db NO_MOVE
+	db NO_MOVE
+	; machoke
+	db METRONOME
+	db NO_MOVE
+	db NO_MOVE
+	db NO_MOVE

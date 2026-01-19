@@ -150,7 +150,13 @@ MACRO text_ram_line
 	dw \1 ; address to read from
 ENDM
 
-	const TX_SOUND_POKEDEX_RATING ; $12
+	const TX_PLURALIZE ; $12
+MACRO text_pluralize
+	db TX_PLURALIZE
+	dw \1 ; wram address with the number that decides if we pluralize or not
+ENDM
+
+	const TX_SOUND_POKEDEX_RATING ; $13
 MACRO sound_pokedex_rating
 	db TX_SOUND_POKEDEX_RATING
 ENDM
@@ -160,22 +166,22 @@ ENDM
 ;	db TX_SOUND_CRY_SNORLAX
 ;ENDM
 
-	const TX_SOUND_GET_ITEM_2 ; $13
+	const TX_SOUND_GET_ITEM_2 ; $14
 MACRO sound_get_item_2
 	db TX_SOUND_GET_ITEM_2
 ENDM
 
-	const TX_SOUND_GET_KEY_ITEM ; $14
+	const TX_SOUND_GET_KEY_ITEM ; $15
 MACRO sound_get_key_item
 	db TX_SOUND_GET_KEY_ITEM
 ENDM
 
-	const TX_SOUND_CAUGHT_MON ; $15
+	const TX_SOUND_CAUGHT_MON ; $16
 MACRO sound_caught_mon
 	db TX_SOUND_CAUGHT_MON
 ENDM
 
-	const TX_SOUND_DEX_PAGE_ADDED ; $16
+	const TX_SOUND_DEX_PAGE_ADDED ; $17
 MACRO sound_dex_page_added
 	db TX_SOUND_DEX_PAGE_ADDED
 ENDM
@@ -185,7 +191,7 @@ ENDM
 ;	db TX_SOUND_CRY_NIDORINA
 ;ENDM
 
-	const TX_FAR ; $17
+	const TX_FAR ; $18
 MACRO text_far
 	db TX_FAR
 	dab \1 ; address of text commands

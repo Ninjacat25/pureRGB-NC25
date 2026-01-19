@@ -14,6 +14,7 @@ Route2_Script:
 ; after using the "Tree Deleter" all but 1 of the cut trees will be removed
 Route2ReplaceCutTiles:
 	ld hl, wCurrentMapScriptFlags
+	call .checkMoveJigglyPuff
 	bit BIT_CROSSED_MAP_CONNECTION, [hl] ; did we enter the map by traversal from another route
 	res BIT_CROSSED_MAP_CONNECTION, [hl]
 	jr nz, .removeAddCutTilesNoRedraw
@@ -43,6 +44,22 @@ Route2ReplaceCutTiles:
 	ld de, Route2TileBlockReplacements
 	; this guarantees avoiding redrawing the map because when going between areas these tiles are offscreen.
 	jpfar ReplaceMultipleTileBlocksForceNoRedraw
+.checkMoveJigglyPuff
+	bit BIT_CROSSED_MAP_CONNECTION, [hl]
+	jr nz, .moveJigglyPuff
+	bit BIT_CUR_MAP_LOADED_1, [hl]
+	jr nz, .moveJigglyPuff
+	ret
+.moveJigglyPuff
+	CheckEvent FLAG_BALL_DESIGNER_TURNED_OFF
+	ret nz
+	push hl
+	lb bc, SPRITESTATEDATA2_MAPY, ROUTE2_JIGGLYPUFF
+	call GetFromSpriteStateData2
+	ld [hl], 0 + 4 ; move Jigglypuff into place
+	pop hl
+	ret 
+
 
 Route2_ScriptPointers:
 	def_script_pointers
@@ -55,6 +72,7 @@ Route2_TextPointers:
 	dw_const Route2BugCatcherText,       TEXT_ROUTE2_BUG_CATCHER
 	dw_const Route2JrTrainerMText,       TEXT_ROUTE2_JR_TRAINER_M
 	dw_const Route2JrTrainerFText,       TEXT_ROUTE2_JR_TRAINER_F
+	dw_const Route2JigglypuffText,       TEXT_ROUTE2_JIGGLYPUFF
 	dw_const PickUpItemText,             TEXT_ROUTE2_ITEM1
 	dw_const PickUpItemText,             TEXT_ROUTE2_ITEM2
 	dw_const PickUpItemText,             TEXT_ROUTE2_ITEM3 ; PureRGBnote: ADDED: new item on this route.
@@ -183,3 +201,16 @@ Route2SignText:
 Route2DiglettsCaveSignText:
 	text_far _Route2DiglettsCaveSignText
 	text_end
+
+Route2JigglypuffText:
+	text_far _Route2JigglypuffText
+	text_asm
+	callfar PlayAlternateJigglypuffSong
+	rst TextScriptEnd
+
+Route2JigglypuffHiddenObject::
+	CheckEvent FLAG_BALL_DESIGNER_TURNED_OFF
+	ret nz
+	ld a, TEXT_ROUTE2_JIGGLYPUFF
+	ldh [hTextID], a
+	jp DisplayTextID

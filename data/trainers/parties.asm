@@ -409,6 +409,8 @@ GamblerData:
 	db 28, DROWZEE, NINETALES, 0
 ; Route 7
 	db 28, DRATINI, POLIWHIRL, WEEPINBELL, 0 ; NEWx
+; Route 12
+	db $FD, METRONOME_GAMBLER_MOVESET, 27, MEOWTH, 27, KADABRA, 28, MACHOKE, 0
 
 BeautyData:
 ; Celadon Gym

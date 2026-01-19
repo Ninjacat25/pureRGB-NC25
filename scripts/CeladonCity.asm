@@ -205,7 +205,7 @@ CeladonCityGramps3Text:
 CeladonCityFisherText:
 	text_far _CeladonCityFisherText
 	text_asm
-	ld a, DEX_POLIWRATH - 1
+	ld c, DEX_POLIWRATH - 1
 	callfar SetMonSeen
 	CheckEvent FLAG_POLIWRATH_FAMILY_LEARNSET
 	jr nz, .done

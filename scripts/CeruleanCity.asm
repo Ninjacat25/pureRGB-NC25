@@ -15,22 +15,41 @@ CeruleanCityReplaceCutTile:
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	jr nz, .replaceTile
 	ret
-.replaceTile
-	CheckEvent EVENT_DELETED_CERULEAN_TREE
-	ret z
-	call .loadTile
-	predef_jump ReplaceTileBlock
 .replaceTileNoRedraw
+	SetEvent FLAG_SKIP_MAP_REDRAW
+.replaceTile
+	xor a
+	ld [wTileBlockReplaceCount], a
+	ld de, wTileBlockReplaceData
 	CheckEvent EVENT_DELETED_CERULEAN_TREE
-	ret z
-	; this avoids redrawing the map because when going between areas these tiles are offscreen.
-	call .loadTile
-	predef_jump ReplaceTileBlockNoRedraw
-.loadTile
-	lb bc, 14, 9
-	ld a, $6D
-	ld [wNewTileBlockID], a
+	ld hl, .cutAlcove
+	call nz, .loadTile
+	CheckEvent FLAG_BALL_DESIGNER_TURNED_OFF
+	ld hl, .ballDesignersDoor
+	call nz, .loadTile
+	ld a, [wTileBlockReplaceCount]
+	and a
+	jr z, .skipTileReplace
+	ld de, wTileBlockReplaceData
+	callfar ReplaceMultipleTileBlocks
+.skipTileReplace
+	ResetEvent FLAG_SKIP_MAP_REDRAW
 	ret
+.loadTile
+	push hl
+	ld hl, wTileBlockReplaceCount
+	inc [hl]
+	pop hl
+	ld bc, 3
+.copyDataAndTerminate
+	rst _CopyData
+	ld a, -1
+	ld [de], a
+	ret
+.cutAlcove:
+	db 14, 9, $6D
+.ballDesignersDoor:
+	db 12, 15, $09
 
 CeruleanCityClearScripts:
 	xor a ; SCRIPT_CERULEANCITY_DEFAULT

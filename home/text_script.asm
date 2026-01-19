@@ -236,3 +236,18 @@ ClearTextBox::
 	hlcoord 1, 13
 	lb bc, 4, 18
 	jp ClearScreenArea
+
+TextScriptEndNoButtonPress::
+	ld a, 1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	rst TextScriptEnd
+
+DisableTextDelay::
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
+	ret
+
+EnableTextDelay::
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
+	ret

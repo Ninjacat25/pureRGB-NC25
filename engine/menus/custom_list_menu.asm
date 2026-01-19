@@ -45,6 +45,8 @@ CheckLoadHoverText::
 CustomListMenuHoverTextMethods:
 	dw CheckLoadTmName
 	dw CheckLoadTypes
+	dw _ChangeCustomBallTile
+	dw _ChangeCustomBallColor
 
 GetListEntryID:
 	ld a, [wListCount]
@@ -132,6 +134,7 @@ MenuType2Text:
 CustomListMenuHoverTextSaveScreenTileMethods:
 	dw CheckSaveTMTextScreenTiles
 	dw CheckSaveTypeTextScreenTiles
+	dw DoRet
 
 CheckSaveHoverTextScreenTiles::
 	; wListMenuHoverTextType still loaded
@@ -170,4 +173,14 @@ CheckBadOffset::
 	ld hl, wListScrollOffset
 	dec [hl] ; decs once because it is assumed only 1 item can be removed from the list at a time
 	ret
+
+HandleMenuInputFromBank1::
+	; to get hover text when doing HandleMenuInput it expects bank 1 to be loaded
+	jp HandleMenuInput
+
+_ChangeCustomBallTile:
+	jpfar ChangeCustomBallTile
+
+_ChangeCustomBallColor:
+	jpfar ChangeCustomBallColor
 

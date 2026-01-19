@@ -766,7 +766,6 @@ TradeCenter_Trade:
 	ld bc, wEnemyMon1Flags - wEnemyMon1
 	add hl, bc
 	ld a, [hl]
-	and 1
 	ld [wIsAltPalettePkmnData], a ; should the received pokemon be shown as having an alt palette
 	ld bc, wEnemyMon1OTID - wEnemyMon1Flags
 ;;;;;;;;;;

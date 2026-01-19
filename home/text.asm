@@ -732,6 +732,22 @@ TextCommand_FAR::
 	call SetCurBank
 	jp NextTextCommand
 
+TextCommand_PLURALIZE::
+	pop hl
+	push hl
+	hl_deref
+	ld a, [hl]
+	dec a
+	jr z, .skip
+	ld a, "s"
+	ld [bc], a
+	inc bc
+.skip
+	pop hl
+	inc hl
+	inc hl
+	jp NextTextCommand
+
 ; Checks if variable wram text pointer in hl fits on the same line as the current text printing coordinate bc
 ; with line endpoint coords de
 ; sets carry if it does not fit
@@ -784,4 +800,5 @@ ENDC
 	dw TextCommand_CALL          ; TX_CALL
 	dw TextCommand_RAM_CHECK_CONT   ; TX_RAM_CONT
 	dw TextCommand_RAM_CHECK_LINE   ; TX_RAM_LINE
+	dw TextCommand_PLURALIZE     ; TX_PLURALIZE
 	; greater TX_* constants are handled directly by NextTextCommand

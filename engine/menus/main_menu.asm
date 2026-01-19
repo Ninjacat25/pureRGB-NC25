@@ -160,8 +160,7 @@ LinkMenu:
 	rst _PrintText
 	hlcoord 5, 5
 	lb bc, 6, 13
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 	hlcoord 7, 7
 	ld de, CableClubOptionsText
 	call PlaceString
@@ -428,9 +427,8 @@ PrintSaveScreenText:
 	ldh [hAutoBGTransferEnabled], a
 	hlcoord 4, 0
 	lb bc, 8, 14
-	call TextBoxBorder
+	call TextBoxBorderUpdateSprites
 	call LoadTextBoxTilePatterns
-	call UpdateSprites
 	hlcoord 5, 2
 	ld de, SaveScreenInfoText
 	call PlaceString

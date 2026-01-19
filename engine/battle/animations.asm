@@ -479,8 +479,8 @@ MoveAnimationContent:
 	vc_hook_blue Stop_reducing_move_anim_flashing_Spore
 	jr .next4
 .animationsDisabled
-	ld c, 30
-	rst _DelayFrames
+	ld c, 10 ; PureRGBnote: CHANGED: less delay when animations are turned off to speed up gameplay.
+	rst _DelayFrames 
 .next4
 	vc_hook_red Stop_reducing_move_anim_flashing
 	vc_hook_blue Stop_reducing_move_anim_flashing_Rock_Slide_Dream_Eater
@@ -1293,7 +1293,7 @@ MegaPunchSpecialEffect::
 	ret z
 ;;;;;
 	; fall through
-AnimationFlashScreen:
+AnimationFlashScreen::
 	ldh a, [rBGP]
 	push af ; save initial palette
 	ld a, %00011011 ; 0, 1, 2, 3 (inverted colors)
@@ -3450,14 +3450,7 @@ AnimationDivineProtection:
 	ld a, 2 ; which tileset to use
 	ld c, 1 ; need 1 sparkle
 	call InitMultipleObjectsOAM
-	ld a, SFX_BATTLE_35
-	rst _PlaySound
-	ld hl, wChannelCommandPointers + CHAN5 * 2
-	ld de, SFX_Sparkle_Ch5
-	call RemapSoundChannel
-	inc hl
-	ld de, SFX_Sparkle_Ch6
-	call RemapSoundChannel
+	callfar DivineProtectionSound
 	call AnimationLightScreenPalette
 	ld b, 4 ; number of sprites to show falling
 	ld hl, wShadowOAMSprite00YCoord
@@ -3495,6 +3488,7 @@ AnimationDivineProtection:
 	dec b
 	jr nz, .outerLoopFallingSparkles
 	jp AnimationCleanOAM
+
 ;;;;;;
 
 ;;;;;; PureRGBnote: ADDED: more code related to the new poke doll throwing animation
@@ -3511,3 +3505,6 @@ AnimationLoadPokeDoll:
 	rst _PlaySound
 	ret
 ;;;;;;
+
+AnimationSendOutMonPoofJump:
+	jpfar AnimationSendOutMoonPoof

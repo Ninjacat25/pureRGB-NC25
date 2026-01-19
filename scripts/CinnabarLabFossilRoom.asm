@@ -294,9 +294,8 @@ DoColorSwap:
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ; we are jumping to the index of the chosen pokemon by incrementing N times where N = a
 	ld a, [hl] ; hl points to the flags data of the chosen pokemon now 
-	and 1 ; only the first bit of flags is used for alt color palette setting
-	xor 1 ; toggle the value
-	ld [hl], a ; store it
+	xor 1 ; toggle the lowest bit
+	ld [hl], a ; store the modified value
 	call GBFadeOutToBlack
 	call FiddlingAroundSounds
 	call GBFadeInFromBlack

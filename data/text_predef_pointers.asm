@@ -34,7 +34,7 @@ TextPredefs::
 	add_tx_pre RockTunnelPokecenterBenchGuyText     ; 1A
 	add_tx_pre CeruleanRocketHouseHiddenTexts       ; 1B
 	add_tx_pre ViridianSchoolB1FBookcasesTexts      ; 1C 
-	add_tx_pre UnusedBenchGuyText3                  ; 1D XXX unused
+	add_tx_pre PorygonPCScreenText                  ; 1D
 	add_tx_pre PokemonCenterPCText                  ; 1F
 	add_tx_pre ViridianSchoolNotebook               ; 20
 	add_tx_pre ViridianSchoolBlackboard             ; 21

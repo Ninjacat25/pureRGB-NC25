@@ -213,6 +213,7 @@ AttackAnimationPointers:
 	dw RadiationAnim
 	dw DivineProtectionAnim
 	dw PokeDollAnim
+	dw SendOutMonPoofAnim
 	assert_table_length NUM_ATTACK_ANIMS
 	dw ZigZagScreenAnim
 
@@ -1565,4 +1566,8 @@ PokeDollAnim:
 	battle_anim NO_MOVE, SE_LOAD_POKEDOLL
 	battle_anim NO_MOVE, SUBANIM_1_CLOUD_TOSS, 2, 2
 	battle_anim NO_MOVE, SE_SHAKE_ENEMY_BACK_AND_FORTH
+	db -1
+
+SendOutMonPoofAnim:
+	battle_anim NO_MOVE, SE_SEND_OUT_MON_POOF_ANIM
 	db -1

@@ -44,8 +44,8 @@ ItemUsePtrTable:
 	dw ItemUseBait       ; SAFARI_BAIT
 	dw ItemUseRock       ; SAFARI_ROCK
 	dw ValuableItem 	 ; OLD_COIN
-	dw UseTopSecretKey  ; TOPSECRETKEY
-	dw UnusableItem      ; UNUSED_ITEM3
+	dw UseTopSecretKey   ; TOPSECRETKEY
+	dw UseCamera         ; CAMERA
 	dw UnusableItem      ; UNUSED_ITEM4
 	dw UnusableItem      ; UNUSED_ITEM5
 	dw UnusableItem      ; UNUSED_ITEM6
@@ -710,6 +710,17 @@ MapBallToAnimation:
 	ld a, [hl]
 	ld [wAnimationID], a
 	ld [wUnusedC000], a ; identifies to a couple places that we're doing a ball toss animation (and which)
+	; also, while we're at it, mark the enemy pokemon's data with this ball type in case it gets caught
+	ld a, [wCurItem]
+	ld hl, BallDataMap - 1
+	ld c, a
+	ld b, 0
+	add hl, bc 
+	ld a, [wIsAltPalettePkmnData]
+	and %111 ; high 5 bits will mark which pokeball it was caught in
+	ld b, [hl]
+	or b
+	ld [wIsAltPalettePkmnData], a
 	ret
 
 BallAnimationMap: ; this uses item indices, if item indices change then this won't work
@@ -721,6 +732,16 @@ BallAnimationMap: ; this uses item indices, if item indices change then this won
 	db 0
 	db 0
 	db SAFARITOSS_ANIM
+
+BallDataMap: ; this uses item indices, if item indices change then this won't work
+	db BALL_DATA_MASTER << 3
+	db BALL_DATA_ULTRA << 3
+	db BALL_DATA_GREAT << 3
+	db BALL_DATA_POKE << 3
+	db BALL_DATA_HYPER << 3
+	db 0
+	db 0
+	db BALL_DATA_SAFARI << 3
 ;;;;;;;;;;
 
 ItemUseTownMap:
@@ -2716,7 +2737,7 @@ ItemUseNoEffect:
 	ld hl, ItemUseNoEffectText
 	jr ItemUseFailed
 
-ItemUseNotTime:
+ItemUseNotTime::
 	ld hl, ItemUseNotTimeText
 	jr ItemUseFailed
 
@@ -2732,7 +2753,10 @@ ItemUseOnWildMons:
 NoPokeDollsOnSpirits::
 	ld hl, NoPokeDollsOnSpiritsText
 	jr ItemUseFailed
-;
+
+ItemUseCameraInBattle:
+	ld hl, ItemUseCameraInBattleText
+	jr ItemUseFailed
 
 ItemUseNotYoursToUse:
 	ld hl, ItemUseNotYoursToUseText
@@ -2781,6 +2805,10 @@ ItemUseFossilText:
 
 ItemUseInBattleText:
 	text_far _ItemUseInBattleText
+	text_end
+
+ItemUseCameraInBattleText:
+	text_far _ItemUseCameraInBattleText
 	text_end
 
 ItemUseWildMonText:
@@ -3455,7 +3483,7 @@ INCLUDE "data/wild/super_rod.asm"
 
 ; reloads map view and processes sprite data
 ; for items that cause the overworld to be displayed
-ItemUseReloadOverworldData:
+ItemUseReloadOverworldData::
 	call LoadCurrentMapView
 	jp UpdateSprites
 
@@ -3565,3 +3593,9 @@ ItemEffectsDoMoveAnimation:
 	ld [wWhichPokemon], a
 	ret
 	
+UseCamera:
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseCameraInBattle
+	call ItemUseReloadOverworldData
+	jpfar UseCameraItem

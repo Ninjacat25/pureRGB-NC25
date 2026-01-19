@@ -23,8 +23,8 @@ ItemPrices::
 	bcd3 0     ; SAFARI_BAIT
 	bcd3 0     ; SAFARI_ROCK
 	bcd3 2000  ; OLD_COIN
-	bcd3 0	   ; UNUSED_ITEM2
-	bcd3 0     ; UNUSED_ITEM3
+	bcd3 0	   ; TOPSECRETKEY
+	bcd3 0     ; CAMERA
 	bcd3 0     ; UNUSED_ITEM4
 	bcd3 0     ; UNUSED_ITEM5
 	bcd3 0     ; UNUSED_ITEM6

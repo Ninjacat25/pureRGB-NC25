@@ -414,3 +414,57 @@ StopChannel8:
 	ld de, EndSound
 	call PlayNewSoundChannel8
 	rst _DelayFrame
+
+; TODO: use the below new functions
+
+StopSFXChannels::
+	xor a
+	ld hl, wChannelSoundIDs + CHAN5
+	ld bc, 4
+	jp FillMemory
+
+ResetSFXModifiers::
+	xor a
+	ld [wFrequencyModifier], a
+	ld [wTempoModifier], a
+	ret
+
+PlaySoundResetSFXModifiers::
+	push af
+	call ResetSFXModifiers
+	pop af
+	rst _PlaySound
+	ret
+
+; only call this function, it expected to be called not jumped to
+ResetModifiersMuteAudioAndChangeAudioBank::
+	call ResetSFXModifiers
+; only call this function, it expected to be called not jumped to
+MuteAudioAndChangeAudioBank::
+	call PauseMusic
+	ld a, [wAudioROMBank]
+	pop hl
+	push af
+	push hl
+	ld a, b
+	ld [wAudioROMBank], a
+	ret
+
+; only call this function, it expected to be called not jumped to
+UnmuteAudioAndRestoreAudioBank::
+	pop hl
+	pop af
+	ld [wAudioROMBank], a
+	call ResumeMusic
+	push hl
+	ret
+
+PauseMusic::
+	ld a, 1
+	ld [wMuteAudioAndPauseMusic], a
+	ret
+
+ResumeMusic::
+	xor a
+	ld [wMuteAudioAndPauseMusic], a
+	ret

@@ -68,7 +68,8 @@ DisplayListMenuIDLoop::
 	call PrintListMenuEntries
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a ; enable transfer
-	call Delay3
+	rst _DelayFrame
+	rst _DelayFrame
 	ld a, [wBattleType]
 	and a ; is it the Old Man battle?
 	jr z, .notOldManBattle

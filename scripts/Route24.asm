@@ -92,6 +92,7 @@ Route24_TextPointers:
 	dw_const Route24Youngster2Text,    TEXT_ROUTE24_YOUNGSTER2
 	dw_const PickUpItemText,           TEXT_ROUTE24_ITEM1
 	dw_const PickUpItemText,           TEXT_ROUTE24_ITEM2 ; PureRGBnote: ADDED: new item on this route.
+	dw_const DoRet,                    TEXT_ROUTE24_ABRA
 
 Route24TrainerHeaders:
 	def_trainers 2

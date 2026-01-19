@@ -8,7 +8,7 @@ _CheckTilePassable::
 	jr z, .impassable
 	cp d
 	jr nz, .tilePassableLoop
-	and a ; passable
+	; passable ; c not set, z set
 	ret
 .impassable
 	scf ; impassable
@@ -24,7 +24,7 @@ ENDM
 ; the ID of tiles that do NOT incur a collision
 
 Underground_Coll::
-	coll_tiles $0b, $0c, $13, $15, $18, $0D
+	coll_tiles $0b, $0c, $13, $15, $18, $0D, $0F
 
 Overworld_Coll::
 	coll_tiles $00, $04, $10, $1b, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b
@@ -76,7 +76,7 @@ Mansion_Coll::
 	coll_tiles $01, $05, $11, $12, $14, $1a, $1c, $2c, $53
 
 Lab_Coll::
-	coll_tiles $0c, $26, $16, $1e, $34, $37
+	coll_tiles $0c, $26, $16, $1e, $34, $37, $01
 
 Club_Coll::
 	coll_tiles $0f, $1a, $1f, $26, $28, $29, $2c, $2d, $2e, $2f, $41

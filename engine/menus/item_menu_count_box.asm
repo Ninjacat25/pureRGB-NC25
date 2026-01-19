@@ -80,8 +80,7 @@ CheckDrawItemCount::
 .loadTextBox
 	hlcoord 4, 0
 	lb bc, 1, 14 ; width, height
-	call TextBoxBorder
-	jp UpdateSprites
+	jp TextBoxBorderUpdateSprites
 
 ItemsText:
 	db"<BOLD_I><BOLD_T><BOLD_E><BOLD_M><SMALL_S>@"

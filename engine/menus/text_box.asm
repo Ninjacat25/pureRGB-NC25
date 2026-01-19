@@ -427,8 +427,7 @@ DisplayFieldMoveMonMenu:
 ; no field moves
 	hlcoord 11, 11
 	lb bc, 5, 7
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 	ld a, 12
 	ldh [hFieldMoveMonMenuTopMenuItemX], a
 	hlcoord 13, 12
@@ -467,8 +466,7 @@ DisplayFieldMoveMonMenu:
 	add hl, de
 	inc b
 
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 
 ; Calculate the position of the first field move name to print.
 	hlcoord 0, 12

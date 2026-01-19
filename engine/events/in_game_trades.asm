@@ -158,7 +158,7 @@ InGameTrade_DoTrade:
 	ld [wMonDataLocation], a
 	call AddPartyMon
 	call InGameTrade_CopyDataToReceivedMon
-	callfar InGameTrade_CheckForTradeEvo
+	;callfar InGameTrade_CheckForTradeEvo ; PureRGBnote: REMOVED: not needed
 	call ClearScreen
 	call InGameTrade_RestoreScreen
 	farcall RedrawMapView
@@ -187,23 +187,12 @@ PlayInGameTradeMusic:
 
 GetTradeMonPalette:
 	ld a, [wWhichTrade]
-	ld hl, TradeMonPalettes
-	cp 8
-	jr c, .firstByte
-	inc hl
-	sub 8 ; PureRGBnote: if you have more than 16 in game trades this code will need to be updated.
-.firstByte
-	and a
-	ld b, a
+	ld hl, TradeMonFlags
+	ld d, 0
+	ld e, a
+	add hl, de
 	ld a, [hl]
-	jr z, .clearAndTestBit
-.loopShiftRight ; keep shifting until the bit we want to test is bit 0
-	srl a
-	dec b
-	jr nz, .loopShiftRight
-.clearAndTestBit
-	and 1 ; zero every other bit than bit 0
-	ld [wIsAltPalettePkmnData], a ; a now contains the flag value for whether the palette is alt or original.
+	ld [wIsAltPalettePkmnData], a ; a now contains alt palette flag and pokeball data for the in-game trade
 	ret
 
 InGameTrade_RestoreScreen::

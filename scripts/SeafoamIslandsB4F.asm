@@ -14,13 +14,17 @@ SeafoamIslandsB4FOnMapLoad::
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
 	SetFlag FLAG_MAP_HAS_OVERWORLD_ANIMATION
+	CheckEvent EVENT_SEAFOAM_DRAGONAIR_PRESENT
+	jr z, .noDragonair
+	CheckEvent FLAG_BALL_DESIGNER_TURNED_OFF
+	jr nz, .noDragonair
+	lb bc, SPRITESTATEDATA2_MAPX, SEAFOAMISLANDSB4F_DRAGONAIR
+	call GetFromSpriteStateData2
+	ld [hl], 4 + 4
+.noDragonair
 	ld a, [wSeafoamIslandsB4FCurScript]
 	cp SCRIPT_SEAFOAMISLANDSB4F_DRAGONAIR_EVENT_START
 	jp z, SeafoamIslandsB4FDragonairEventOnMapLoad
-	CheckEvent EVENT_BEAT_ARTICUNO
-	jr z, .dontMoveCrystals
-	call SeafoamMoveCrystals
-.dontMoveCrystals
 	CheckBothEventsSet EVENT_SEAFOAM3_BOULDER1_DOWN_HOLE, EVENT_SEAFOAM3_BOULDER2_DOWN_HOLE
 	call z, SeafoamB4FReplaceEastCurrentBlock
 	CheckBothEventsSet EVENT_SEAFOAM4_BOULDER1_DOWN_HOLE, EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
@@ -29,20 +33,6 @@ SeafoamIslandsB4FOnMapLoad::
 	ld a, $76
 	ld [wNewTileBlockID], a
 	jpfar ReplaceMultipleTileBlockLineHorizontalWithOneBlock
-
-SeafoamMoveCrystals:
-	ld hl, wSprite05StateData2MapY
-	call .setToOrigin
-	ld hl, wSprite06StateData2MapY
-	call .setToOrigin
-	ld hl, wSprite07StateData2MapY
-	call .setToOrigin
-	ld hl, wSprite08StateData2MapY
-.setToOrigin
-	ld [hl], 0 + 4
-	inc hl
-	ld [hl], 0 + 4
-	ret
 
 
 SeafoamB4FReplaceEastCurrentBlock:
@@ -74,7 +64,6 @@ SeafoamIslandsB4FEndArticunoBattleScript:
 	ld a, HS_ARTICUNO
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	call SeafoamMoveCrystals
 SeafoamB4FDefaultScript:
 	ld a, SCRIPT_SEAFOAMISLANDSB4F_DEFAULT
 	ld [wSeafoamIslandsB4FCurScript], a
@@ -122,10 +111,9 @@ SeafoamIslandsB4F_TextPointers:
 	dw_const BoulderBlockingWaterB4F,              TEXT_SEAFOAMISLANDSB4F_BOULDER2
 	dw_const SeafoamIslandsB4FArticunoText,     TEXT_SEAFOAMISLANDSB4F_ARTICUNO
 	dw_const PickUpItemText,                    TEXT_SEAFOAMISLANDSB4F_ITEM1 ; PureRGBnote: ADDED: new item located here.
-	dw_const SeafoamIslandsB4FDragonairEventStartText, TEXT_SEAFOAMISLANDSB4F_ANIMSPRITE1 
-	dw_const DoRet,                             TEXT_SEAFOAMISLANDSB4F_ANIMSPRITE2
-	dw_const DoRet,                             TEXT_SEAFOAMISLANDSB4F_ANIMSPRITE3
-	dw_const DoRet,                             TEXT_SEAFOAMISLANDSB4F_ANIMSPRITE4
+	dw_const SeafoamIslandsB4FDragonairEventStartText, TEXT_SEAFOAMISLANDSB4F_SCUBA1 
+	dw_const DoRet,                             TEXT_SEAFOAMISLANDSB4F_SCUBA2
+	dw_const SeafoamIslandsB4FDragonairText,    TEXT_SEAFOAMISLANDSB4F_DRAGONAIR
 	dw_const SeafoamIslandsB4FBouldersSignText, TEXT_SEAFOAMISLANDSB4F_BOULDERS_SIGN
 	dw_const SeafoamIslandsB4FDangerSignText,   TEXT_SEAFOAMISLANDSB4F_DANGER_SIGN
 	dw_const SeafoamIslandsB4FFastCurrentText,  TEXT_SEAFOAMISLANDSB4F_FAST_CURRENT
@@ -154,52 +142,85 @@ SeafoamIslandsB4FArticunoIntroAnimation:
 	call Delay3
 	ld de, ArticunoIcyWindSFX
 	call PlayNewSoundChannel8
-	xor a
-.animationLoop
-	push af
 	; replace the "nothing" sprite with
 	; an ice crystal
 	ld de, IceCrystalSprite
 	lb bc, BANK(IceCrystalSprite), 4
 	ld hl, vNPCSprites tile $18
 	call CopyVideoData
+	ld a, $FF
+	ld [wUpdateSpritesEnabled], a
+	call .copyCrystalTileIDs
+	rst _DelayFrame
+	ld c, 8
+	ld d, 4
+.loopSetSpriteStartingCoords
+	push de
+	push bc
+	lb de, $3C, $48
+	callfar LoadSpecificOAMSpriteCoords
+	pop bc
+	pop de
+	ld a, c
+	add 4
+	ld c, a
+	dec d
+	jr nz, .loopSetSpriteStartingCoords
+	xor a
+.animationLoop
+	push af
 	; loop over moving them diagonally outwards at 60fps
 	ld c, 63
 	ld b, 0
 .loop
+	push bc
 	; top left crystal
-	ld hl, wSprite05StateData1YPixels
-	dec [hl]
-	dec [hl]
+	ld hl, wShadowOAMSprite08YCoord
+	ld d, [hl]
 	inc hl
-	inc hl
-	dec [hl]
-	dec [hl]
+	ld e, [hl]
+	dec e
+	dec e
+	dec d
+	dec d
+	ld c, 8
+	callfar LoadSpecificOAMSpriteCoords
+
 	; top right crystal
-	ld hl, wSprite06StateData1YPixels
-	dec [hl]
-	dec [hl]
+	ld hl, wShadowOAMSprite12YCoord
+	ld d, [hl]
 	inc hl
-	inc hl
-	inc [hl]
-	inc [hl]
+	ld e, [hl]
+	dec d
+	dec d
+	inc e
+	inc e
+	ld c, 12
+	callfar LoadSpecificOAMSpriteCoords
 	; bottom left crystal
-	ld hl, wSprite07StateData1YPixels
-	inc [hl]
-	inc [hl]
+	ld hl, wShadowOAMSprite16YCoord
+	ld d, [hl]
 	inc hl
-	inc hl
-	dec [hl]
-	dec [hl]
+	ld e, [hl]
+	inc d
+	inc d
+	dec e
+	dec e
+	ld c, 16
+	callfar LoadSpecificOAMSpriteCoords
 	; bottom right crystal
-	ld hl, wSprite08StateData1YPixels
-	inc [hl]
-	inc [hl]
+	ld hl, wShadowOAMSprite20YCoord
+	ld d, [hl]
 	inc hl
-	inc hl
-	inc [hl]
-	inc [hl]
+	ld e, [hl]
+	inc d
+	inc d
+	inc e
+	inc e
+	ld c, 20
+	callfar LoadSpecificOAMSpriteCoords
 	rst _DelayFrame
+	pop bc
 	ld a, c
 	; every 4 frames we make the ice crystal "sparkle"
 	rrca
@@ -261,6 +282,8 @@ SeafoamIslandsB4FArticunoIntroAnimation:
 	call PlayNewSoundChannel8
 	ld c, 60
 	rst _DelayFrames
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
 	; articuno shows an animation when you fight it now
 	ld a, ARTICUNO
 	ld [wEngagedTrainerClass], a
@@ -273,6 +296,23 @@ SeafoamIslandsB4FArticunoIntroAnimation:
 	ld a, SCRIPT_SEAFOAMISLANDSB4F_ARTICUNO_BATTLE_END
 	ld [wSeafoamIslandsB4FCurScript], a
 	ret
+.copyCrystalTileIDs
+	ld hl, wShadowOAMSprite08TileID
+	ld e, 4
+	ld bc, 4
+.copyOAMTileIDsOuter
+	ld a, $18
+	ld d, 4
+.copyOAMTileIDs
+	ld [hl], a
+	add hl, bc
+	inc a
+	dec d
+	jr nz, .copyOAMTileIDs
+	dec e
+	jr nz, .copyOAMTileIDsOuter
+	ret
+
 
 SeafoamIslandsB4FBouldersSignText:
 	text_far _SeafoamIslandsB4FBouldersSignText
@@ -314,10 +354,10 @@ SeafoamIslandsB4FDragonairEventOnMapLoad:
 	ld [wPlayerDirection], a
 	; move 2 of the nothing sprites near player to be sara and erik
 	lb de, -1, -1
-	ld c, SEAFOAMISLANDSB4F_ANIMSPRITE1
+	ld c, SEAFOAMISLANDSB4F_SCUBA1
 	callfar FarMoveSpriteInRelationToPlayer
 	lb de, 1, -1
-	ld c, SEAFOAMISLANDSB4F_ANIMSPRITE2
+	ld c, SEAFOAMISLANDSB4F_SCUBA2
 	callfar FarMoveSpriteInRelationToPlayer
 	jp UpdateSprites
 
@@ -366,7 +406,7 @@ SeafoamIslandsB4FDragonairEventStartScript:
 	jp Delay3
 .initialText
 	call GBFadeInFromBlack
-	ld a, TEXT_SEAFOAMISLANDSB4F_ANIMSPRITE1
+	ld a, TEXT_SEAFOAMISLANDSB4F_SCUBA1
 	ldh [hTextID], a
 	call DisplayTextID
 	; add more "downs" to the surf auto movement
@@ -479,3 +519,18 @@ SeafoamWaveSFXB4F::
 .farSound
 	ld de, CurrentSoundQuiet
 	jp PlayNewSoundChannel8
+
+SeafoamIslandsB4FDragonairText::
+	text_far _SeafoamIslandsB4FDragonairText
+	text_asm
+	ld c, DEX_DRAGONAIR - 1
+  	callfar SetMonSeen
+	ld a, DRAGONAIR
+	call PlayCry
+	call DisplayTextPromptButton
+	ld hl, .couldItBeInvestigating
+	rst _PrintText
+	rst TextScriptEnd
+.couldItBeInvestigating
+	text_far _SeafoamIslandsB4FDragonairText2
+	text_end

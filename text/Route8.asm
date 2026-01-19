@@ -198,13 +198,10 @@ _Route8CooltrainerF4AfterBattleText::
 
 _ClefableLearnset::
 	text "That's how I got"
-	line "my @"
+	line "my CLEFABLE!"
+	para "I hear @"
 	text_ram wNameBuffer
-	text "!"
-	para "I hear CLEFAIRY"
-	line "and @"
-	text_ram wNameBuffer
-	text " came"
+	text "<LINE>and CLEFABLE came"
 	cont "from outer space!"
 	para "I like to imagine"
 	line "them on a little"

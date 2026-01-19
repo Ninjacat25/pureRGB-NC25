@@ -212,6 +212,7 @@ Route12_TextPointers:
 	dw_const Route12Fisher5Text,           TEXT_ROUTE12_FISHER5
 	dw_const Route12Text9,                 TEXT_ROUTE12_TAMER
 	dw_const Route12Text10,                TEXT_ROUTE12_SUPER_NERD
+	dw_const Route12GamblerText,           TEXT_ROUTE12_GAMBLER
 	dw_const PickUpItemText,               TEXT_ROUTE12_ITEM1
 	dw_const PickUpItemText,               TEXT_ROUTE12_ITEM2
 	dw_const PickUpItemText,               TEXT_ROUTE12_ITEM3 ; PureRGBnote: ADDED: new item in this location
@@ -241,6 +242,8 @@ Route12TrainerHeader7:
 	trainer EVENT_BEAT_ROUTE_12_TRAINER_7, 4, Route12BattleText8, Route12EndBattleText8, Route12AfterBattleText8
 Route12TrainerHeader8:
 	trainer EVENT_BEAT_ROUTE_12_TRAINER_8, 3, Route12BattleText9, Route12EndBattleText9, Route12AfterBattleText9
+Route12TrainerHeader9:
+	trainer EVENT_BEAT_ROUTE_12_TRAINER_9, 0, Route12GamblerBattleText, Route12GamblerEndBattleText, DoRet
 	db -1 ; end
 
 SnorlaxText:: ; PureRGBnote: CHANGED: now also used by route 16's snorlax
@@ -479,3 +482,60 @@ Route12SportFishingSignText:
 Route12SnorlaxWentBackToSleepText:
 	text_far _SnorlaxWentBackToSleepText
 	text_end
+
+Route12GamblerText:
+	text_asm
+	CheckEvent EVENT_BEAT_ROUTE_12_TRAINER_9
+	jr nz, .metronomeTeach
+	ld hl, Route12TrainerHeader9
+	call TalkToTrainer
+	rst TextScriptEnd
+.metronomeTeach
+	ld hl, .teach
+	rst _PrintText
+	call YesNoChoice
+	and a
+	jr nz, .exit
+	call ClearTextBox
+	callfar GenericShowPartyMenuSelection
+	jr c, .exit
+	; TODO: no ditto allowed
+	ld a, METRONOME
+	ld [wMoveNum], a
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	call CopyToStringBuffer
+	xor a
+	ld [wLetterPrintingDelayFlags], a
+	predef LearnMove
+	push bc
+	call LoadScreenTilesFromBuffer2
+	pop bc
+	ld a, b
+	and a
+	jr z, .exit
+	ld hl, .chaos
+	jr .printDone
+.exit
+	ld hl, .ohWell
+.printDone
+	rst _PrintText
+	rst TextScriptEnd
+.teach
+	text_far _Route12MetronomeGamblerMetronomeTeachText
+	text_end
+.chaos
+	text_far _Route12MetronomeGamblerMetronomeTeach2Text
+	text_end
+.ohWell
+	text_far _NoTrade1Text
+	text_end
+
+Route12GamblerBattleText:
+	text_far _Route12MetronomeGamblerText
+	text_end
+
+Route12GamblerEndBattleText:
+	text_far _Route12MetronomeGamblerEndBattleText
+	text_end
+	

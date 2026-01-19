@@ -31,7 +31,7 @@
 	const SAFARI_ROCK   ; $16
 	const OLD_COIN      ; $17 ; PureRGBnote: ADDED: New item
 	const TOPSECRETKEY  ; $18 ; PureRGBnote: ADDED: New item
-	const UNUSED_ITEM3  ; $19
+	const CAMERA        ; $19 ; PureRGBnote: ADDED: New item
 	const UNUSED_ITEM4  ; $1A
 	const UNUSED_ITEM5  ; $1B
 	const UNUSED_ITEM6  ; $1C

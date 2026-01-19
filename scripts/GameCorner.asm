@@ -546,8 +546,7 @@ GameCornerDrawCoinBox:
 	set BIT_NO_TEXT_DELAY, [hl]
 	hlcoord 11, 0
 	lb bc, 5, 7
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 	hlcoord 12, 1
 	lb bc, 4, 7
 	call ClearScreenArea

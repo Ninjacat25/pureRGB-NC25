@@ -372,7 +372,8 @@ FightingDojoHitmonleePokeBallText:
 	ld a, [wCurPartySpecies]
 	ld b, a
 	ld c, 30
-	call GivePokemon
+	ld a, BALL_DATA_ULTRA << 3
+	call GivePokemonCommon
 	jr nc, .done
 
 	; once Poké Ball is taken, hide sprite
@@ -410,7 +411,8 @@ FightingDojoHitmonchanPokeBallText:
 	ld a, [wCurPartySpecies]
 	ld b, a
 	ld c, 30
-	call GivePokemon
+	ld a, BALL_DATA_ULTRA << 3
+	call GivePokemonCommon
 	jr nc, .done
 	SetEvents EVENT_GOT_HITMONCHAN, EVENT_DEFEATED_FIGHTING_DOJO
 

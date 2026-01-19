@@ -52,6 +52,7 @@ INCLUDE "constants/tileset_constants.asm"
 INCLUDE "constants/event_constants.asm"
 INCLUDE "constants/text_constants.asm"
 INCLUDE "constants/menu_constants.asm"
+INCLUDE "constants/ball_anim_constants.asm"
 
 INCLUDE "data/maps/items/item_location_assignments.asm"
 INCLUDE "data/maps/items/hidden_item_location_assignments.asm"

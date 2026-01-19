@@ -77,6 +77,7 @@ _PokemonFanClubReceivedBikeVoucherText::
 _LastTwoGurusReceivedItemText::
 _MrFujisHouseMrFujiReceivedPokeFluteText::
 _Route24CooltrainerM1ReceivedNuggetText::
+_GenericReceivedItemA::
 	text "<PLAYER> received"
 	line "a @"
 	text_ram wStringBuffer

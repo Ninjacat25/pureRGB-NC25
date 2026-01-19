@@ -21,8 +21,7 @@ GiveFossilToCinnabarLab::
 	ld b, l
 	ld c, $d
 	hlcoord 0, 0
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 	call PrintFossilsInBag
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]

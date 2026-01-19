@@ -201,8 +201,7 @@ ChampArenaMusicSelectMenu::
 
 	hlcoord 4, 5
 	lb bc, 5, 13  ; height, width
-	call TextBoxBorder
-	call UpdateSprites ; disable sprites behind the text box
+	call TextBoxBorderUpdateSprites ; disable sprites behind the text box
 	xor a
 	ld [wMenuWatchMovingOutOfBounds], a ; enable menu wrapping
 

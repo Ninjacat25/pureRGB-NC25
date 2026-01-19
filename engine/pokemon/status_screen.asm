@@ -98,21 +98,22 @@ StatusScreen:
 	ld hl, vChars2 tile $72
 	lb bc, BANK(PTile), 1
 	call CopyVideoDataDouble ; bold P (for PP)
-	ld de, StatExpPrompt
-	ld hl, vFont tile 75
-	lb bc, BANK(StatExpPrompt), 5
-	call CopyVideoDataDouble
-;;;;; PureRGBnote: ADDED: If the pokemon has max DVs, load the APEX prompt into vram.
-	call DoesLoadedMonHaveMaxDVs
-	jr nc, .notMaxDVs
+	; copy the apex prompt and the stat exp prompt, which is next to it in memory
 	ld hl, vFont tile 73
 	ld de, ApexPrompt
-	lb bc, BANK(ApexPrompt), 2
+	lb bc, BANK(ApexPrompt), 7
 	call CopyVideoDataDouble
-.notMaxDVs
-;;;;;
+	ASSERT BANK(StatExpPrompt) == BANK(ApexPrompt)
+	ld hl, vFont tile 80
+	ld de, PokeBallSprite
+	lb bc, BANK(PokeBallSprite), 4
+	call CopyVideoData
 	ldh a, [hTileAnimations]
 	push af
+	ld a, [wUpdateSpritesEnabled]
+	push af
+	ld a, $FF
+	ld [wUpdateSpritesEnabled], a
 	xor a
 	ldh [hTileAnimations], a
 	hlcoord 19, 1
@@ -185,13 +186,21 @@ StatusScreen:
 	inc hl
 	ld [hl], $CA
 .notMaxDVs2
-;;;;; 
+;;;;;
+	ld a, [wOnSGB] ; can't customize the color of pokeballs when on GB, so no point in showing them
+	and a
+	jr z, .skipBall
+	; on SGB and GBC we will show the ball tile to indicate what type of ball the pokemon is in
+	callfar LoadStatusScreenPokeball
+.skipBall
 	call Delay3
-	call GBPalNormal
+	callfar CheckInvertBallStatusScreenColor
 	hlcoord 1, 0
 	call LoadFlippedFrontSpriteByMonIndex ; draw Pokémon picture
 	ld a, [wCurPartySpecies]
 	call PlayCry
+	pop af
+	ld [wUpdateSpritesEnabled], a
 	pop af
 	ret
 
@@ -332,6 +341,7 @@ StatsText:
 StatusScreen2:
 	ldh a, [hTileAnimations]
 	push af
+	call ClearSprites
 	xor a
 	ldh [hTileAnimations], a
 	ldh [hAutoBGTransferEnabled], a

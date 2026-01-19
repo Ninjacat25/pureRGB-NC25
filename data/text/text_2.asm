@@ -212,11 +212,11 @@ _UnusedBenchGuyText2::
 	line "all the fun<...>"
 	done
 
-_UnusedBenchGuyText3::
-	text "SILPH's manager"
-	line "is hiding in the"
-	cont "SAFARI ZONE."
-	done
+;_UnusedBenchGuyText3::
+;	text "SILPH's manager"
+;	line "is hiding in the"
+;	cont "SAFARI ZONE."
+;	done
 
 _VermilionPokecenterGuyText::
 	text "It is true that a"

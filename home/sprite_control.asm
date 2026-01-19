@@ -66,3 +66,17 @@ IsPlayerAtCoords::
 	cp e
 	ret
 
+; TODO: use these functions
+EnableSpriteUpdates::
+	ld a, 1
+	jr ChangeUpdateSpritesEnabled
+DisableSpriteUpdates::
+	ld a, $FF
+	; fall through
+ChangeUpdateSpritesEnabled:
+	ld [wUpdateSpritesEnabled], a
+	ret
+
+UpdateSpritesAndDelay3::
+	call UpdateSprites
+	jp Delay3

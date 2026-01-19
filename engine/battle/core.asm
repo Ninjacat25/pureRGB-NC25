@@ -1960,14 +1960,21 @@ SendOutMon:
 	ld [wPlayerDisabledMove], a
 	ld [wPlayerDisabledMoveNumber], a
 	ld [wPlayerMonMinimized], a
-	ld b, SET_PAL_BATTLE
-	call RunPaletteCommand
 	ld hl, wEnemyBattleStatus1
 	res USING_TRAPPING_MOVE, [hl]
+	SetEvent FLAG_SKIP_DELAY_IN_GBC_PALETTE_FUNC
+	ldh a, [hGBC]
+	and a
+	call nz, .palette
+	ResetEvent FLAG_SKIP_DELAY_IN_GBC_PALETTE_FUNC
 	ld a, $1
 	ldh [hWhoseTurn], a
-	ld a, POOF_ANIM
-	call PlayMoveAnimation
+	ld a, SEND_OUT_MON_BALL_POOF_ANIM
+	ld [wAnimationID], a
+	call PlayMoveAnimationNoDelay
+	ldh a, [hGBC]
+	and a
+	call z, .palette
 	hlcoord 4, 11
 	predef AnimateSendingOutMon
 	ld a, [wCurPartySpecies]
@@ -1975,6 +1982,9 @@ SendOutMon:
 	call PrintEmptyString
 	call SaveScreenTilesToBuffer1
 	jpfar CheckOnSendOutSpecialEffect
+.palette
+	ld b, SET_PAL_BATTLE
+	jp RunPaletteCommand
 
 ; show 2 stages of the player mon getting smaller before disappearing
 AnimateRetreatingPlayerMon:
@@ -7311,6 +7321,7 @@ PlayMoveAnimation:
 	vc_hook_red Reduce_move_anim_flashing_Confusion
 	call Delay3
 	vc_hook_red Reduce_move_anim_flashing_Psychic
+PlayMoveAnimationNoDelay:
 ;;;;;;;;;; shinpokerednote: gbcnote: color code from yellow
 	predef MoveAnimation
 	jpfar Func_78e98

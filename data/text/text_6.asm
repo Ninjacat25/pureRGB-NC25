@@ -336,3 +336,8 @@ _BoxFullCannotThrowBallText::
 	line "is full! Can't"
 	cont "use that item!"
 	prompt
+
+_ItemUseCameraInBattleText::
+	text "No time to frame a"
+	line "photo in battle!"
+	prompt

@@ -54,6 +54,17 @@ LoadTilesetHeader:
 	ld [wXBlockCoord], a
 	ret
 
+ReloadTileAnimsValue::
+	ld hl, Tilesets
+	ld a, [wCurMapTileset]
+	inc a
+	ld bc, 12 ; TILESET_HEADER_SIZE
+	call AddNTimes
+	dec hl ; last bit of current tileset's data
+	ld a, [hl]
+	ldh [hTileAnimations], a
+	ret
+
 INCLUDE "data/tilesets/dungeon_tilesets.asm"
 
 INCLUDE "data/tilesets/tileset_headers.asm"

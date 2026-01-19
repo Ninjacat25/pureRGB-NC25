@@ -2,8 +2,9 @@
 ; SpecialEffectPointers associates them with effect routines (see data/battle_anims/special_effect_pointers.asm)
 	const_def $C0
 DEF FIRST_SE_ID EQU const_value
-	const_skip $D
+	const_skip $C
 ;;;;;;;;;; PureRGBnote: ADDED: new special effects
+	const SE_SEND_OUT_MON_POOF_ANIM    ; $CC used for custom pokeball send out animations
 	const SE_LOAD_POKEDOLL             ; $CD used in pokedoll animation
 	const SE_DIVINE_PROTECTION         ; $CE used in THE MAW battle if you switch to CUBONE
 	const SE_CROSSHAIR_SCANS_OPPONENT  ; $CF used in Conversion attack mode anim

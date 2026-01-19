@@ -238,3 +238,35 @@ _SnorlaxWentBackToSleepText::
 	line "SNORLAX went back"
 	cont "to sleep."
 	done
+
+_Route12MetronomeGamblerText::
+	text "I'll show you the"
+	line "power of my luck!"
+	done
+
+_Route12MetronomeGamblerEndBattleText::
+	text "My luck"
+	line "lost to skill!"
+	para "Hey pal!"
+	para "How about I teach"
+	line "METRONOME to your"
+	cont "#MON?"
+	para "It's fun!"
+	prompt
+
+_Route12MetronomeGamblerMetronomeTeachText::
+	text "A roll of the dice"
+	line "is all it takes"
+	cont "to change a life!"
+	para "So how about it?"
+	para "Shall I teach a"
+	line "#MON METRONOME?"
+	done
+
+_Route12MetronomeGamblerMetronomeTeach2Text::
+	text "Go and spread the"
+	line "METRONOME chaos!"
+	para "And come back if"
+	line "you want me to"
+	cont "teach it again!"
+	done

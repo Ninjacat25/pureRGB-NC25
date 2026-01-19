@@ -62,6 +62,10 @@ CheckOverworldAnimation::
 	jr nz, .notSeafoamB3F
 	jpfar SeafoamWaveSFXB3F
 .notSeafoamB3F
+	cp ROUTE_6
+	jr nz, .notRoute6
+	jpfar PsyduckShadowFlicker
+.notRoute6
 	xor a
 	ld [wOverworldAnimationCounter], a
 	ResetFlag FLAG_MAP_HAS_OVERWORLD_ANIMATION

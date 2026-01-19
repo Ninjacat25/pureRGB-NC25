@@ -34,14 +34,20 @@ LoadExtraSprites::
 	jr z, .digletts_cave
 	cp SEAFOAM_ISLANDS_1F
 	jr z, LoadExtraTiles.seafoamIslands1F
+	cp CERULEAN_BALL_DESIGNER
+	jr z, .ceruleanBallDesigner
 	cp FUCHSIA_CITY
 	ret nz
 	jpfar CheckLoadKabutoShell
 .digletts_cave
 	jpfar DiglettsCaveLoadDiglettSprites
+.ceruleanBallDesigner
+	jpfar CeruleanBallDesignerLoadExtraSprites
 
 LoadExtraTiles::
 	ld a, [wCurMap]
+	cp CERULEAN_BALL_DESIGNER
+	jr z, .ballDesigner
 	cp TYPE_GUYS_HOUSE
 	jr z, .typeGuyHouse
 	cp POWER_PLANT_ROOF
@@ -67,6 +73,8 @@ LoadExtraTiles::
 	jpfar CinnabarVolcanoCheckLoadCustomTiles
 .fightingDojo
 	jpfar FightingDojoLoadBetaDojoTiles
+.ballDesigner
+	jpfar CeruleanBallDesignerLoadExtraTiles
 
 UpdateNonPlayerSprite:
 	dec a

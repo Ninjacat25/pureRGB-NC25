@@ -94,7 +94,6 @@ NameRatersHouse_Blocks:
 MrFujisHouse_Blocks:
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
-SaffronPidgeyHouse_Blocks:
 VermilionPidgeyHouse_Blocks:
 LavenderCuboneHouse_Blocks:
 CeruleanTradeHouse_Blocks:
@@ -109,6 +108,10 @@ CeruleanTrashedHouse_Blocks: INCBIN "maps/CeruleanTrashedHouse.blk"
 
 DiglettsCaveRoute11_Blocks:
 DiglettsCaveRoute2_Blocks: INCBIN "maps/DiglettsCaveRoute2.blk"
+
+SaffronPidgeyHouse_Blocks:
+FuchsiaBillsGrandpasHouse_Blocks: INCBIN "maps/FuchsiaBillsGrandpasHouse.blk"
+
 
 
 SECTION "Maps 4", ROMX
@@ -248,6 +251,10 @@ INCLUDE "data/maps/headers/Route22Gate.asm"
 INCLUDE "scripts/Route22Gate.asm"
 INCLUDE "data/maps/objects/Route22Gate.asm"
 Route22Gate_Blocks: INCBIN "maps/Route22Gate.blk"
+
+INCLUDE "data/maps/headers/FuchsiaBillsGrandpasHouse.asm"
+INCLUDE "scripts/FuchsiaBillsGrandpasHouse.asm"
+INCLUDE "data/maps/objects/FuchsiaBillsGrandpasHouse.asm"
 
 INCLUDE "data/maps/headers/BillsHouse.asm"
 INCLUDE "scripts/BillsHouse.asm"
@@ -686,7 +693,7 @@ INCLUDE "data/maps/objects/Route21.asm"
 Route21_Blocks: INCBIN "maps/Route21.blk"
 
 VermilionOldRodHouse_Blocks:
-Route12SuperRodHouse_Blocks: INCBIN "maps/RodHouse.blk"
+Route12SuperRodHouse_Blocks: INCBIN "maps/RodHouse.blk" ; TODO: parameterize generic house
 Daycare_Blocks: INCBIN "maps/Daycare.blk"
 
 FuchsiaGoodRodHouse_Blocks: INCBIN "maps/FuchsiaGoodRodHouse.blk"
@@ -726,10 +733,10 @@ INCLUDE "data/maps/headers/Route12SuperRodHouse.asm"
 INCLUDE "scripts/Route12SuperRodHouse.asm"
 INCLUDE "data/maps/objects/Route12SuperRodHouse.asm"
 
-INCLUDE "data/maps/headers/SilphCo8F.asm"
-INCLUDE "scripts/SilphCo8F.asm"
-INCLUDE "data/maps/objects/SilphCo8F.asm"
-SilphCo8F_Blocks: INCBIN "maps/SilphCo8F.blk"
+INCLUDE "data/maps/headers/CeruleanBallDesigner.asm"
+INCLUDE "scripts/CeruleanBallDesigner.asm"
+INCLUDE "data/maps/objects/CeruleanBallDesigner.asm"
+CeruleanBallDesigner_Blocks: INCBIN "maps/CeruleanBallDesigner.blk"
 
 
 SECTION "Maps 13", ROMX
@@ -811,6 +818,11 @@ INCLUDE "data/maps/headers/ChampArena.asm"
 INCLUDE "scripts/ChampArena.asm"
 INCLUDE "data/maps/objects/ChampArena.asm"
 ChampArena_Blocks: INCBIN "maps/ChampArena.blk"
+
+INCLUDE "data/maps/headers/SilphCo8F.asm"
+INCLUDE "scripts/SilphCo8F.asm"
+INCLUDE "data/maps/objects/SilphCo8F.asm"
+SilphCo8F_Blocks: INCBIN "maps/SilphCo8F.blk"
 
 SECTION "Maps 15", ROMX
 
@@ -1159,7 +1171,6 @@ CopycatsHouse1F_Blocks: INCBIN "maps/CopycatsHouse1F.blk"
 CinnabarMart_Blocks:
 PewterMart_Blocks: INCBIN "maps/PewterMart.blk"
 
-FuchsiaBillsGrandpasHouse_Blocks: INCBIN "maps/FuchsiaBillsGrandpasHouse.blk"
 FuchsiaTreeDeleterHouse_Blocks: INCBIN "maps/FuchsiaTreeDeleterHouse.blk"
 FossilGuysHouse_Blocks: INCBIN "maps/FossilGuysHouse.blk"
 
@@ -1193,11 +1204,6 @@ INCLUDE "data/maps/objects/CeruleanBadgeHouse.asm"
 
 
 SECTION "Maps 21", ROMX
-
-INCLUDE "data/maps/headers/FuchsiaBillsGrandpasHouse.asm"
-INCLUDE "scripts/FuchsiaBillsGrandpasHouse.asm"
-INCLUDE "data/maps/objects/FuchsiaBillsGrandpasHouse.asm"
-
 
 INCLUDE "data/maps/headers/FuchsiaTreeDeleterHouse.asm"
 INCLUDE "scripts/FuchsiaTreeDeleterHouse.asm"

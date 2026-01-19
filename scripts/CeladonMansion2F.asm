@@ -159,3 +159,48 @@ ProspectorsHouseBookcaseText3:
 	jpfar KeepReadingBookLearnset
 .done
 	rst TextScriptEnd
+
+PorygonPCHiddenObject::
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	ret nz
+	tx_pre_jump PorygonPCScreenText
+
+PorygonTVScreenText::
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jr z, PorygonPCScreenText.next
+	ld hl, .wrongSide
+	rst _PrintText
+	rst TextScriptEnd
+.wrongSide
+	text_far _RedsHouse1FTVWrongSideText
+	text_end
+
+PorygonPCScreenText::
+	text_asm
+	ld a, SFX_TURN_ON_PC
+	rst _PlaySound
+	ld hl, .pc
+	rst _PrintText
+.next
+	ld hl, .nothing
+	rst _PrintText
+	ld c, DEX_PORYGON - 1
+	callfar SetMonSeen
+	ld c, 20
+	rst _DelayFrames
+	ld a, PORYGON
+	call PlayCry
+	ld hl, .porygon
+	rst _PrintText
+	rst TextScriptEnd
+.pc
+	text_far _TurnedOnPC1Text
+	text_end
+.nothing
+	text_far _PorygonNothingMuch
+	text_end
+.porygon
+	text_far _PorygonOnScreen
+	text_end

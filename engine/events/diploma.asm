@@ -69,6 +69,7 @@ DisplayDiploma::
 	call WaitForTextScrollButtonPress
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
+ReloadEverything::
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
 	call Delay3

@@ -23,9 +23,8 @@ CeladonPrizeMenu::
 	call PrintPrizePrice
 	hlcoord 0, 2
 	lb bc, 8, 16
-	call TextBoxBorder
+	call TextBoxBorderUpdateSprites
 	call GetPrizeMenuId
-	call UpdateSprites
 	ld hl, WhichPrizeTextPtr
 	rst _PrintText
 	call HandleMenuInput ; menu choice handler
@@ -139,8 +138,7 @@ INCLUDE "data/events/prizes.asm"
 PrintPrizePrice:
 	hlcoord 11, 0
 	lb bc, 1, 7
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 	hlcoord 12, 0
 	ld de, .CoinString
 	call PlaceString

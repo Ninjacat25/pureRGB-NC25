@@ -17,6 +17,8 @@ CallFunctionInTable::
 	pop hl
 	ret
 
+IsInSingleByteArray:: ; TODO: use this
+	ld de, 1
 IsInArray::
 ; Search an array at hl for the value in a.
 ; Entry size is de bytes.

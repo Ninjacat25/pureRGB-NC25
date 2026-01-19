@@ -329,7 +329,8 @@ VermilionGymHiddenObjects:
 	db -1 ; end
 
 CeladonMansion2HiddenObjects:
-	hidden_object  0,  5, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  0,  5, SPRITE_FACING_UP, PorygonPCHiddenObject
+	hidden_object  1,  5, SPRITE_FACING_UP, PorygonPCHiddenObject
 	db -1 ; end
 
 CeladonPokecenterHiddenObjects:
@@ -478,6 +479,7 @@ SSAnne10HiddenObjects:
 Route10HiddenObjects:
 	hidden_object  9, 17, HIDDEN_ITEM_ROUTE_10_NEAR_ROCK_TUNNEL_NORTH_ENTR, HiddenItems
 	hidden_object 16, 53, HIDDEN_ITEM_ROUTE_10_SOUTHERN_LONE_SHRUB, HiddenItems
+	hidden_object 18, 52, SPRITE_FACING_RIGHT, Route10FlareonHiddenText
 	db -1 ; end
 
 RocketHideout1HiddenObjects:
@@ -505,6 +507,7 @@ Route13HiddenObjects:
 	hidden_object  1, 14, HIDDEN_ITEM_ROUTE_13_SOUTHEAST_SHRUB_ALCOVE, HiddenItems
 	hidden_object 16, 13, HIDDEN_ITEM_ROUTE_13_NEAR_SIGN, HiddenItems
 	hidden_object 42,  5, HIDDEN_ITEM_ROUTE_13_NORTHWEST_GRASS_PATCH_NEW, HiddenItems2 ; NEW
+	hidden_object  6,  3, SPRITE_FACING_UP, PidgeotHiddenObject
 	db -1 ; end
 
 SafariZoneCenterHiddenObjects:
@@ -631,7 +634,7 @@ IndigoPlateauLobbyHiddenObjects:
 	db -1 ; end
 
 CinnabarLab4HiddenObjects:
-	hidden_object  0,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  0,  4, SPRITE_FACING_UP, PorygonPCHiddenObject
 	hidden_object  2,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
@@ -695,15 +698,20 @@ FossilGuysHouseHiddenObjects:
 
 Route2HiddenObjects:
 	hidden_object 18, 66, HIDDEN_ITEM_ROUTE_2_SOUTHEAST_FLOWERS_NEW, HiddenItems5 ; NEW
+	hidden_object 16,  1, SPRITE_FACING_UP, Route2JigglypuffHiddenObject	
 	db -1 ; end
 
 Route6HiddenObjects:
 	hidden_object 6, 4, HIDDEN_ITEM_ROUTE_6_NORTHWEST_FLOWERS_NEW, HiddenItems3 ; NEW
+	hidden_object 2, 27, SPRITE_FACING_UP, PsyduckShadowDistance
 	db -1 ; end
 
 Route8HiddenObjects:
 	hidden_object 34, 14, HIDDEN_ITEM_ROUTE_8_GRASS, HiddenItems3 ; NEW
 	hidden_object 19,  5, HIDDEN_ITEM_ROUTE_8_BETWEEN_CENTER_LEDGES, HiddenItems ; NEW
+	hidden_object  4,  7, SPRITE_FACING_LEFT, JolteonRightSide
+	hidden_object  5,  8, SPRITE_FACING_DOWN, JolteonRightSide
+	hidden_object  2,  8, SPRITE_FACING_RIGHT, JolteonLeftSide
 	db -1 ; end
 
 Route14HiddenObjects:
@@ -712,6 +720,7 @@ Route14HiddenObjects:
 
 Route16HiddenObjects:
 	hidden_object  2,  2, HIDDEN_ITEM_ROUTE_16_NORTHWEST_FLOWERS_NEW, HiddenItems2 ; NEW
+	hidden_object 36,  2, SPRITE_FACING_UP, MankeyHiddenObject
 	db -1 ; end
 
 Route18HiddenObjects:

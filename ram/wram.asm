@@ -380,6 +380,10 @@ wVermilionDockTileMapBufferEnd::
 
 NEXTU
 
+wCustomBallNames:: ds NUM_CUSTOM_BALLS * NAME_LENGTH
+
+NEXTU
+
 ;;;;; PureRGBnote: when we transfer a save file from an earlier version, we need to copy some data here because the PC items will go where this
 ;;;;; data used to be as we move wram around a bit to increase PC item space.
 wSaveTransferTempData::
@@ -1684,15 +1688,27 @@ wSlideMonUpBottomRowLeftTile::
 
 wDisableVBlankWYUpdate:: db ; if non-zero, don't update WY during V-blank
 
+wOGPoofAnimSpeed::
+wSpinningHorizontalTilesRotationSpeed::
+wCircleAnimRotationSpeed::
 wSpriteCurPosX:: db
+wSpinningHorizontalTilesOffset::
+wCircleAnimSpacing::
 wSpriteCurPosY:: db
+wSpinningHorizontalTilesYChange::
+wCircleAnimRadiusChange::
 wSpriteWidth:: db
+wSpinningHorizontalTilesCounter::
+wCircleAnimTileCount::
 wSpriteHeight:: db
+wBallAnimPalette::
 ; current input byte
 wSpriteInputCurByte:: db
 ; bit offset of last read input bit
+wBallAnimFrameCounter::
 wSpriteInputBitCounter:: db
 
+wBallAnimSGBColorLoadFlag::
 ; determines where in the output byte the two bits are placed. Each byte contains four columns (2bpp data)
 ; 3 -> XX000000   1st column
 ; 2 -> 00XX0000   2nd column
@@ -1919,6 +1935,7 @@ wStepCounter:: db
 ; after a battle, you have at least 3 steps before a random battle can occur
 wNumberOfNoRandomBattleStepsLeft:: db
 
+wWhichCustomBallSelected::
 wLearnsetIndex::
 wPrize1:: db
 wLearnsetPage::
@@ -2379,8 +2396,27 @@ wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
 wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
-	ds 78 ; unused save file 78 bytes
+	ds 30 ; unused save file 30 bytes
 wGameProgressFlagsEnd::
+
+; 3 bytes per custom pokeball, 16 custom pokeballs unlockable overall
+; format:
+; AAAABBBB - byte 0
+; CCCCDDDD - byte 1
+; EEEEFGHH - byte 2
+; A = which sprite is used in the poof animation
+; B = ball / animation color
+; C = which ball drop animation to use
+; D = which poof sound effect
+; E = which ball poof animation to use
+; F = unused - maybe add more ball poof animations later by expanding to 5 bits
+; G = invert ball colors flag set = invert
+; H = which "screen palette" to use during the poof animation
+;   00 = Normal
+;   01 = Dark screen
+;   10 = Light screen
+;   11 = unused
+wCustomPokeballSettings:: ds NUM_CUSTOM_BALLS * CUSTOM_BALL_DATA_SIZE
 
 ;;;;;; shinpokerednote: gbcnote: GBC stuff from pokemon yellow
 
@@ -2579,6 +2615,13 @@ NEXTU
 
 	ds SPRITE_OPTIONS_FLAGS_FIFTH_BATCH_START / 8
 wSpriteOptions5::db
+
+NEXTU
+	ds CUSTOM_BALL_UNLOCK_FLAGS_START / 8
+wCustomBallUnlockFlags:: ds 2
+NEXTU
+	ds CUSTOM_BALL_SNAPPED_FLAGS_START / 8
+wCustomBallPhotoSnappedFlags:: ds 2
 ENDU
 
 UNION

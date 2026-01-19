@@ -109,7 +109,8 @@ CeladonLaprasGuyText:
 	ld hl, CeladonLaprasGuyReady
 	rst _PrintText
 	lb bc, LAPRAS, 30
-	call GivePokemon
+	ld a, BALL_DATA_GREAT << 3
+	call GivePokemonCommon
 	jr nc, .noBoxRoom
 	ld a, [wSimulatedJoypadStatesEnd]
 	and a

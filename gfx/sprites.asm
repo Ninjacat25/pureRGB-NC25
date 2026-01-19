@@ -93,6 +93,8 @@ ArenaAssistantSprite::  INCBIN "gfx/sprites/arena_assistant.2bpp"
 LavaSuitSprite:: INCBIN "gfx/sprites/lava_suit.2bpp"
 BoomboxSprite:: INCBIN "gfx/sprites/boombox.2bpp"
 ScubaSuitSprite:: INCBIN "gfx/sprites/scuba_suit.2bpp"
+CeruleanBallDesignerSprite::  INCBIN "gfx/unused_prototype_sprites/game_boy_girl.2bpp"
+CameraSprite::  INCBIN "gfx/unused_prototype_sprites/camera.2bpp"
 
 SECTION "NPC Sprites 4", ROMX
 
@@ -135,3 +137,10 @@ OakSittingSprite:: INCBIN "gfx/sprites/champ_arena_audience/oak_sitting.2bpp"
 AgathaSittingSprite:: INCBIN "gfx/sprites/champ_arena_audience/agatha_sitting.2bpp"
 GiovanniSittingSprite:: INCBIN "gfx/sprites/champ_arena_audience/giovanni_sitting.2bpp"
 BlueSittingSprite:: INCBIN "gfx/sprites/champ_arena_audience/blue_sitting.2bpp"
+
+
+
+SECTION "NPC Sprites 5", ROMX
+
+QuadrupedSprite:: INCBIN "gfx/sprites/quadruped.2bpp"
+RedTakingPictureSprite:: INCBIN "gfx/sprites/red_taking_picture.2bpp"

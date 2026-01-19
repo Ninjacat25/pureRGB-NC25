@@ -24,8 +24,7 @@ DisplayPCMainMenu::
 	hlcoord 0, 0
 	lb bc, 10, 14
 .next
-	call TextBoxBorder
-	call UpdateSprites
+	call TextBoxBorderUpdateSprites
 	ld a, 3
 	ld [wMaxMenuItem], a
 	CheckEvent EVENT_MET_BILL

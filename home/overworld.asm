@@ -4,12 +4,6 @@ EnterMap::
 	ld [wJoyIgnore], a
 	call LoadMapData
 	farcall ClearVariablesOnEnterMap
-	ld hl, wStatusFlags2
-	bit BIT_WILD_ENCOUNTER_COOLDOWN, [hl]
-	jr z, .skipGivingThreeStepsOfNoRandomBattles
-	ld a, 3 ; minimum number of steps between battles
-	ld [wNumberOfNoRandomBattleStepsLeft], a
-.skipGivingThreeStepsOfNoRandomBattles
 	ld hl, wStatusFlags4
 	bit BIT_BATTLE_OVER_OR_BLACKOUT, [hl] ; did a battle happen immediately before this?
 	res BIT_BATTLE_OVER_OR_BLACKOUT, [hl] ; unset the "battle just happened" flag
@@ -29,8 +23,6 @@ EnterMap::
 	call UpdateSprites
 .didNotEnterUsingFlyWarpOrDungeonWarp
 	farcall CheckForceBikeOrSurf ; handle currents in SF islands and forced bike riding in cycling road
-	ld hl, wStatusFlags3
-	res BIT_NO_NPC_FACE_PLAYER, [hl]
 	call UpdateSprites
 	xor a
 	ld [wJoyIgnore], a
