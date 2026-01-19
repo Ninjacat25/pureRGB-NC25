@@ -703,6 +703,7 @@ SECTION "Extra Tiles", ROMX
 
 HouseBetaTiles:: INCBIN "gfx/unused_prototype_sprites/house_beta.2bpp"
 SmallPCPic:: INCBIN "gfx/overworld/small_pc.2bpp"
+MewBubbleTiles:: INCBIN "gfx/overworld/mew_bubble.2bpp"
 
 SECTION "Camera Pics", ROMX
 

@@ -8,6 +8,10 @@ BattleTransition:
 	ld [wUpdateSpritesEnabled], a
 	rst _DelayFrame
 
+	ld a, [wCurMap]
+	cp VERMILION_DOCK
+	jr z, .skipCleanOAM ; we want mew's bubble to stay on-screen during the transition
+
 ; Determine which OAM block is being used by the enemy trainer sprite (if there
 ; is one).
 	ld hl, wSpritePlayerStateData1ImageIndex
@@ -45,6 +49,7 @@ BattleTransition:
 	add hl, de
 	dec c
 	jr nz, .loop2
+.skipCleanOAM
 
 	call Delay3
 	call LoadBattleTransitionTile
