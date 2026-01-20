@@ -195,6 +195,7 @@ ShowLevelUpLearnset:
 	ld [wGenericPaletteOverride], a
 	ld b, SET_PAL_GENERIC
 	call RunPaletteCommand
+	call Delay3
 .loop
 	call PrepLearnsetList
 .printMoveEntryLoop
@@ -269,7 +270,6 @@ ShowLevelUpLearnset:
 	jr nz, .printMoveEntryLoop
 	ld a, 01
 	ldh [hAutoBGTransferEnabled], a
-	call Delay3
 	call GBPalNormal
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
@@ -441,7 +441,6 @@ ShowTMLearnset:
 	jr nz, .printMoveEntryLoop
 	ld a, 01
 	ldh [hAutoBGTransferEnabled], a
-	call Delay3
 	call GBPalNormal
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a

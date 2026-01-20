@@ -1,7 +1,7 @@
 NamePointers::
 ; entries correspond to *_NAME constants
 	dw MonsterNames
-	dw MoveNames
+	dw 0
 	dw 0
 	dw ItemNames
 	dw wPartyMonOT ; player's OT names list
@@ -22,8 +22,6 @@ GetName::
 	; BUG: This applies to all names instead of just items.
 	ASSERT NUM_POKEMON_INDEXES < HM01, \
 		"A bug in GetName will get TM/HM names for Pokémon above ${x:HM01}."
-	ASSERT NUM_ATTACKS < HM01, \
-		"A bug in GetName will get TM/HM names for moves above ${x:HM01}."
 	ASSERT NUM_TRAINERS < HM01, \
 		"A bug in GetName will get TM/HM names for trainers above ${x:HM01}."
 	cp HM01

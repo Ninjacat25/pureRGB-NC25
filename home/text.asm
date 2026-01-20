@@ -59,15 +59,22 @@ PlaceNextChar::
 	ret
 .NotTerminator
 ; PureRGBnote: CHANGED: Check against a jump table instead of a dictionary.
+; this actually speeds up text a lot because it doesn't make do a ton of cp commands for every single character
 	push hl
-	push de
-	ld hl, TextShortcutCommandJumpTable
-	ld de, 3
-	call IsInArray
-	pop de
+	cp FIRST_TEXT_SHORCUT_ID
+	jr c, .no
+	cp LAST_TEXT_SHORTCUT_ID + 1
 	jr nc, .no
-	inc hl
+	push de
+	sub FIRST_TEXT_SHORCUT_ID
+	ld hl, TextShortcutCommandJumpTable
+	ld d, 0
+	ld e, a
+	add hl, de
+	add hl, de
 	hl_deref
+	pop de
+.gotCommand
 	ld b, h
 	ld c, l
 	pop hl
@@ -82,54 +89,56 @@ NextChar::
 	inc de
 	jp PlaceNextChar
 
-NullChar::
-	ld b, h
-	ld c, l
-	pop hl
-	; A "<NULL>" character in a printed string
-	; displays an error message with the current value
-	; of hTextID in decimal format.
-	; This is a debugging leftover.
-	ld de, TextIDErrorText
-	dec de
-	ret	
+;NullChar::
+;	ld b, h
+;	ld c, l
+;	pop hl
+;	; A "<NULL>" character in a printed string
+;	; displays an error message with the current value
+;	; of hTextID in decimal format.
+;	; This is a debugging leftover.
+;	ld de, TextIDErrorText
+;	dec de
+;	ret	
 
 ; PureRGBnote: CHANGED: many shortcut commands were added here 
 ; because it greatly reduces text data size if certain commonly used phrases are parameterized.
+; must match the order of the charmap shortcuts and no gaps are allowed
 TextShortcutCommandJumpTable:
-	dbw "<NEXT>",    NextCharCmd
-	dbw "<LINE>",    LineChar
-	dbw "<NULL>",    NullChar
-	dbw "<BAGE>",    MultiButtonPageChar
-	dbw "<SCROLL>",  _ContTextNoPause
-	dbw "<_CONT>",   _ContText
-	dbw "<PARA>",    Paragraph
-	dbw "<PAGE>",    PageChar
-	dbw "<PLAYER>",  PrintPlayerName
-	dbw "<RIVAL>",   PrintRivalName
-	dbw "#",         PlacePOKe
-	dbw "<PC>",      PCChar
-	dbw "<TEAM>",    TeamChar
-	dbw "<ROCKET>",  RocketChar
-	dbw "<TM>",      TMChar
-	dbw "<TRAINER>", TrainerChar
-	dbw "<CONT>",    ContText
-	dbw "<...>",     ThreeDotsChar
-	dbw "<DONE>",    DoneText
-	dbw "<PROMPT>",  PromptText
-	dbw "<PKMN>",    PlacePKMN
-	dbw "<DEXEND>",  PlaceDexEnd
-	dbw "<TARGET>",  PlaceMoveTargetsName
-	dbw "<USER>",    PlaceMoveUsersName
-	dbw "<TIPS>",    TrainerTipsChar
-	dbw "#MON",      PokemonChar
-	dbw "<opponent>",OpponentChar
-	dbw "<user>",    UserChar
-	dbw "the",       TheChar
-	dbw "you",       YouChar
-	dbw "ing",       IngChar
-	dbw "or",        OrChar
-	dbw "is",        IsChar
+	dw OrChar
+	dw IngChar
+	dw TheChar
+	dw YouChar
+	dw OpponentChar
+	dw UserChar
+	dw PokemonChar
+	dw TrainerTipsChar
+	dw TeamChar
+	dw MultiButtonPageChar
+	dw PageChar
+	dw PlacePKMN
+	dw _ContText
+	dw _ContTextNoPause
+	dw IsChar
+	dw NextCharCmd
+	dw LineChar
+	dw DoRet ; string terminator
+	dw Paragraph
+	dw PrintPlayerName
+	dw PrintRivalName
+	dw PlacePOKe
+	dw ContText
+	dw ThreeDotsChar
+	dw DoneText
+	dw PromptText
+	dw PlaceMoveTargetsName
+	dw PlaceMoveUsersName
+	dw PCChar
+	dw TMChar
+	dw TrainerChar
+	dw RocketChar
+	dw PlaceDexEnd
+
 	; " the "
 	; " to "
 	; "here"
@@ -137,7 +146,6 @@ TextShortcutCommandJumpTable:
 	; "his"
 	; "that"
 	; "for"
-	db -1
 
 LineChar::
 	pop hl
@@ -225,13 +233,16 @@ RocketCharText::  db "ROCKET@"
 EnemyText::       db "Enemy @"
 ThreeDotsText::   db "...@"
 TrainerTipsText:: db "<TRAINER> TIPS@"
-UserText::        db "user@"
 OpponentText::    db "opponent@"
 TheText::         db "t","he@" ; have to separate with a comma to avoid it entering the same macro again
 YouText::         db "y","ou@" ; have to separate with a comma to avoid it entering the same macro again
 IngText::         db "i","ng@" ; have to separate with a comma to avoid it entering the same macro again
 OrText::          db "o","r@" ; have to separate with a comma to avoid it entering the same macro again
 IsText::          db "i","s@" ; have to separate with a comma to avoid it entering the same macro again
+
+;TextIDErrorText:: ; "[hTextID] ERROR."
+;	text_far _TextIDErrorText
+;	text_end
 
 ContText::
 	push de

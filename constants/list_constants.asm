@@ -10,8 +10,8 @@
 ; NamePointers indexes (see home/names2.asm)
 	const_def 1
 	const MONSTER_NAME  ; 1
-	const MOVE_NAME     ; 2
-	const UNUSED_NAME   ; 3
+	const UNUSED_NAME   ; 2 ; used to be Moves but now we have new code for getting move name quickly
+	const UNUSED_NAME2  ; 3
 	const ITEM_NAME     ; 4
 	const PLAYEROT_NAME ; 5
 	const ENEMYOT_NAME  ; 6

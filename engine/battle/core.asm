@@ -6083,11 +6083,7 @@ EnemyCanExecuteChargingMove:
 	res INVULNERABLE, [hl] ; no longer invulnerable to typical attacks
 	ld a, [wEnemyMoveNum]
 	ld [wNameListIndex], a
-	ld a, BANK(MoveNames)
-	ld [wPredefBank], a
-	ld a, MOVE_NAME
-	ld [wNameListType], a
-	call GetName
+	call GetMoveNameCommon
 	ld de, wNameBuffer
 	call CopyToStringBuffer
 EnemyCanExecuteMove:
@@ -6577,12 +6573,7 @@ GetCurrentMove:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call FarCopyData
-
-	ld a, BANK(MoveNames)
-	ld [wPredefBank], a
-	ld a, MOVE_NAME
-	ld [wNameListType], a
-	call GetName
+	call GetMoveNameCommon
 	ld de, wNameBuffer
 	jp CopyToStringBuffer
 

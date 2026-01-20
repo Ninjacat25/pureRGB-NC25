@@ -121,14 +121,18 @@ IsItemHM::
 	;jp IsInArray
 
 GetMoveName::
-	push hl
-	ld a, MOVE_NAME
-	ld [wNameListType], a
 	ld a, [wNamedObjectIndex]
 	ld [wNameListIndex], a
-	ld a, BANK(MoveNames)
-	ld [wPredefBank], a
-	call GetName
+	call GetMoveNameCommon
 	ld de, wNameBuffer
+	ret
+
+GetMoveNameCommon::
+	push hl
+	push bc
+	push de
+	callfar _GetMoveName
+	pop de
+	pop bc
 	pop hl
 	ret

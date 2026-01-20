@@ -200,7 +200,6 @@ HandleMovedexListMenu:
 	jr nz, .printMoveLoop
 	ld a, 01
 	ldh [hAutoBGTransferEnabled], a
-	call Delay3
 	call GBPalNormal
 	call HandleMenuInput
 	bit BIT_START, a

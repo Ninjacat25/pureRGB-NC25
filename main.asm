@@ -365,6 +365,7 @@ INCLUDE "engine/pokemon/get_mon_header.asm"
 INCLUDE "engine/pokemon/evos_moves.asm"
 INCLUDE "data/pokemon/base_stats.asm"
 INCLUDE "engine/pokemon/read_level_up_learnsets.asm"
+INCLUDE "engine/pokemon/get_move_name.asm"
 
 SECTION "Splash Animation", ROMX
 ; PureRGBnote: MOVED: moved from bank1C

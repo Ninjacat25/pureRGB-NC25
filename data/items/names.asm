@@ -1,3 +1,4 @@
+; TODO: change to be a jump table?
 ItemNames::
 	list_start
 	li "MASTER BALL"

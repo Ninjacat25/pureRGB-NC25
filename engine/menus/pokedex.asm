@@ -413,7 +413,6 @@ HandlePokedexListMenu:
 	jr nz, .printPokemonLoop
 	ld a, 01
 	ldh [hAutoBGTransferEnabled], a
-	call Delay3
 	call GBPalNormal
 	call HandleMenuInput
 ;;;;;;;;;; PureRGBnote: ADDED: track the SELECT button in order to trigger town map when able

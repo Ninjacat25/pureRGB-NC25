@@ -68,8 +68,7 @@ DisplayListMenuIDLoop::
 	call PrintListMenuEntries
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a ; enable transfer
-	rst _DelayFrame
-	rst _DelayFrame
+	rst _DelayFrame	; PureRGBnote: Reduced delay for faster menu scrolling, we delay in handleMenuInput for 3 frames anyway
 	ld a, [wBattleType]
 	and a ; is it the Old Man battle?
 	jr z, .notOldManBattle

@@ -3,7 +3,7 @@
 ; Control characters (see home/text.asm)
 
 	charmap "<NULL>",    $00
-	charmap "is",        $3E ; PureRGBnote: ADDED: single byte version of is
+	DEF FIRST_TEXT_SHORCUT_ID EQU $3F
 	charmap "or",        $3F ; PureRGBnote: ADDED: single byte version of or
 	charmap "ing",       $40 ; PureRGBnote: ADDED: single byte version of ing
 	charmap "the",       $41 ; PureRGBnote: ADDED: single byte version of the
@@ -18,6 +18,7 @@
 	charmap "<PKMN>",    $4a ; "<PK><MN>"
 	charmap "<_CONT>",   $4b ; implements "<CONT>"
 	charmap "<SCROLL>",  $4c
+	charmap "is",        $4d ; PureRGBnote: ADDED: single byte version of is
 	charmap "<NEXT>",    $4e
 	charmap "<LINE>",    $4f
 	charmap "@",         $50 ; string terminator
@@ -36,6 +37,7 @@
 	charmap "<TRAINER>", $5d ; "TRAINER"
 	charmap "<ROCKET>",  $5e ; "ROCKET"
 	charmap "<DEXEND>",  $5f
+	DEF LAST_TEXT_SHORTCUT_ID EQU $5f
 
 ; Actual characters (from gfx/font/font_extra.png)
 

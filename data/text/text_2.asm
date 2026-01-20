@@ -1071,12 +1071,12 @@ _ConfusedNoMoreText::
 	line "confused no more!"
 	prompt
 
-_SavingEnergyText::
+_SavingEnergyText:: ; TODO: unused?
 	text "<USER>"
 	line "is saving energy!"
 	prompt
 
-_UnleashedEnergyText::
+_UnleashedEnergyText:: ; TODO: unused?
 	text "<USER>"
 	line "unleashed energy!"
 	prompt
@@ -1815,10 +1815,10 @@ _WillBeTradedText::
 	cont "be traded."
 	done
 
-_TextIDErrorText::
-	text_decimal hTextID, 1, 2
-	text " ERROR."
-	done
+;_TextIDErrorText::
+;	text_decimal hTextID, 1, 2
+;	text " ERROR."
+;	done
 
 _ContCharText::
 	text "<_CONT>@"
