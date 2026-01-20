@@ -397,7 +397,7 @@ db " v"
 INCLUDE "version_number.asm"
 db "@"
 
-; TODO: optimize below here
+; TODO: optimize below here, duplicated code
 
 DisplayContinueGameInfo:
 	xor a
@@ -415,7 +415,7 @@ DisplayContinueGameInfo:
 	call PrintNumBadges
 	hlcoord 16, 13
 	call PrintNumOwnedMons
-	hlcoord 13, 15
+	hlcoord 11, 15
 	call PrintPlayTime
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
@@ -439,7 +439,7 @@ PrintSaveScreenText:
 	call PrintNumBadges
 	hlcoord 16, 6
 	call PrintNumOwnedMons
-	hlcoord 13, 8
+	hlcoord 11, 8
 	call PrintPlayTime
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
@@ -468,7 +468,7 @@ PrintNumOwnedMons:
 
 PrintPlayTime:
 	ld de, wPlayTimeHours
-	lb bc, 1, 3
+	lb bc, 2, 5
 	call PrintNumber
 	ld a, $6d
 	ld [hli], a

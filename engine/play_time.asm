@@ -3,9 +3,9 @@ TrackPlayTime::
 	ld a, [wStatusFlags6]
 	bit BIT_GAME_TIMER_COUNTING, a
 	ret z
-	ld a, [wPlayTimeMaxed]
-	and a
-	ret nz
+	ld a, [wPlayTimeHours]
+	cp $ff
+	ret z
 	ld a, [wPlayTimeFrames]
 	inc a
 	ld [wPlayTimeFrames], a
@@ -27,13 +27,14 @@ TrackPlayTime::
 	ret nz
 	xor a
 	ld [wPlayTimeMinutes], a
-	ld a, [wPlayTimeHours]
-	inc a
-	ld [wPlayTimeHours], a
-	cp $ff
-	ret nz
-	ld a, $ff
-	ld [wPlayTimeMaxed], a
+	push hl
+	ld hl, wPlayTimeHours + 1
+	inc [hl]
+	jr nz, .next
+	dec hl
+	inc [hl]
+.next
+	pop hl
 	ret
 
 CountDownIgnoreInputBitReset:

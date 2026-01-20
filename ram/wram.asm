@@ -2731,8 +2731,7 @@ wSpriteOptions4:: db
 wOptions3:: db
 ;;;;;;;;;;
 
-wPlayTimeHours:: db
-wPlayTimeMaxed:: db
+wPlayTimeHours:: dw ; TODO: save file updater copy high byte to low byte
 wPlayTimeMinutes:: db
 wPlayTimeSeconds:: db
 wPlayTimeFrames:: db
