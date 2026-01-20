@@ -1784,7 +1784,7 @@ ButItFailedText:
 	text_far _ButItFailedText
 	text_end
 
-PrintDidntAffectText:
+PrintDidntAffectText::
 	ld hl, DidntAffectText
 	rst _PrintText
 	ret
@@ -1977,3 +1977,6 @@ AcidEffect:
 	pop hl
 	ld [hl], ACID_SIDE_EFFECT
 	ret
+
+AccuracyDownEffect::
+	jpfar _AccuracyDownEffect

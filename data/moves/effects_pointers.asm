@@ -22,7 +22,7 @@ MoveEffectPointerTable:
 	dw StatModifierDownEffect    ; DEFENSE_DOWN1_EFFECT
 	dw StatModifierDownEffect    ; SPEED_DOWN1_EFFECT
 	dw StatModifierDownEffect    ; SPECIAL_DOWN1_EFFECT
-	dw StatModifierDownEffect    ; ACCURACY_DOWN1_EFFECT
+	dw AccuracyDownEffect        ; ACCURACY_DOWN1_EFFECT
 	dw StatModifierDownEffect    ; EVASION_DOWN1_EFFECT
 	dw TriAttackEffect           ; TRI_ATTACK_EFFECT
 	dw HazeEffect                ; HAZE_EFFECT

@@ -345,6 +345,7 @@ PotentiallyPointlessMoveEffectsJumpTable:
 	dbw GROWTH_EFFECT, CheckFullHealth
 	dbw DEFENSE_CURL_EFFECT, CheckDefenseCurlUp
 	dbw ACID_ARMOR_EFFECT, CheckBothReflectLightScreenUp
+	dbw ACCURACY_DOWN1_EFFECT, CheckAccuracyDownWorks
 	db -1
 
 StatusAilmentMoveEffects:
@@ -460,12 +461,7 @@ CheckSeeded:
 	jr nz, CheckTypeMatchesB.discourage ; if the enemy has used leech seed don't use again
 	ld b, GRASS
 CheckTypeMatchesB:
-	ld a, [wAIMoveSpamAvoider]
-	cp 2 ; set to 2 if we switched out this turn
-	ld hl, wBattleMonType1
-	jr nz, .noSwitchOut
-	ld hl, wAITargetMonType1 ; stores what the AI thinks the player's type is when a switchout happens
-.noSwitchOut	
+	call GetTargetTypeFromMod1
 	ld a, [hli]
 	cp b
 	jr z, .discourage ; leech seed does not affect grass types
@@ -522,6 +518,24 @@ WillOHKOMoveAlwaysFail:
 	scf
 	ret
 ;;;;;;;;;;
+
+CheckAccuracyDownWorks:
+	call GetTargetTypeFromMod1
+	ld d, h
+	ld e, l
+	ld a, [wEnemyMoveNum]
+	ld c, a
+	callfar FarAccuracyDownEffectivenessCheck
+	ccf ; c = doesn't work instead of c = works
+	ret
+
+GetTargetTypeFromMod1:
+	ld a, [wAIMoveSpamAvoider]
+	cp 2 ; set to 2 if we switched out this turn
+	ld hl, wBattleMonType1
+	ret nz
+	ld hl, wAITargetMonType1 ; stores what the AI thinks the player's type is when a switchout happens
+	ret
 
 ; PureRGBnote: CHANGED: AKA the "Boost stats on the first turn" subroutine
 ; slightly encourage moves with specific effects on the first turn. (PureRGBnote: FIXED: used to be the second turn, made it first turn)

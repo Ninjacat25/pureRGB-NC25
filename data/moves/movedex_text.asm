@@ -277,7 +277,18 @@ _RollingKickDexEntry::
 _SandAttackDexEntry::
 	text "Blinds the foe"
 	next "with a spray of"
-	next "sand."
+	next "sand.@"
+
+	text_call _GenericLowerAccuracyText
+
+	bage "GROUND-types live"
+	next "in earth, so they"
+	next "are unaffected."
+
+	bage "FLYING #MON's"
+	next "keen eyes are"
+	next "also unaffected"
+	dex
 	; fall through
 _GenericLowerAccuracyText::
 	bage "Lowers the foe's"
@@ -1129,7 +1140,12 @@ _SmokescreenDexEntry::
 	next "shot everywhere,"
 	next "blinding the foe.@"
 
-	text_jump _GenericLowerAccuracyText
+	text_call _GenericLowerAccuracyText
+
+	bage "FIRE types are"
+	next "unaffected by this"
+	next "smoke"
+	dex
 
 _ConfuseRayDexEntry::
 	text "Strange rays of"
