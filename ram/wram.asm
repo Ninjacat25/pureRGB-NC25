@@ -1737,7 +1737,7 @@ wSpriteDecodeTable1Ptr:: dw
 wCurSpecies::
 ; input for GetName
 wNameListIndex:: db
-wNameListType:: db
+	ds 1 ; unused lone byte
 
 wPredefBank:: db
 

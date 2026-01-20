@@ -24,13 +24,9 @@ CheckLoadTmName:: ; loads a TM name when the cursor is on TMs
 	hlcoord 4, 13
 	lb bc, 1, 14  ; height, width
 	call TextBoxBorderUpdateSprites
-	ld a, [wNameListType] ; GetMoveName changes this value so we need to back it up
-	push af
 	ld a, [wNamedObjectIndex]
 	ld [wMoveNum], a
 	call GetMoveName
-	pop af
-	ld [wNameListType], a
 	pop af
 	call CopyToStringBuffer
 	bccoord 6, 14

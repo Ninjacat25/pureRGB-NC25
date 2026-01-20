@@ -70,7 +70,6 @@ DEF BIT_HAS_CHANGED_BOXES EQU 7
 	const BIT_MARSHBADGE   ; 5
 	const BIT_VOLCANOBADGE ; 6
 	const BIT_EARTHBADGE   ; 7
-DEF NUM_BADGES EQU const_value
 
 ; wStatusFlags1
 	const_def

@@ -84,18 +84,3 @@ ItemPrices::
 	bcd3 2000  ; ELIXER
 	bcd3 4000  ; MAX_ELIXER
 	assert_table_length NUM_ITEMS
-	bcd3 0     ; FLOOR_B2F
-	bcd3 0     ; FLOOR_B1F
-	bcd3 0     ; FLOOR_1F
-	bcd3 0     ; FLOOR_2F
-	bcd3 0     ; FLOOR_3F
-	bcd3 0     ; FLOOR_4F
-	bcd3 0     ; FLOOR_5F
-	bcd3 0     ; FLOOR_6F
-	bcd3 0     ; FLOOR_7F
-	bcd3 0     ; FLOOR_8F
-	bcd3 0     ; FLOOR_9F
-	bcd3 0     ; FLOOR_10F
-	bcd3 0     ; FLOOR_11F
-	bcd3 0     ; FLOOR_B4F
-	assert_table_length NUM_ITEMS + NUM_FLOORS

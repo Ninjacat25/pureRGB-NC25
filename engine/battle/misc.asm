@@ -68,11 +68,9 @@ InitBagItemList::
 InitItemList::
 	ld hl, wItemList
 .names
-	ld de, ItemNames
 	ld a, ITEM_NAME
 	; fall through
 InitListLoad:
-	ld [wNameListType], a
 	ld a, l
 	ld [wListPointer], a
 	ld a, h

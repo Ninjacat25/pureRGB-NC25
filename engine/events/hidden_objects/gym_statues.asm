@@ -78,7 +78,7 @@ GetStatueNames:
 	ld hl, wNameBuffer
 	jp CopyString
 
-; TODO: user trainer names? GetTrainerName_
+; TODO: user trainer names? GetTrainerName
 StatueTextMap::
 	db PEWTER_GYM, 
 	dw PewterCityName, BrockName

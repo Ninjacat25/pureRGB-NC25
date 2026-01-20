@@ -32,13 +32,14 @@ CeruleanBadgeHouseMiddleAgedManText:
 	xor a
 	ld [wPrintItemPrices], a
 	ld [wMenuItemToSwap], a
-	ld a, SPECIALLISTMENU
+	ld a, CUSTOMLISTMENU
 	ld [wListMenuID], a
+	ld a, 3 ; badge menu
+	ld [wListMenuCustomType], a
 	call DisplayListMenuID
 	jr c, .done
 	ld hl, CeruleanBadgeHouseBadgeTextPointers
-	ld a, [wCurItem]
-	sub BOULDERBADGE
+	ld a, [wCurListMenuItem]
 	add a
 	ld d, $0
 	ld e, a

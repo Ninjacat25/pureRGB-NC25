@@ -133,10 +133,8 @@ DisplayListMenuIDLoop::
 	ld [wMaxItemQuantity], a
 .skipGettingQuantity
 	ld a, [wCurItem]
-	ld [wNameListIndex], a
-	ld a, BANK(ItemNames)
-	ld [wPredefBank], a
-	call GetName
+	ld [wNamedObjectIndex], a
+	call GetItemName
 	jr .storeChosenEntry
 .pokemonList
 	ASSERT wCurListMenuItem == wCurPartySpecies

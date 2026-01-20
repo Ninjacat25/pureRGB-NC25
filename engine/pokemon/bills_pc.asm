@@ -96,8 +96,6 @@ BillsPC_::
 	set BIT_NO_TEXT_DELAY, [hl]
 	xor a
 	ld [wParentMenuItem], a
-	inc a               ; MONSTER_NAME
-	ld [wNameListType], a
 	call LoadHpBarAndStatusTilePatterns
 	ld a, [wListScrollOffset]
 	push af
@@ -412,8 +410,6 @@ DisplayMonListMenu:
 	xor a
 	ld [wPrintItemPrices], a
 	ld [wListMenuID], a
-	inc a                ; MONSTER_NAME
-	ld [wNameListType], a
 	ld a, [wPartyAndBillsPCSavedMenuItem]
 	ld [wCurrentMenuItem], a
 	call DisplayListMenuID

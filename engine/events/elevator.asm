@@ -13,8 +13,10 @@ DisplayElevatorFloorMenu:
 	ld [wListPointer], a
 	ld a, h
 	ld [wListPointer + 1], a
-	ld a, SPECIALLISTMENU
+	ld a, CUSTOMLISTMENU
 	ld [wListMenuID], a
+	ld a, 4 ; elevator floors
+	ld [wListMenuCustomType], a
 	call DisplayListMenuID
 	jr c, .done ; if cancel was selected
 	ld hl, wElevatorWarpMaps

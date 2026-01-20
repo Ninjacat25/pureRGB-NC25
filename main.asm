@@ -38,6 +38,7 @@ INCLUDE "engine/menus/menu_list_tm_name_loader.asm" ; PureRGBnote: ADDED: code f
 INCLUDE "engine/menus/wrap_list_menu.asm" ; PureRGBnote: ADDED: code for wrapping to the bottom and top of lists by pressing dpad left
 INCLUDE "engine/menus/custom_list_menu.asm"
 INCLUDE "engine/gfx/flip_sprite_oam.asm"
+INCLUDE "engine/items/get_item_name.asm"
 
 
 SECTION "bank3", ROMX
@@ -92,7 +93,6 @@ INCLUDE "engine/items/tms.asm"
 ; INCLUDE "engine/battle/end_of_battle.asm" ; moved to newCode2
 INCLUDE "engine/battle/wild_encounters.asm"
 ; INCLUDE "engine/battle/move_effects/recoil.asm" ; moved to battle engine 9
-INCLUDE "engine/battle/get_trainer_name.asm"
 INCLUDE "engine/math/random.asm"
 INCLUDE "engine/pokemon/read_tm_learnsets.asm"
 
@@ -121,7 +121,7 @@ INCLUDE "engine/overworld/ledges.asm"
 
 SECTION "Pokémon Names", ROMX ; PureRGBnote: MOVED: this section was assigned to a later bank
 
-INCLUDE "data/pokemon/names.asm"
+INCLUDE "engine/pokemon/get_mon_name.asm"
 INCLUDE "engine/movie/oak_speech/clear_save.asm"
 INCLUDE "engine/events/elevator.asm"
 
@@ -474,3 +474,7 @@ INCLUDE "engine/battle/animations/custom_send_out_mon_ball_poof_animations.asm"
 INCLUDE "engine/menus/ball_customization_menu.asm"
 INCLUDE "engine/events/camera.asm"
 INCLUDE "engine/battle/accuracy_down.asm"
+INCLUDE "engine/events/get_badge_name.asm"
+INCLUDE "engine/events/get_floor_name.asm"
+INCLUDE "engine/items/get_machine_name.asm"
+INCLUDE "engine/battle/get_trainer_name.asm"

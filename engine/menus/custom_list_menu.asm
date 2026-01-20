@@ -3,6 +3,8 @@ CustomListMenuTextMethods:
 	dw GetMonNameListMenu
 	dw GetTrainerNameListMenu
 	dw GetChampArenaMusicNameListMenu
+	dw GetBadgeNameListMenu
+	dw GetFloorNameListMenu
 
 CustomListMenuGetEntryText::
 	push hl
@@ -19,12 +21,18 @@ GetMonNameListMenu:
 GetTrainerNameListMenu:
 	ld a, [wNamedObjectIndex]
 	ld [wTrainerClass], a
-	callfar GetTrainerName_
+	callfar GetTrainerName
 	ld de, wTrainerName
 	ret
 
 GetChampArenaMusicNameListMenu:
 	jpfar GetChampArenaMusicNameIntoWRAM
+
+GetBadgeNameListMenu:
+	jpfar GetBadgeName
+
+GetFloorNameListMenu:
+	jpfar GetFloorName
 
 CheckLoadHoverText::
 	push af

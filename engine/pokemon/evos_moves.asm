@@ -165,11 +165,8 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld [wCurSpecies], a
 	ld [wLoadedMonSpecies], a
 	ld [wEvoNewSpecies], a
-	ld a, MONSTER_NAME
-	ld [wNameListType], a
-	ld a, BANK(TrainerNames) ; bank is not used for monster names
-	ld [wPredefBank], a
-	call GetName
+	ld [wNamedObjectIndex], a
+	call GetMonName
 	push hl
 	ld hl, IntoText
 	call PrintText_NoCreatingTextBox
@@ -323,7 +320,8 @@ RenameEvolvedMon:
 	push af
 	ld a, [wMonHIndex]
 	ld [wNameListIndex], a
-	call GetName
+	ld [wNamedObjectIndex], a
+	call GetMonName
 	pop af
 	ld [wCurSpecies], a
 	ld hl, wNameBuffer
@@ -341,7 +339,7 @@ RenameEvolvedMon:
 	ld hl, wPartyMonNicks
 	call AddNTimes
 	push hl
-	call GetName
+	call GetMonName
 	ld hl, wNameBuffer
 	pop de
 	jp CopyData

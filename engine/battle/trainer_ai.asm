@@ -1058,8 +1058,6 @@ ReadMove:
 
 INCLUDE "data/trainers/move_choices.asm"
 
-INCLUDE "data/trainers/names.asm"
-
 INCLUDE "engine/battle/misc.asm"
 
 INCLUDE "engine/battle/read_trainer_party.asm"

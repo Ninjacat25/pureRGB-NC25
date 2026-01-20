@@ -23,7 +23,7 @@ LearnsetTrainerScriptDefault:
 	ld a, [wTrainerClass]
 	cp $FF
 	jr z, .skipGetTrainerName
-	callfar GetTrainerName_
+	callfar GetTrainerName
 .skipGetTrainerName
 	pop af
 	ld [wNamedObjectIndex], a
