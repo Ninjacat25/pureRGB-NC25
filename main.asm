@@ -25,7 +25,6 @@ INCLUDE "engine/items/subtract_paid_money.asm"
 INCLUDE "engine/menus/swap_items.asm"
 INCLUDE "engine/events/pokemart.asm"
 INCLUDE "engine/pokemon/learn_move.asm"
-INCLUDE "engine/events/pokecenter.asm"
 INCLUDE "engine/events/set_blackout_map.asm"
 INCLUDE "engine/menus/display_text_id_init.asm"
 INCLUDE "engine/menus/draw_start_menu.asm"
@@ -387,6 +386,8 @@ INCLUDE "engine/gfx/animated_tiles_code.asm"
 INCLUDE "engine/overworld/fly_animation.asm"
 ; moved from audio home code
 INCLUDE "audio/check_bike_surf_music.asm"
+; moved from bank1
+INCLUDE "engine/events/pokecenter.asm"
 
 SECTION "Party Sprites", ROMX, BANK[$34]
 ; PureRGBnote: ADDED: new menu sprite icons raw data

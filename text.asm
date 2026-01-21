@@ -77,6 +77,7 @@ INCLUDE "text/Daycare.asm"
 INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/ProspectorsHouse.asm"
 INCLUDE "text/MoveMystic.asm"
+INCLUDE "text/PokemonCenterChamp.asm"
 
 
 SECTION "Text 4", ROMX
@@ -290,7 +291,6 @@ SECTION "Text 12", ROMX
 INCLUDE "text/TypeGuysHouse.asm"
 INCLUDE "text/ChampArena.asm"
 INCLUDE "text/DiamondMine.asm"
-INCLUDE "text/OptionsInfoText.asm"
 
 SECTION "Text 13", ROMX
 INCLUDE "text/PokemonTowerCatacombs.asm"
@@ -303,6 +303,7 @@ INCLUDE "text/FightingDojoExpertClub.asm"
 SECTION "Text 14", ROMX
 INCLUDE "text/CeruleanBallDesigner.asm"
 INCLUDE "text/CameraEvents.asm"
+INCLUDE "text/OptionsInfoText.asm"
 
 SECTION "Pokédex Text", ROMX
 
