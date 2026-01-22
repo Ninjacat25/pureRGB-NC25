@@ -128,6 +128,21 @@ _WigglytuffMoveMysticText::
 	line "globular glory."
 	prompt
 
+_GolduckMoveMysticText::
+	text_start
+	line "dangerous duck."
+	prompt
+
+_DewgongMoveMysticText::
+	text_start
+	line "splendid seal."
+	prompt
+
+_ArcanineMoveMysticText::
+	text_start
+	line "heroic hound."
+	prompt
+
 _MoveMysticMasterOfMoveText::
 	text "It's a master"
 	line "of @"
@@ -171,6 +186,11 @@ _MoveMysticBeedrillText::
 _MoveMysticAccuracy85::
 	text "Its ACCURACY"
 	line "increases to 85%!"
+	done
+
+_MoveMysticAccuracy100::
+	text "Its ACCURACY"
+	line "increases to 100%!"
 	done
 
 _MoveMysticJigglyWigglyOnlyLevel20Text::

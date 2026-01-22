@@ -970,7 +970,11 @@ _ToxicDexEntry::
 
 	bage "The damage poison"
 	next "does to the foe"
-	next "grows each turn"
+	next "grows each turn."
+
+	bage "Accuracy increases"
+	next "to 100% when used"
+	next "by POISON #MON"
 	dex
 
 _ConfusionDexEntry::
@@ -1410,7 +1414,12 @@ _SkullBashDexEntry::
 
 	bage "rock-hard skull.@"
 
-	text_jump _GenericKeptGoingCrashedText
+	text_call _GenericKeptGoingCrashedText
+	
+	bage "Accuracy increases"
+	next "to 100% when used"
+	next "by ROCK #MON"
+	dex
 
 _SpikeCannonDexEntry::
 	text "Rock-hard spikes"

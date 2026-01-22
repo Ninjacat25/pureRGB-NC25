@@ -74,6 +74,8 @@ RemappableMoves::
 	db EXPLOSION, -1, -2, 2
 	db SELFDESTRUCT, -1, -2, 2
 	db KINESIS, -1, -2, 3 ; FIREWALL
+	db TOXIC, -1, -2, 4
+	db SKULL_BASH, -1, -2, 5
 	db POISON_STING, BEEDRILL, 45, 0
 	db TWINEEDLE, BEEDRILL, 65, 0 
 	db ACID, ARBOK, 100, 0
@@ -90,6 +92,9 @@ RemappableMoves::
 	db DIZZY_PUNCH, KANGASKHAN, 130, 0
 	db LICK, LICKITUNG, 70, 0
 	db SPIKE_CANNON, OMASTAR, 70, 0
+	db FIRE_BLAST, ARCANINE, -1, 100 percent
+	db BLIZZARD, DEWGONG, -1, 100 percent
+	db PSYBEAM, GOLDUCK, 105, 0
 	db -1
 
 ModifierFuncs:
@@ -97,6 +102,8 @@ ModifierFuncs:
 	dw SingModifier
 	dw ExplosionSelfdestructModifier
 	dw FirewallModifier
+	dw ToxicModifier
+	dw SkullBashModifier
 
 CheckIfAsleep::
 	ldh a, [hWhoseTurn]
@@ -255,3 +262,40 @@ GetRemappedMoveAndPowerFromPokemon::
 	inc hl
 	ld e, [hl] ; move remapped power
 	ret
+
+GetUserType:
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wBattleMonType1
+	ret z
+	ld hl, wEnemyMonType1
+	ret
+
+ToxicModifier:
+	call GetUserType
+	ld a, [hli]
+	cp POISON
+	jr z, Modifier100Accuracy
+	ld a, [hl]
+	cp POISON
+	ret nz
+	; fall through
+Modifier100Accuracy:
+	call GetMoveRemapData2
+	ld a, 100 percent
+	ld [de], a
+	ret
+
+SkullBashModifier:
+	call GetUserType
+	ld a, [hli]
+	cp ROCK
+	jr z, Modifier100Accuracy
+	cp CRYSTAL
+	jr z, Modifier100Accuracy
+	ld a, [hl]
+	cp ROCK
+	jr z, Modifier100Accuracy
+	cp CRYSTAL
+	ret nz
+	jr Modifier100Accuracy

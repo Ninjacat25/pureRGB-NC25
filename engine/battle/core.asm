@@ -7356,7 +7356,7 @@ InitBattleCommon:
 	callfar InitBattleVariables
 	ld a, [wEnemyMonSpecies2]
 	sub OPP_ID_OFFSET
-	jp c, InitWildBattle
+	jr c, InitWildBattle
 	ld [wTrainerClass], a
 	callfar GetTrainerInformation ; PureRGBnote: MOVED: this function was moved out of home bank
 	callfar ReadTrainer
@@ -7373,7 +7373,7 @@ InitBattleCommon:
 	ld [wEnemyMonPartyPos], a
 	ld a, $2
 	ld [wIsInBattle], a
-	jp _InitBattleCommon
+	jr _InitBattleCommon
 
 ;;;;;;;;;; PureRGBnote: ADDED: this missingno code does the item duplication glitch if it's enabled when encountering missingno
 

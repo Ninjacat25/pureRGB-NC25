@@ -537,6 +537,7 @@ ArcanineEvosMoves:
 	db 36, FLAMETHROWER
 	db 45, SKULL_BASH
 	db 52, BONEMERANG
+	db 56, FIRE_BLAST
 	db 0
 
 MewEvosMoves:
@@ -706,6 +707,7 @@ GrowlitheEvosMoves:
 	db 36, FLAMETHROWER
 	db 45, SKULL_BASH
 	db 52, BONEMERANG
+	db 56, FIRE_BLAST
 	db 0
 
 HardenedOnixEvosMoves:

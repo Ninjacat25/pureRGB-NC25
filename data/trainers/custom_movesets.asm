@@ -183,7 +183,7 @@ ChampArenaSabrinaMoveset:
 	; golduck
 	db HYDRO_PUMP
 	db TELEPORT
-	db PSYCHIC_M
+	db PSYBEAM
 	db HI_JUMP_KICK
 	; alakazam 1
 	db TELEPORT
@@ -332,7 +332,7 @@ ChampArenaKogaMoveset:
 ChampArenaLoreleiMoveset:
 	; dewgong
 	db WITHDRAW
-	db ICE_BEAM
+	db BLIZZARD
 	db SURF
 	db CONSTRICT ; STATIC_SNAG
 	; slowbro

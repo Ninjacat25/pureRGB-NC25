@@ -42,7 +42,5 @@ AccuracyDownEffectivenessCheck::
 	ret z
 	cp FLYING
 	ret z
-	cp CRYSTAL
-	ret z
 	scf
 	ret
