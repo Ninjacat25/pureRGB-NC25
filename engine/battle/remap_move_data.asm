@@ -76,6 +76,7 @@ RemappableMoves::
 	db KINESIS, -1, -2, 3 ; FIREWALL
 	db TOXIC, -1, -2, 4
 	db SKULL_BASH, -1, -2, 5
+	db SLAM, -1, -2, 6 ; FILTHY SLAM
 	db POISON_STING, BEEDRILL, 45, 0
 	db TWINEEDLE, BEEDRILL, 65, 0 
 	db ACID, ARBOK, 100, 0
@@ -104,8 +105,10 @@ ModifierFuncs:
 	dw FirewallModifier
 	dw ToxicModifier
 	dw SkullBashModifier
+	dw FilthySlamModifier
 
 CheckIfAsleep::
+GetOpponentStatus::
 	ldh a, [hWhoseTurn]
 	and a
 	ld bc, wEnemyMonStatus
@@ -299,3 +302,11 @@ SkullBashModifier:
 	cp CRYSTAL
 	ret nz
 	jr Modifier100Accuracy
+
+FilthySlamModifier::
+	call GetOpponentStatus
+	ld a, [bc]
+	bit PSN, a
+	ret z
+	ld [hl], 130 ; increase filthy slam power to 130 if opponent poisoned
+	ret
