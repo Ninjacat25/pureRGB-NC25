@@ -1417,11 +1417,6 @@ AnimationSmokeEverywhere:
 	ld e, $7A
 	jr AnimationTileEverywhereFastInit
 
-AnimationStaticEverywhere: 
-	ld a, 1
-	ld e, $7B
-	jr AnimationTileEverywhereFastInit
-
 AnimationSnowflakesEverywhere: 
 	xor a
 	ld e, $4D
@@ -1738,15 +1733,20 @@ AdjustOAMBlockYPos2:
 	jr nz, .loop
 	ret
 
-AnimationBlinkEnemyMon:
+AnimationBlinkEnemyMon::
 ; Make the enemy mon's sprite blink on and off for a second or two
 	ld hl, AnimationBlinkMon
 	jp CallWithTurnFlipped
 
-AnimationBlinkMon:
+AnimationBlinkMon::
 ; Make the mon's sprite blink on and off for a second or two.
 	push af
 	ld c, 6
+	call BlinkMonCommon
+	pop af
+	ret
+
+BlinkMonCommon::
 .loop
 	push bc
 	call AnimationHideMonPic
@@ -1758,7 +1758,6 @@ AnimationBlinkMon:
 	pop bc
 	dec c
 	jr nz, .loop
-	pop af
 	ret
 
 AnimationFlashMonPic:
@@ -3508,3 +3507,6 @@ AnimationLoadPokeDoll:
 
 AnimationSendOutMonPoofJump:
 	jpfar AnimationSendOutMoonPoof
+
+AnimationSiphonSnagAttack:
+	jpfar _AnimationSiphonSnagAttack

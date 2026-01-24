@@ -430,7 +430,7 @@ SKULLBASHName:
 SPIKECANNONName:
 	db "SPIKE CANNON@"
 CONSTRICTName:
-	db "STATIC SNAG@" ; changed from CONSTRICT
+	db "SIPHON SNAG@" ; changed from CONSTRICT
 AMNESIAName:
 	db "AMNESIA@"
 KINESISName:

@@ -1141,11 +1141,7 @@ SpikeCannonAnim:
 	db -1 ; end
 
 ConstrictAnim:
-	battle_anim SCRATCH, SUBANIM_0_STAR_THRICE, 0, 4
-	battle_anim THUNDER_WAVE, SUBANIM_0_BIND, 0, 6
-	battle_anim CONSTRICT, SUBANIM_0_BIND, 0, 6
-	battle_anim CONSTRICT, SUBANIM_0_BIND, 0, 6
-	battle_anim NO_MOVE, SE_STATIC_EVERYWHERE
+	battle_anim CONSTRICT, SE_SIPHON_SNAG_ATTACK
 	db -1 ; end
 
 AmnesiaAnim:

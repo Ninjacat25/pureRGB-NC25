@@ -370,3 +370,18 @@ _AllDamageHalvedText::
 	text "All damage to it"
 	line "is halved!"
 	prompt
+
+_SiphonSnagHealedUserText::
+	text "<USER>"
+	line "siphoned energy,"
+	cont "curing itself!"
+	prompt
+
+_SiphonSnagHealedPartyText::
+	text "<USER>"
+	line "siphoned energy,"
+	para "curing team member"
+	line "@"
+	text_ram wNameBuffer
+	text "!"
+	prompt

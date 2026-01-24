@@ -1980,3 +1980,6 @@ AcidEffect:
 
 AccuracyDownEffect::
 	jpfar _AccuracyDownEffect
+
+SiphonSnagEffect::
+	jpfar _SiphonSnagEffect

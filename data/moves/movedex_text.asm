@@ -1436,14 +1436,20 @@ _SpikeCannonDexEntry::
 
 _ConstrictDexEntry::
 	text "The <opponent> is"
-	next "snared with an"
-	next "electrostatically"
+	next "snared with a"
+	next "tail or tendril,"
 
-	bage "charged tendril"
-	next "or tail, electro-"
-	next "cuting the foe.@"
+	bage "electrostatically"
+	next "siphoning energy"
+	next "from the foe."
 
-	text_jump _Generic30PercentParalysisText
+	bage "Heals the user's"
+	next "abnormal status,"
+
+	bage "or a party member's"
+	next "abnormal status if"
+	next "the user has none"
+	dex
 
 _AmnesiaDexEntry::
 	text "The <user> empties"

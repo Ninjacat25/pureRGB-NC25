@@ -96,7 +96,7 @@ ChampArenaErikaMoveset:
 	db THUNDER_WAVE
 	; venusaur
 	db GROWTH
-	db CONSTRICT ; STATIC_SNAG
+	db CONSTRICT ; SIPHON_SNAG
 	db SOLARBEAM
 	db EARTHQUAKE
 	; vileplume
@@ -300,7 +300,7 @@ ChampArenaLanceMoveset:
 ChampArenaKogaMoveset:
 	; tentacruel
 	db MEGA_DRAIN
-	db CONSTRICT ; STATIC_SNAG
+	db CONSTRICT ; SIPHON_SNAG
 	db TOXIC
 	db SURF
 	; scyther
@@ -334,7 +334,7 @@ ChampArenaLoreleiMoveset:
 	db WITHDRAW
 	db BLIZZARD
 	db SURF
-	db CONSTRICT ; STATIC_SNAG
+	db CONSTRICT ; SIPHON_SNAG
 	; slowbro
 	db WITHDRAW
 	db PSYCHIC_M

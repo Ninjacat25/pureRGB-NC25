@@ -144,7 +144,7 @@ Moves:
 	move SWIFT,        SWIFT_EFFECT,                60, ICE,          100, 20 ; priority move
 	move SKULL_BASH,   JUMP_KICK_EFFECT,           100, ROCK,          90, 10
 	move SPIKE_CANNON, TWO_OR_THREE_ATTACKS_EFFECT, 42, ROCK,         100, 10
-	move CONSTRICT,    PARALYZE_SIDE_EFFECT2,       75, ELECTRIC,     100, 20 ; -> STATIC SNAG
+	move CONSTRICT,    SIPHON_SNAG_EFFECT,          75, ELECTRIC,     100, 20 ; -> SIPHON SNAG
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC_TYPE, 100, 20 
 	move KINESIS,      FIREWALL_EFFECT,             20, FIRE,          90, 30 ; -> FIREWALL ; burns the opponent, and damage increases with each use on a burned opponent
 	move SOFTBOILED,   HEAL_EFFECT,                  0, NORMAL,       100, 10
