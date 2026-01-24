@@ -283,11 +283,8 @@ _TopSecretKeyText::
 	cont "SECRET KEY."
 	para "It's a lot more"
 	line "worn though."
-	para "What's it open?"
-	para "Maybe a door on"
-	line "CINNABAR ISLAND?"
-	para "It says -B2F-"
-	line "on it."
+	para "Is it from the"
+	line "same facility?"
 	prompt
 
 _ItemUseFossilText::
