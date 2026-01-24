@@ -14,4 +14,5 @@ AlwaysHappenSideEffects:
 	db BONEMERANG_EFFECT ; PureRGBnote: ADDED:
 	db EXPLODE_RECOIL_EFFECT ; PureRGBnote: ADDED:
 	db SIPHON_SNAG_EFFECT ; PureRGBnote: ADDED:
+	db HEAT_RUSH_EFFECT ; PureRGBnote: ADDED:
 	db -1 ; end

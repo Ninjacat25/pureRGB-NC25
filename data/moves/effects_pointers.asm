@@ -95,4 +95,5 @@ MoveEffectPointerTable:
 	dw ConversionEffect          ; CONVERSION_EFFECT
 	dw AcidEffect                ; ACID_EFFECT
 	dw SiphonSnagEffect          ; SIPHON_SNAG_EFFECT
+	dw HeatRushEffect            ; HEAT_RUSH_EFFECT
 	assert_table_length NUM_MOVE_EFFECTS

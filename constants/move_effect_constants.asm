@@ -101,4 +101,5 @@
 	const CONVERSION_EFFECT          ; $5C ; PureRGBnote: ADDED: new effect, used with conversion
 	const ACID_SIDE_EFFECT           ; $5D ; PureRGBnote: ADDED: new effect, 50% attack or defense chance of lowering opponent
 	const SIPHON_SNAG_EFFECT         ; $5E ; PureRGBnote: ADDED: new effect, heals status on self, or a mon in party if no status on self
+	const HEAT_RUSH_EFFECT           ; $5F ; PureRGBnote: ADDED: new effect, 30% burn chance, and if used by a fire pokemon, 40% chance of raising special one stage
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

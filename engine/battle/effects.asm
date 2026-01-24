@@ -1983,3 +1983,51 @@ AccuracyDownEffect::
 
 SiphonSnagEffect::
 	jpfar _SiphonSnagEffect
+
+HeatRushEffect::
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wPlayerMoveEffect
+	ld de, wBattleMonType1
+	jr z, .next
+	ld hl, wEnemyMoveEffect
+	ld de, wEnemyMonType1
+.next
+	ld [hl], SPECIAL_UP1_EFFECT
+	push hl
+	call BattleRandom
+	cp 40 percent + 1
+	jr nc, .skip
+	ld a, [de]
+	cp FIRE
+	jr z, .found
+	inc de
+	ld a, [de]
+	cp FIRE
+	jr nz, .skip
+.found
+	call GetSpecialPointers
+	call IsStatMaxed
+	jr c, .skip
+	SetEvent FLAG_SKIP_STAT_ANIMATION
+	call StatModifierUpEffect
+	ResetEvent FLAG_SKIP_STAT_ANIMATION
+.skip
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wEnemyMonHP
+	jr z, .playersTurn
+	ld hl, wBattleMonHP
+.playersTurn
+	ld a, [hli]
+	ld b, [hl]
+	or b
+	jr z, .done ; if foe is fainted, don't try to burn anyone
+	pop hl
+	push hl
+	ld [hl], BURN_SIDE_EFFECT2
+	call FreezeBurnParalyzeEffect
+.done
+	pop hl
+	ld [hl], HEAT_RUSH_EFFECT
+	ret

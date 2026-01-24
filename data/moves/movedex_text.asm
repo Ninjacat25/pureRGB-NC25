@@ -357,7 +357,14 @@ _TakeDownDexEntry::
 	next "raging flames."
 
 	bage "30% chance of"
-	next "burning the foe"
+	next "burning the foe."
+
+	bage "If used by a FIRE"
+	next "type #MON,"
+
+	bage "also has a 40%"
+	next "chance of raising"
+	next "SPECIAL 1 stage"
 	dex
 
 _ThrashDexEntry::

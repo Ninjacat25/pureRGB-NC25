@@ -48,7 +48,7 @@ Moves:
 	move TACKLE,       NO_ADDITIONAL_EFFECT,        35, NORMAL,       100, 35
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       85, NORMAL,       100, 15
 	move WRAP,         TRAPPING_EFFECT,             22, NORMAL,        85, 15
-	move TAKE_DOWN,    BURN_SIDE_EFFECT2,           75, FIRE,         100, 20 ; -> HEAT RUSH
+	move TAKE_DOWN,    HEAT_RUSH_EFFECT,            75, FIRE,         100, 20 ; -> HEAT RUSH
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,   90, NORMAL,       100, 20
 	move DOUBLE_EDGE,  RECOIL_EFFECT,          	   120, NORMAL,       100, 10
 	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 30
