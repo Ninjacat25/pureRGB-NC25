@@ -14,4 +14,5 @@
 	const FLOOR_10F     ; 11
 	const FLOOR_11F     ; 12
 	const FLOOR_B4F     ; 13
+	const FLOOR_B3F     ; 14
 DEF NUM_FLOORS EQU const_value

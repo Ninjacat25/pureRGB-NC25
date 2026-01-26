@@ -28,4 +28,5 @@ FloorNames:
 	db "10F@"
 	db "11F@"
 	db "B4F@"
+	db "B3F@"
 	assert_table_length NUM_FLOORS

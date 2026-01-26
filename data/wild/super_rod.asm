@@ -180,3 +180,22 @@ FindSuperRodLocations:
 	inc de
 	jr .nextMap
 
+DoesMapHaveSuperRodEncounters::
+	ld a, d
+	ld hl, SuperRodData
+	ld de, 3
+	jp IsInArray
+
+CopySuperRodEncounters:
+	call DoesMapHaveSuperRodEncounters
+	ret nc
+	inc hl
+	hl_deref
+	ld a, [hl]
+	add a
+	inc a
+	ld c, a
+	ld b, 0
+	ld de, wSuperRodCount
+	rst _CopyData
+	ret

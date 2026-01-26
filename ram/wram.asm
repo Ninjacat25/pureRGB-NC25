@@ -745,8 +745,16 @@ wFlyLocationsList:: ds NUM_CITY_MAPS + 2
 
 NEXTU
 wWhichTownMapLocation:: db
+wCurTownMapMaxWildDataFloorIndex::
 wFlyAnimCounter:: db
+wCurTownMapWildDataFloorIndex::
 wFlyAnimBirdSpriteImageIndex:: db
+wCurTownMapWildDataMap:: db
+; 0 = grass / ground
+; 1 = water
+; 2 = super rod
+wCurTownMapWildDataType:: db
+wCurTownMapInternalWildDataMap:: db
 
 NEXTU
 	ds 1
@@ -1189,7 +1197,10 @@ wPartyHPBarAttributes::
 	ds 20
 
 NEXTU
-	ds 29
+	ds 20
+
+wSuperRodCount::db
+wSuperRodMons:: ds 8
 ; storage buffer for various strings
 wStringBuffer:: ds 20
 

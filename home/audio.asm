@@ -468,3 +468,14 @@ ResumeMusic::
 	xor a
 	ld [wMuteAudioAndPauseMusic], a
 	ret
+
+PlaySoundOverrideCurrent::
+	push af
+	push hl
+	push bc
+	call StopSFXChannels
+	pop bc
+	pop hl
+	pop af
+	rst _PlaySound
+	ret
