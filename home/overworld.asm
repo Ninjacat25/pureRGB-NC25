@@ -1895,7 +1895,7 @@ CollisionCheckOnWater::
 .stopSurfToWalking
 ;;;;;
 	ld [wWalkBikeSurfState], a
-	call nz, PlayDefaultMusic ; play default music if walking but not if lava suit
+	call nz, PlayDefaultMusicWithExtraCheck ; play default music if walking but not if lava suit
 	call LoadPlayerSpriteGraphics
 	jr .noCollision
 

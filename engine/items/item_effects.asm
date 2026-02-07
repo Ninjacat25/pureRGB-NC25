@@ -828,11 +828,7 @@ ItemUseBicycle:
 	jr nz, .playGetOnBikeSound
 	ret
 .playDefaultMusic
-	ld a, [wCurMapConnections]
-	bit BIT_EXTRA_MUSIC_MAP, a
-	jp z, PlayDefaultMusic
-	ld d, 1
-	jpfar TryPlayExtraMusic
+	jp PlayDefaultMusicWithExtraCheck
 ;;;;;;;;;; PureRGBnote: ADDED: small sound effects for getting on/off bike
 .playGetOnBikeSound
 	ld a, SFX_PRESS_AB

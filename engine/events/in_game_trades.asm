@@ -181,8 +181,8 @@ PlayInGameTradeMusic:
 	ld hl, Music_Route3_Early
 	jp PlaySpecialFieldMusic
 .evoMusic
-	ld a, MUSIC_SAFARI_ZONE
-	ld c, BANK(Music_SafariZone)
+	ld a, MUSIC_EVOLUTION
+	ld c, BANK(Music_Evolution)
 	jp PlayMusic
 
 GetTradeMonPalette:

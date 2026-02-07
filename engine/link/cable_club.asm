@@ -816,9 +816,9 @@ TradeCenter_Trade:
 	ld [wTradedEnemyMonSpecies], a
 	ld a, 10
 	ld [wAudioFadeOutControl], a
-	ld a, BANK(Music_SafariZone)
+	ld a, BANK(Music_Evolution)
 	ld [wAudioSavedROMBank], a
-	ld a, MUSIC_SAFARI_ZONE
+	ld a, MUSIC_EVOLUTION
 	; TODO: playmusic?
 	ld [wNewSoundID], a
 	rst _PlaySound

@@ -174,3 +174,31 @@ SafariZoneCenterTrainerEndBattleText3:
 SafariZoneCenterTrainerAfterBattleText3:
 	text_far _SafariZoneCenterManiacAfterBattleText
 	text_end
+
+SafariZonePlayMusic::
+	ld a, [wWalkBikeSurfState]
+	cp BIKING
+	jr z, .bikeCheck
+.noBikeMusic
+	ld a, [wOptions2]
+	bit BIT_MUSIC, a
+	jr z, .ogMusic
+	ld a, MUSIC_SAFARI_ZONE_EXPANDED
+	ld [wReplacedMapMusic], a
+	ld hl, Music_SafariZone
+	ld c, BANK(Music_SafariZone)
+	jp PlaySpecialFieldMusic
+.ogMusic
+	xor a
+	ld [wReplacedMapMusic], a
+	ld hl, Music_Evolution_In_SafariZone
+	ld c, BANK(Music_Evolution_In_SafariZone)
+	jp PlaySpecialFieldMusic
+.bikeCheck
+	ld a, [wOptions2]
+	bit BIT_BIKE_MUSIC, a
+	jr nz, .noBikeMusic
+	; if we are on the bike currently, play default bike music
+	xor a
+	ld [wReplacedMapMusic], a
+	jp PlayDefaultMusic

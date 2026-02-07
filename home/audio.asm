@@ -288,7 +288,10 @@ PlaySpecialFieldMusic3::
 	ld b, 3
 	ld a, MUSIC_OAKS_LAB
 	ld d, BANK(Music_OaksLab)
-	jr PlaySpecialBattleMusic.playSpecialMusic
+	call PlaySpecialBattleMusic.playSpecialMusic
+	ld a, MUSIC_OAKS_LAB
+	ld [wLastMusicSoundID], a
+	ret	
 
 	; input hl = audio header
 	; c = bank the music is in
@@ -296,7 +299,10 @@ PlaySpecialFieldMusic::
 	ld b, 4
 	ld a, MUSIC_CINNABAR_MANSION
 	ld d, BANK(Music_CinnabarMansion)
-	jr PlaySpecialBattleMusic.playSpecialMusic
+	call PlaySpecialBattleMusic.playSpecialMusic
+	ld a, MUSIC_CINNABAR_MANSION
+	ld [wLastMusicSoundID], a
+	ret
 
 	; input hl = audio header
 	; c = bank the music is in
@@ -479,3 +485,12 @@ PlaySoundOverrideCurrent::
 	pop af
 	rst _PlaySound
 	ret
+
+PlayDefaultMusicWithExtraCheck::
+	ld a, [wCurMapConnections]
+	bit BIT_EXTRA_MUSIC_MAP, a
+	jp z, PlayDefaultMusic
+	xor a
+	ld [wReplacedMapMusic], a
+	ld d, 1
+	jpfar TryPlayExtraMusic
