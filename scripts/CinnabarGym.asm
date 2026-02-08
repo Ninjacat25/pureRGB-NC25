@@ -133,6 +133,8 @@ CinnabarGymBlainePostBattleScript:
 	ld [wJoyIgnore], a
 ; fallthrough
 CinnabarGymReceiveTM38:
+	ld d, CINNABARGYM_BLAINE
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_CINNABARGYM_BLAINE_VOLCANO_BADGE_INFO
 	ldh [hTextID], a
 	call DisplayTextID
@@ -157,6 +159,10 @@ CinnabarGymReceiveTM38:
 
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_CINNABAR_GYM_TRAINER_0, EVENT_BEAT_CINNABAR_GYM_TRAINER_6
+	
+	ld a, CINNABARGYM_BLAINE
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp CinnabarGymResetScripts
 
 CinnabarGym_TextPointers:

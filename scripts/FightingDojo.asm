@@ -108,15 +108,12 @@ FightingDojoKarateMasterPostBattleScript:
 	jr z, .already_facing
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
-	ld a, FIGHTINGDOJO_KARATE_MASTER
-	ldh [hSpriteIndex], a
-	ld a, SPRITE_FACING_LEFT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
 .already_facing
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	SetEventRange EVENT_BEAT_KARATE_MASTER, EVENT_BEAT_FIGHTING_DOJO_TRAINER_3
+	ld d, FIGHTINGDOJO_KARATE_MASTER
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_FIGHTINGDOJO_KARATE_MASTER_I_WILL_GIVE_YOU_A_POKEMON
 	ldh [hTextID], a
 	call DisplayTextID

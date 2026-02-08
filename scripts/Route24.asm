@@ -71,6 +71,8 @@ Route24AfterRocketBattleScript:
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_ROUTE24_ROCKET
+	ld d, ROUTE24_COOLTRAINER_M1
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_ROUTE24_COOLTRAINER_M1
 	ldh [hTextID], a
 	call DisplayTextID

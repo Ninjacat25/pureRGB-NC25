@@ -427,6 +427,8 @@ OaksLabRivalEndBattleScript:
 OaksLabRivalStartsExitScript:
 	ld c, 20
 	rst _DelayFrames
+	ld d, OAKSLAB_RIVAL
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
 	ldh [hTextID], a
 	call DisplayTextID

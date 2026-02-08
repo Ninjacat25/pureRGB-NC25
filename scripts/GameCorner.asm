@@ -57,6 +57,8 @@ GameCornerRocketBattleScript:
 	jp z, GameCornerReenterMapAfterPlayerLoss
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
+	ld d, GAMECORNER_ROCKET
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_GAMECORNER_ROCKET_AFTER_BATTLE
 	ldh [hTextID], a
 	call DisplayTextID

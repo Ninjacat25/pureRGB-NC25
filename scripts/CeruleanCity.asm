@@ -77,6 +77,8 @@ CeruleanCityRocketDefeatedScript:
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_CERULEAN_ROCKET_THIEF
+	ld d, CERULEANCITY_ROCKET
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_CERULEANCITY_ROCKET
 	ldh [hTextID], a
 	call DisplayTextID

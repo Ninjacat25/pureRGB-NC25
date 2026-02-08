@@ -74,6 +74,8 @@ CeladonGymErikaPostBattleScript:
 	ld [wJoyIgnore], a
 
 CeladonGymReceiveTM21:
+	ld d, CELADONGYM_ERIKA
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_CELADONGYM_RAINBOWBADGE_INFO
 	ldh [hTextID], a
 	call DisplayTextID
@@ -99,6 +101,9 @@ CeladonGymReceiveTM21:
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_CELADON_GYM_TRAINER_0, EVENT_BEAT_CELADON_GYM_TRAINER_6
 
+	ld a, CELADONGYM_ERIKA
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp CeladonGymResetScripts
 
 CeladonGym_TextPointers:

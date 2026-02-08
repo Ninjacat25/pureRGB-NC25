@@ -29,6 +29,8 @@ PewterGymBrockPostBattle:
 	ld [wJoyIgnore], a
 ; fallthrough
 PewterGymScriptReceiveTM34:
+	ld d, PEWTERGYM_BROCK
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_PEWTERGYM_BROCK_WAIT_TAKE_THIS
 	ldh [hTextID], a
 	call DisplayTextID
@@ -62,7 +64,9 @@ PewterGymScriptReceiveTM34:
 
 	; deactivate gym trainers
 	SetEvent EVENT_BEAT_PEWTER_GYM_TRAINER_0
-
+	ld a, PEWTERGYM_BROCK
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp PewterGymResetScripts
 
 PewterGym_TextPointers:

@@ -29,6 +29,8 @@ SaffronGymSabrinaPostBattle:
 	ld [wJoyIgnore], a
 
 SaffronGymSabrinaReceiveTM46Script:
+	ld d, SAFFRONGYM_SABRINA
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_SAFFRONGYM_SABRINA_MARSH_BADGE_INFO
 	ldh [hTextID], a
 	call DisplayTextID
@@ -54,6 +56,9 @@ SaffronGymSabrinaReceiveTM46Script:
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_SAFFRON_GYM_TRAINER_0, EVENT_BEAT_SAFFRON_GYM_TRAINER_6
 
+	ld a, SAFFRONGYM_SABRINA
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp SaffronGymResetScripts
 
 SaffronGym_TextPointers:

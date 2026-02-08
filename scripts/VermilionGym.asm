@@ -53,6 +53,8 @@ VermilionGymLTSurgeAfterBattleScript:
 	ld [wJoyIgnore], a
 
 VermilionGymLTSurgeReceiveTM24Script:
+	ld d, VERMILIONGYM_LT_SURGE
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_VERMILIONGYM_LT_SURGE_THUNDER_BADGE_INFO
 	ldh [hTextID], a
 	call DisplayTextID
@@ -78,6 +80,9 @@ VermilionGymLTSurgeReceiveTM24Script:
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_2
 
+	ld a, VERMILIONGYM_LT_SURGE
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp VermilionGymResetScripts
 
 VermilionGym_TextPointers:

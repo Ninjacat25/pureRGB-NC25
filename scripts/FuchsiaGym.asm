@@ -29,6 +29,8 @@ FuchsiaGymKogaPostBattleScript:
 	ld [wJoyIgnore], a
 ; fallthrough
 FuchsiaGymReceiveTM06:
+	ld d, FUCHSIAGYM_KOGA
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_FUCHSIAGYM_KOGA_SOUL_BADGE_INFO
 	ldh [hTextID], a
 	call DisplayTextID
@@ -54,6 +56,9 @@ FuchsiaGymReceiveTM06:
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, EVENT_BEAT_FUCHSIA_GYM_TRAINER_5
 
+	ld a, FUCHSIAGYM_KOGA
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp FuchsiaGymResetScripts
 
 FuchsiaGym_TextPointers:

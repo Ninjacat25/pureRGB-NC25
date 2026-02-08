@@ -224,16 +224,6 @@ ENDC
 	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 
-SilphCo11FSetPlayerAndSpriteFacingDirectionScript:
-	ld [wPlayerMovingDirection], a
-	ld a, c
-	ld [wMapSpriteData + ((SILPHCO11F_GIOVANNI - 1) * 2)], a
-	ld a, SILPHCO11F_GIOVANNI
-	ldh [hSpriteIndex], a
-	ld a, b
-	ldh [hSpriteFacingDirection], a
-	jp SetSpriteFacingDirectionAndDelay
-
 SilphCo11FGiovanniAfterBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
@@ -241,14 +231,10 @@ SilphCo11FGiovanniAfterBattleScript:
 	ld a, [wSavedCoordIndex]
 	cp 1 ; index of second, upper-right entry in SilphCo11FDefaultScript.PlayerCoordsArray
 	ld a, PLAYER_DIR_UP
-	ld b, SPRITE_FACING_DOWN
-	ld c, DOWN
 	jr z, .gotDirections
 	ld a, PLAYER_DIR_LEFT
-	ld b, SPRITE_FACING_RIGHT
-	ld c, RIGHT
 .gotDirections
-	call SilphCo11FSetPlayerAndSpriteFacingDirectionScript
+	ld [wPlayerMovingDirection], a
 	call UpdateSprites
 	call SilphCo11FGateCallbackScript
 	ld hl, wCurrentMapScriptFlags
@@ -257,6 +243,8 @@ SilphCo11FGiovanniAfterBattleScript:
 	callfar PlayGiovanniMusic
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
+	ld d, SILPHCO11F_GIOVANNI
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_SILPHCO11F_GIOVANNI_YOU_RUINED_OUR_PLANS
 	ldh [hTextID], a
 	call DisplayTextID
@@ -281,14 +269,12 @@ SilphCo11FGiovanniBattleFacingScript:
 	ld a, [wSavedCoordIndex]
 	cp 1 ; index of second, upper-right entry in SilphCo11FDefaultScript.PlayerCoordsArray
 	ld a, PLAYER_DIR_UP
-	ld b, SPRITE_FACING_DOWN
-	ld c, DOWN
 	jr z, .gotDirections
 	ld a, PLAYER_DIR_LEFT
-	ld b, SPRITE_FACING_RIGHT
-	ld c, RIGHT
 .gotDirections
-	call SilphCo11FSetPlayerAndSpriteFacingDirectionScript
+	ld [wPlayerMovingDirection], a
+	ld d, SILPHCO11F_GIOVANNI
+	callfar MakeSpriteFacePlayer
 	call Delay3
 	ld a, SCRIPT_SILPHCO11F_GIOVANNI_START_BATTLE
 	jp SilphCo11FSetCurScript

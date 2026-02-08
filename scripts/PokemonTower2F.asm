@@ -135,6 +135,8 @@ PokemonTower2FDefeatedRivalScript:
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_POKEMON_TOWER_RIVAL
+	ld d, POKEMONTOWER2F_RIVAL
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_POKEMONTOWER2F_RIVAL
 	call PokemonTower2FDisplayTextID
 	ld de, PokemonTower2FRivalDownThenRightMovement

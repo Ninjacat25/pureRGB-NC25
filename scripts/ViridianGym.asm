@@ -41,6 +41,8 @@ ViridianGymGiovanniPostBattle:
 ; fallthrough
 ViridianGymReceiveTM27:
 	callfar PlayGiovanniMusic
+	ld d, VIRIDIANGYM_GIOVANNI
+	callfar MakeSpriteFacePlayer
 	ld a, TEXT_VIRIDIANGYM_GIOVANNI_EARTH_BADGE_INFO
 	ldh [hTextID], a
 	call DisplayTextID
@@ -71,6 +73,10 @@ ViridianGymReceiveTM27:
 	predef ShowObject
 	SetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 	callfar PlayDefaultMusicIfMusicBitSet
+	
+	ld a, VIRIDIANGYM_GIOVANNI
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
 	jp ViridianGymResetScripts
 
 ViridianGym_TextPointers:
