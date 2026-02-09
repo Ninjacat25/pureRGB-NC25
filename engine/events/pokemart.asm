@@ -86,7 +86,7 @@ DisplayPokemartDialogue_::
 	inc a
 	jr z, .restoreItemIndexSellMenuLoop ; if the player closed the choose quantity menu with the B button
 	ld hl, PokemartTellSellPriceText
-	lb bc, 14, 1 ; location that PrintText always prints to, this is useless
+	;lb bc, 14, 1 ; location that PrintText always prints to, this is useless
 	rst _PrintText
 	hlcoord 14, 7
 	lb bc, 8, 15

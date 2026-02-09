@@ -200,6 +200,9 @@ DisplayChooseQuantityMenu::
 	ld [wMinItemQuantity], a
 	ld [wInitialItemQuantity], a
 DisplayChooseQuantityMenuMinQuantity::
+	ld a, [wStatusFlags5]
+	push af
+	call DisableTextDelay
 ; text box dimensions/coordinates for just quantity
 	hlcoord 15, 9
 	lb bc, 1, 3 ; height, width
@@ -227,9 +230,11 @@ DisplayChooseQuantityMenuMinQuantity::
 	call JoypadLowSensitivity
 	ldh a, [hJoyPressed] ; newly pressed buttons
 	bit BIT_A_BUTTON, a
-	jp nz, .buttonAPressed
+	ld b, 0
+	jp nz, .exit
 	bit BIT_B_BUTTON, a
-	jp nz, .buttonBPressed
+	ld b, $FF
+	jp nz, .exit
 	bit BIT_D_UP, a
 	jr nz, .incrementQuantity
 	bit BIT_D_DOWN, a
@@ -350,14 +355,12 @@ DisplayChooseQuantityMenuMinQuantity::
 	call UpdateSprites
 	rst _DelayFrame
 	jp .waitForKeyPressLoop
-.buttonAPressed ; the player chose to make the transaction
+.exit ; made or cancelled the transaction, b = 0 (continued), b = $FF (cancelled)
+	pop af
+	ld [wStatusFlags5], a
 	xor a
 	ld [wMenuItemToSwap], a ; 0 means no item is currently being swapped
-	ret
-.buttonBPressed ; the player chose to cancel the transaction
-	xor a
-	ld [wMenuItemToSwap], a ; 0 means no item is currently being swapped
-	ld a, $ff
+	ld a, b
 	ret
 	
 InitialQuantityText::

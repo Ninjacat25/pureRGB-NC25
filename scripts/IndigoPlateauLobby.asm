@@ -86,9 +86,7 @@ IndigoGymGuideSonText:  ; PureRGBnote: ADDED: new NPC who will sell TMs - sells 
 	jr .shop1
 .checkIntroduce
 	CheckEvent EVENT_MET_GYM_GUIDE_SON
-	call z, .introduce
-	ret
-.introduce
+	ret nz
 	ld hl, IndigoPlateauGymGuideSonIntro
 	rst _PrintText
 	ret
@@ -117,7 +115,11 @@ IndigoGymGuideSonText:  ; PureRGBnote: ADDED: new NPC who will sell TMs - sells 
 .shop1
 	ld hl, IndigoGymGuideSonShop1
 .done
+	push hl
+	call DisableTextDelay
+	pop hl
 	call DisplayPokemartNoGreeting
+	call EnableTextDelay
 	SetEvent EVENT_MET_GYM_GUIDE_SON
 	rst TextScriptEnd
 
