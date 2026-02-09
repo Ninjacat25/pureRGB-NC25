@@ -213,6 +213,16 @@ CeladonGymEndBattleText2:
 	text_end
 
 CeladonGymAfterBattleText2:
+	text_asm
+	CheckEvent EVENT_BEAT_ERIKA
+	ld hl, .beforeBeat
+	ret z
+	ld hl, .afterBeat
+	ret
+.afterBeat
+	text_far _CeladonGymAfterBattleText2GymDefeated
+	text_end
+.beforeBeat
 	text_far _CeladonGymAfterBattleText2
 	text_end
 

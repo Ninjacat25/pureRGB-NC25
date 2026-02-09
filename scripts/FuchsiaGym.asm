@@ -220,6 +220,16 @@ FuchsiaGymTamer1EndBattleText:
 	text_end
 
 FuchsiaGymTamer1AfterBattleText:
+	text_asm
+	CheckEvent EVENT_BEAT_KOGA
+	ld hl, .beforeBeat
+	ret z
+	ld hl, .afterBeat
+	ret
+.afterBeat
+	text_far _FuchsiaGymTamer1AfterBattleGymDefeatedText
+	text_end
+.beforeBeat
 	text_far _FuchsiaGymTamer1AfterBattleText
 	text_end
 

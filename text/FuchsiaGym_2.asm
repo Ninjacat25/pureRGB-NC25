@@ -122,6 +122,13 @@ _FuchsiaGymTamer1AfterBattleText::
 	cont "invisible walls!"
 	done
 
+_FuchsiaGymTamer1AfterBattleGymDefeatedText::
+	text "I've never seen a"
+	line "ninja master lose"
+	cont "until today!"
+	para "You're insane!"
+	done
+
 _FuchsiaGymTamer2BattleText::
 	text "I also study the"
 	line "way of the ninja"

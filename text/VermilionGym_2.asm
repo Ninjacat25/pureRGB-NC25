@@ -148,3 +148,20 @@ _VermilionGymGuideApexChipElectricText::
 	cont "storms,lightning"
 	cont "and thunder!"
 	prompt
+
+_VermilionGymGentlemanAfterLocksText::
+	text "There you go."
+	para "The gates opened!"
+	line "Good job!"
+	done
+
+_VermilionGymSuperNerdAfterLocksText::
+	text "Hey! You figured"
+	line "it out! Cool!"
+	done
+
+_VermilionGymSailorAfterLocksText::
+	text "You found the"
+	line "locks?"
+	para "You're sharp!"
+	done

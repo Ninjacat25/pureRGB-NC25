@@ -98,6 +98,13 @@ _CeladonGymAfterBattleText2::
 	cont "wipes you out!"
 	done
 
+_CeladonGymAfterBattleText2GymDefeated::
+	text "Whoa!?"
+	line "You beat ERIKA?!"
+	para "You're cooler than"
+	line "I thought!"
+	done
+
 _CeladonGymBattleText3::
 	text "I was getting"
 	line "bored."

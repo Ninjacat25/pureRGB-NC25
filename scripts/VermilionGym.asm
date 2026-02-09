@@ -185,7 +185,23 @@ VermilionGymGentlemanEndBattleText:
 	text_end
 
 VermilionGymGentlemanAfterBattleText:
+	text_asm
+	CheckEvent EVENT_BEAT_LT_SURGE
+	ld hl, .afterBeat
+	ret nz
+	CheckEvent EVENT_2ND_LOCK_OPENED
+	ld hl, .afterLocks
+	ret nz
+	ld hl, .beforeBeat
+	ret
+.afterBeat
+	text_far _VermilionGymGentlemanAfterBattleGymDefeatedText
+	text_end
+.beforeBeat
 	text_far _VermilionGymGentlemanAfterBattleText
+	text_end
+.afterLocks
+	text_far _VermilionGymGentlemanAfterLocksText
 	text_end
 
 VermilionGymSuperNerdText:
@@ -203,7 +219,23 @@ VermilionGymSuperNerdEndBattleText:
 	text_end
 
 VermilionGymSuperNerdAfterBattleText:
+	text_asm
+	CheckEvent EVENT_BEAT_LT_SURGE
+	ld hl, .afterBeat
+	ret nz
+	CheckEvent EVENT_2ND_LOCK_OPENED
+	ld hl, .afterLocks
+	ret nz
+	ld hl, .beforeBeat
+	ret
+.afterBeat
+	text_far _VermilionGymSuperNerdAfterBattleGymDefeatedText
+	text_end
+.beforeBeat
 	text_far _VermilionGymSuperNerdAfterBattleText
+	text_end
+.afterLocks
+	text_far _VermilionGymSuperNerdAfterLocksText
 	text_end
 
 VermilionGymSailorText:
@@ -221,7 +253,23 @@ VermilionGymSailorEndBattleText:
 	text_end
 
 VermilionGymSailorAfterBattleText:
+	text_asm
+	CheckEvent EVENT_BEAT_LT_SURGE
+	ld hl, .afterBeat
+	ret nz
+	CheckEvent EVENT_2ND_LOCK_OPENED
+	ld hl, .afterLocks
+	ret nz
+	ld hl, .beforeBeat
+	ret
+.afterBeat
+	text_far _VermilionGymSailorAfterBattleGymDefeatedText
+	text_end
+.beforeBeat
 	text_far _VermilionGymSailorAfterBattleText
+	text_end
+.afterLocks
+	text_far _VermilionGymSailorAfterLocksText
 	text_end
 
 VermilionGymGymGuideText: ; PureRGBnote: ADDED: gym guide gives you apex chips after beating the leader
