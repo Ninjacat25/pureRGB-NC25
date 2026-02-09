@@ -854,7 +854,7 @@ UndergroundPathRoute7_Blocks:
 UndergroundPathRoute6_Blocks:
 UndergroundPathRoute5_Blocks: INCBIN "maps/UndergroundPathRoute5.blk"
 
-Route2Gate_Blocks:
+Route2Gate_Blocks: INCBIN "maps/Route2Gate.blk"
 ViridianForestSouthGate_Blocks:
 ViridianForestNorthGate_Blocks: INCBIN "maps/ViridianForestNorthGate.blk"
 
