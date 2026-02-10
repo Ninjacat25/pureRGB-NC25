@@ -12,6 +12,29 @@ VermilionCity_Script:
 	bit BIT_CROSSED_MAP_CONNECTION, [hl]
 	res BIT_CROSSED_MAP_CONNECTION, [hl]
 	call nz, .checkTileReplacementsNoRedraw
+;;;;; PureRGBnote: CHANGED: force a scripted warp to vermilion dock when in the correct coords
+;;;;; unlike the original game this prevents the need for specific warp tiles to be used on the dock path
+;;;;; the downside is that we need to expand the map size by 1 block vertically south to account for being able to move down another coordinate
+	ld a, [wYCoord]
+	cp 34
+	jr nz, .no_dock_warp
+	ld a, [wXCoord]
+	cp 18
+	jr z, .warp
+	cp 19
+	jr nz, .no_dock_warp
+.warp
+	ld a, VERMILION_DOCK
+	ldh [hWarpDestinationMap], a
+	xor a
+	ld [wDestinationWarpID], a
+	ld hl, wStatusFlags3
+	set BIT_WARP_FROM_CUR_SCRIPT, [hl]
+	; setting BIT_STANDING_ON_WARP will make immediately going back up in vermilion dock after the above warp trigger warp again properly
+	ld hl, wMovementFlags
+	set BIT_STANDING_ON_WARP, [hl]
+.no_dock_warp
+;;;;;
 	ld hl, VermilionCity_ScriptPointers
 	ld a, [wVermilionCityCurScript]
 	jp CallFunctionInTable

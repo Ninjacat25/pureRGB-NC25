@@ -17,7 +17,7 @@ VermilionCity_Object:
 	warp_event 12, 21, VERMILION_GYM, 1
 	warp_event 23, 21, VERMILION_PIDGEY_HOUSE, 1
 	warp_event 18, 33, VERMILION_DOCK, 1
-	warp_event 19, 33, VERMILION_DOCK, 1
+	;warp_event 19, 33, VERMILION_DOCK, 1 ; PureRGBnote: CHANGED: we now use a scripted warp for warping to SS Anne so no need for this warp
 	warp_event 15, 15, VERMILION_TRADE_HOUSE, 1
 	warp_event  7,  5, VERMILION_OLD_ROD_HOUSE, 1
 	warp_event 21,  5, VERMILION_FITNESS_CLUB, 2

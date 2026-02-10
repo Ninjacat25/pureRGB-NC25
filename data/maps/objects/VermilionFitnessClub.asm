@@ -14,8 +14,8 @@ VermilionFitnessClub_Object:
 	db $0E ; border block
 
 	def_warp_events
-	warp_event  8,  9, LAST_MAP, 10
-	warp_event  9,  9, LAST_MAP, 10
+	warp_event  8,  9, LAST_MAP, 9
+	warp_event  9,  9, LAST_MAP, 9
 
 	def_bg_events
 	bg_event 10, 7, TEXT_VERMILIONFITNESSCLUB_SIGN

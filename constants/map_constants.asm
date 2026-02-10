@@ -21,7 +21,7 @@ ENDM
 	map_const PEWTER_CITY,                   20, 18 ; $02
 	map_const CERULEAN_CITY,                 20, 18 ; $03
 	map_const LAVENDER_TOWN,                 10,  9 ; $04
-	map_const VERMILION_CITY,                20, 19 ; $05
+	map_const VERMILION_CITY,                20, 20 ; $05
 	map_const CELADON_CITY,                  25, 18 ; $06
 	map_const SAFFRON_CITY,                  20, 18 ; $07 ; PureRGBnote: MOVED: Saffron city was moved earlier in the index so it appears before Fuchsia city in the fly menu 
 	map_const FUCHSIA_CITY,                  20, 18 ; $08
