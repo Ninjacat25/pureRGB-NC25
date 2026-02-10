@@ -339,7 +339,9 @@ RenameEvolvedMon:
 	ld hl, wPartyMonNicks
 	call AddNTimes
 	push hl
+	push bc
 	call GetMonName
+	pop bc
 	ld hl, wNameBuffer
 	pop de
 	jp CopyData
