@@ -376,6 +376,9 @@ ChangeBox::
 	call z, EmptyAllSRAMBoxes ; if so, empty all boxes in SRAM
 	callfar DisplayChangeBoxMenu
 	call UpdateSprites
+	ld a, 1
+	ldh [hJoy7], a
+	ld [wMenuWrappingEnabled], a
 	ld hl, hUILayoutFlags
 	set BIT_DOUBLE_SPACED_MENU, [hl]
 	call HandleMenuInput
@@ -409,6 +412,8 @@ ChangeBox::
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
 .done
+	xor a
+	ldh [hJoy7], a
 	pop af
 	ld [wStatusFlags5], a
 	ret
