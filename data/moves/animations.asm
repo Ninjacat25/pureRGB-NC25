@@ -568,7 +568,7 @@ FlamethrowerAnim:
 
 MistAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
-	battle_anim LOVELY_KISS, SE_SNOWFLAKES_EVERYWHERE
+	battle_anim WATERFALL, SE_SNOWFLAKES_EVERYWHERE
 	battle_anim NO_MOVE, SE_SNOWFLAKES_EVERYWHERE
 	battle_anim NO_MOVE, SUBANIM_0_SPARKLES_FALLING, 0, 4
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
@@ -1219,7 +1219,10 @@ LeechLifeAnim:
 	db -1 ; end
 
 LovelyKissAnim:
-	battle_anim WATER_GUN, SUBANIM_0_HEART_1_MUSIC, 0, 6
+	battle_anim METRONOME, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim LOVELY_KISS, SUBANIM_0_HEART_1_MUSIC, 0, 6
 	db -1 ; end
 
 SkyAttackAnim:
