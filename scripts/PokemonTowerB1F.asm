@@ -749,7 +749,7 @@ PokemonTowerB1FIrradiatedGraveText:
 
 PrintPlayMusicScreamEnd:
 	rst _PrintText
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic
 	call LoadGhostSpriteScream
 	rst TextScriptEnd
 
@@ -1178,16 +1178,11 @@ PokemonTowerB1FMarowakBlockedHyperBeamText:
 	callfar ChangePartyPokemonSpecies
 	; rename marowak to default CUBONE name (we'll ask nickname later)
 	callfar CheckMonNickNameDefault
+	call ClearTextBox
+	call SaveScreenTilesToBuffer2
 	; try to learn sonic boom immediately
 	ld a, SONICBOOM
-	ld [wMoveNum], a
-	ld [wNamedObjectIndex], a
-	call GetMoveName
-	call CopyToStringBuffer
-	call SaveScreenTilesToBuffer2
-	xor a
-	ld [wLetterPrintingDelayFlags], a
-	predef LearnMove ; teach sonicboom
+	call LearnArbitraryMove
 	call .markCuboneSeenCaught
 	call LoadScreenTilesFromBuffer2
 	call Delay3
@@ -1448,3 +1443,16 @@ TheMawAnimation:
 .normalMusic
 	lb bc, SPIRIT_THE_MAW, 75
 	jp StartCatacombsBattle
+
+FarLearnArbitraryMove::
+	ld a, d
+LearnArbitraryMove::
+	ld [wMoveNum], a
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	call CopyToStringBuffer
+	xor a
+	ld [wLetterPrintingDelayFlags], a
+	predef LearnMove
+	ld d, b
+	ret

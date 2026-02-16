@@ -59,13 +59,15 @@ _TM46ExplanationText::
 	text_start
 	para "@"
 	text_ram wStringBuffer
-	text " is PSYCHIC!"
-	line "It uses powerful"
-	cont "psychic waves to"
-	cont "inflict damage!"
-
-	para "It often lowers"
-	line "the SPECIAL stat!"
+	text " is MEDITATE!"
+	para "Meditating helps"
+	line "focus, raising"
+	cont "many stats."
+	para "In a city with"
+	line "a FIGHTING DOJO"
+	cont "and PSYCHIC GYM,"
+	para "meditation is our"
+	line "common ground!"
 	done
 
 _SaffronGymSabrinaTM46NoRoomText::

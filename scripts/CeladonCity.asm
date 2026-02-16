@@ -164,42 +164,40 @@ CeladonCityGramps2Text:
 
 CeladonCityGramps3Text:
 	text_asm
-	CheckEvent EVENT_GOT_TM41
-	jr nz, .gotTM41
-	ld hl, .Text
+	CheckAndSetEvent EVENT_MET_CELADON_POOL_GRAMPS
+	ld hl, .returnedGramps
+	jr nz, .next
+	ld hl, .metGramps
+.next
 	rst _PrintText
-	lb bc, TM_CELADON_CITY_SURF_POOL_GRAMPS, 1
-	call GiveItem
-	jr c, .Success
-	ld hl, .TM41NoRoomText
+	CheckEvent EVENT_CELADON_POOL_GRAMPS_TUTORED_ONCE
+	ld c, 0
+	jr z, .gotEventState
+	inc c
+.gotEventState
+	xor a
+	ldh [hMoney], a 
+	ldh [hMoney + 2], a
+	ld a, $30
+	ldh [hMoney + 1], a ; loads 3000 into the cost
+	ld de, CeladonMoveTutorMoves
+	callfar PaidMoveTutorScript
+	ld a, d
+	cp 1
+	jr nz, .done
+	SetEvent EVENT_CELADON_POOL_GRAMPS_TUTORED_ONCE
+	ld hl, .coolMove
 	rst _PrintText
-	jr .Done
-.Success
-	ld hl, .ReceivedTM41Text
-	rst _PrintText
-	SetEvent EVENT_GOT_TM41
-	jr .Done
-.gotTM41
-	ld hl, .TM41ExplanationText
-	rst _PrintText
-.Done
+.done
 	rst TextScriptEnd
-
-.Text:
+.metGramps:
 	text_far _CeladonCityGramps3Text
 	text_end
-
-.ReceivedTM41Text:
-	text_far _CeladonCityGramps3ReceivedTM41Text
-	sound_get_item_1
+.returnedGramps:
+	text_far _CeladonCityGramps3Text2
 	text_end
-
-.TM41ExplanationText:
-	text_far _CeladonCityGramps3TM41ExplanationText
-	text_end
-
-.TM41NoRoomText:
-	text_far _CeladonCityGramps3TM41NoRoomText
+.coolMove
+	text_far _CeladonPoolGrampsAfterTeachText
 	text_end
 
 CeladonCityFisherText:

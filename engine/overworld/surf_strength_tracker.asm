@@ -34,6 +34,7 @@ SurfRestrictedMapsOnMoveDelete:
 	db POWER_PLANT
 	db CINNABAR_VOLCANO
 	db FUCHSIA_GOOD_ROD_HOUSE
+	db CELADON_CHIEF_HOUSE
 	db -1
 
 CheckResetSurfStrengthFlags::

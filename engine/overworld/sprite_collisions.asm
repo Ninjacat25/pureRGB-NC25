@@ -36,6 +36,8 @@ LoadExtraSprites::
 	jr z, LoadExtraTiles.seafoamIslands1F
 	cp CERULEAN_BALL_DESIGNER
 	jr z, .ceruleanBallDesigner
+	cp MR_PSYCHICS_HOUSE
+	jr z, .mrPsychicsHouse
 	cp FUCHSIA_CITY
 	ret nz
 	jpfar CheckLoadKabutoShell
@@ -43,6 +45,8 @@ LoadExtraSprites::
 	jpfar DiglettsCaveLoadDiglettSprites
 .ceruleanBallDesigner
 	jpfar CeruleanBallDesignerLoadExtraSprites
+.mrPsychicsHouse
+	jpfar CheckLoadReplacedRocketFightingBrosHouse
 
 LoadExtraTiles::
 	ld a, [wCurMap]

@@ -290,7 +290,7 @@ SeafoamIslandsB4FArticunoIntroAnimation:
 	ld a, 50
 	ld [wEngagedTrainerSet], a
 	call InitBattleEnemyParameters
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic
 	ld c, 100
 	rst _DelayFrames
 	ld a, SCRIPT_SEAFOAMISLANDSB4F_ARTICUNO_BATTLE_END

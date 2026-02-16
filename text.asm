@@ -78,6 +78,8 @@ INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/ProspectorsHouse.asm"
 INCLUDE "text/MoveMystic.asm"
 INCLUDE "text/PokemonCenterChamp.asm"
+INCLUDE "text/MrPsychicsHouse.asm"
+INCLUDE "text/SoftboiledGuysHouse.asm"
 
 
 SECTION "Text 4", ROMX
@@ -248,7 +250,6 @@ INCLUDE "text/SaffronPidgeyHouse.asm"
 INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
-INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/FossilGuysHouse.asm"
 INCLUDE "text/CeladonChiefHouse.asm"
 
@@ -304,6 +305,7 @@ SECTION "Text 14", ROMX
 INCLUDE "text/CeruleanBallDesigner.asm"
 INCLUDE "text/CameraEvents.asm"
 INCLUDE "text/OptionsInfoText.asm"
+INCLUDE "text/FightingBrosHouse.asm"
 
 SECTION "Pokédex Text", ROMX
 

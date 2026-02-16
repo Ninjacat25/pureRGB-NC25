@@ -287,7 +287,7 @@ Route12SnorlaxWokeUpText: ; PureRGBnote: CHANGED: now also used by route 16's sn
 	text_asm
 	ld hl, .wokeUp
 	rst _PrintText
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic
 	rst TextScriptEnd
 .wokeUp
 	text_far _Route12SnorlaxWokeUpText

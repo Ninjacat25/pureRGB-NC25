@@ -54,7 +54,6 @@ INCLUDE "data/maps/hide_show_data.asm"
 INCLUDE "engine/overworld/field_move_messages.asm"
 INCLUDE "engine/items/inventory.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/menus/draw_badges.asm"
 INCLUDE "engine/overworld/update_map.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/missable_objects.asm"
@@ -73,6 +72,7 @@ INCLUDE "engine/events/hidden_objects/book_or_sculpture.asm"
 INCLUDE "engine/events/hidden_objects/elevator.asm"
 INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
+INCLUDE "engine/events/tutor.asm"
 
 
 SECTION "Font Graphics", ROMX
@@ -388,6 +388,8 @@ INCLUDE "engine/overworld/fly_animation.asm"
 INCLUDE "audio/check_bike_surf_music.asm"
 ; moved from bank1
 INCLUDE "engine/events/pokecenter.asm"
+; moved from bank3
+INCLUDE "engine/menus/draw_badges.asm"
 
 SECTION "Party Sprites", ROMX, BANK[$34]
 ; PureRGBnote: ADDED: new menu sprite icons raw data

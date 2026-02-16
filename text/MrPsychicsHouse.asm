@@ -6,14 +6,15 @@ _MrPsychicsHouseMrPsychicYouWantedThisText::
 	prompt
 
 _MrPsychicsHouseMrPsychicTM29ExplanationText::
-	text "<TM>46 is PSYBEAM!"
+	text "<TM>29 is PSYCHIC!"
+	
+	para "It uses powerful"
+	line "psychic waves to"
+	cont "inflict damage!"
 
-	para "It can confuse"
-	line "the target."
-
-	para "It's a great"
-	line "PSYCHIC-type"
-	cont "move!"
+	para "It has a chance to"
+	line "lower the target's"
+	cont "SPECIAL stat."
 	done
 
 _MrPsychicsHouseMrPsychicTM29NoRoomText::
@@ -38,3 +39,16 @@ _MrPsychicsHouseBookText2::
 	cont "it's considered"
 	cont "very bad luck."
 	done
+
+_MrPsychicsHouseIKnowWhatYouWantText::
+	text "I know what you"
+	line "want!"
+	para "But first do this"
+	line "for me:"
+	para "Go rough up the"
+	line "trainers in the"
+	cont "FIGHTING DOJO!"
+	para "It's on the north"
+	line "side of town."
+	done
+

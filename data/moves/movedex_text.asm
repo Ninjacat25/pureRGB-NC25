@@ -52,12 +52,11 @@ _GenericAlwaysGoesFirstText::
 _MegaPunchDexEntry::
 	text "A titanic punch"
 	next "that can stun"
-	next "the <opponent>."
-	; fall through
-_Generic30PercentFlinchText::
-	bage "Causes <opponent>"
-	next "to flinch 30% of"
-	next "the time"
+	next "the <opponent>.@"
+	text_call _Generic10PercentFlinchText
+	bage "Flinch chance goes"
+	next "up to 30% if used"
+	next "by FIGHTING-types"
 	dex
 
 _PayDayDexEntry::
@@ -234,9 +233,13 @@ _VineWhipDexEntry::
 
 _StompDexEntry::
 	text "Stomps on the foe"
-	next "with feet/hooves.@"
-
-	text_jump _Generic30PercentFlinchText
+	next "with feet/hooves."
+	; fall through
+_Generic30PercentFlinchText::
+	bage "Causes <opponent>"
+	next "to flinch 30% of"
+	next "the time"
+	dex
 
 _DoubleKickDexEntry::
 	text "Delivers two"

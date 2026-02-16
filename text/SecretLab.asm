@@ -246,6 +246,7 @@ _SecretLabMewtwoReactionText3::
 	cont "open first."
 	done
 
+_GenericWrongMonText::
 _SecretLabMewtwoReactionText4::
 	text "Wrong #MON."
 	done

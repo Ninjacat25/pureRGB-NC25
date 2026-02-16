@@ -2031,3 +2031,27 @@ HeatRushEffect::
 	pop hl
 	ld [hl], HEAT_RUSH_EFFECT
 	ret
+
+
+MegaPunchEffect::
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wPlayerMoveEffect
+	ld de, wBattleMonType1
+	jr z, .next
+	ld hl, wEnemyMoveEffect
+	ld de, wEnemyMonType1
+.next
+	ld b, FLINCH_SIDE_EFFECT2
+	ld a, [de]
+	inc de
+	cp FIGHTING
+	jr z, .done
+	ld a, [de]
+	cp FIGHTING
+	jr z, .done
+	; not fighting
+	ld b, FLINCH_SIDE_EFFECT1
+.done
+	ld [hl], b
+	jp FlinchSideEffect

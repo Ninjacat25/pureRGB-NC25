@@ -340,7 +340,7 @@ PokemonTower2FChannelerText:
 	text_far _FossilGuyDenied
 	text_end
 .bagFull
-	text_far _CeladonCityGramps3TM41NoRoomText
+	text_far _GenericPackIsFullOfItemsText
 	text_end
 .borrowAgain
 	text_far _PokemonTower2FChannelerTextBorrowAgain

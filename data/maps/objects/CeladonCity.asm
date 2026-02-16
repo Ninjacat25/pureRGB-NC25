@@ -30,6 +30,7 @@ CeladonCity_Object:
 	warp_event  3, 27, CELADON_MANSION_2F, 6
 	warp_event 37, 16, CELADON_BACK_ALLEY, 3
 	warp_event 43, 19, CELADON_MANSION_ROOF_HOUSE, 4
+	warp_event 23, 15, CELADON_CHIEF_HOUSE, 6
 
 	def_bg_events
 	bg_event 27, 15, TEXT_CELADONCITY_TRAINER_TIPS1 

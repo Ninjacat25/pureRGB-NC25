@@ -67,15 +67,40 @@ _CeladonCityGramps3Text::
 	line "but I never had a"
 	cont "chance to talk!"
 
-	para "Here's a gift for"
-	line "dropping by!"
+	para "Shall I reward you"
+	line "for dropping by?"
+
+	para "Hmm<...>"
+	line "I know!"
+
+	para "I'm a retired"
+	line "teacher."
+
+	para "I know a lot about"
+	line "less popular"
+	cont "#MON moves!"
+
+	para "So I'll teach"
+	line "your #MON!"
 	prompt
 
+_CeladonCityGramps3Text2::
+	text "Hello again!"
+	para "Do your #MON"
+	line "want to learn?"
+	prompt
+
+_CeladonPoolGrampsAfterTeachText::
+	text "A new move is"
+	line "always exciting!"
+	para "Use it well!"
+	done
+
+_GenericPlayerReceivedText::
 _PewterGymReceivedTM34Text::
 _CeruleanGymMistyReceivedTM11Text::
 _VermilionGymLTSurgeReceivedTM24Text::
 _CeladonGymReceivedTM21Text::
-_CeladonCityGramps3ReceivedTM41Text::
 _CeladonMart3FClerkReceivedTM18Text::
 _CeladonMartRoofLittleGirlReceivedTM13Text::
 _CeladonMartRoofLittleGirlReceivedTM48Text::
@@ -96,19 +121,21 @@ _Route12Gate2FBrunetteGirlReceivedTM39Text::
 	text "!@"
 	text_end
 
-_CeladonCityGramps3TM41ExplanationText::
-	text "<TM>41 teaches"
-	line "MEDITATE!"
+; PureRGBnote: CHANGED: he is now a tutor
+;_CeladonCityGramps3TM41ExplanationText::
+;	text "<TM>41 teaches"
+;	line "MEDITATE!"
+;
+;	para "It raises ATTACK,"
+;	line "SPECIAL and SPEED"
+;	cont "all by one stage!"
+;
+;	para "Your #MON will"
+;	line "be unstoppable!"
+;	done
 
-	para "It raises ATTACK,"
-	line "SPECIAL and SPEED"
-	cont "all by one stage!"
-
-	para "Your #MON will"
-	line "be unstoppable!"
-	done
-
-_CeladonCityGramps3TM41NoRoomText::
+;_CeladonCityGramps3TM41NoRoomText::
+_GenericPackIsFullOfItemsText::
 	text "Oh, your pack is"
 	line "full of items!"
 	done

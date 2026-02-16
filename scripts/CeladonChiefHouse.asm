@@ -14,9 +14,13 @@ CeladonChiefHouse_TextPointers:
 	dw_const CeladonChiefHouseSailorText, TEXT_CELADONCHIEFHOUSE_SAILOR
 	dw_const CeladonSeniorHouseGrampsText, TEXT_BACKALLEYSENIORHOUSE_GRAMPS
 	dw_const CeladonSeniorHouseGrannyText, TEXT_BACKALLEYSENIORHOUSE_GRANNY
+	dw_const CeladonSoftboiledGuysHouseChanseyText, TEXT_SOFTBOILEDGUYSHOUSE_CHANSEY
+	dw_const CeladonSoftboiledGuysHousePaperText, TEXT_SOFTBOILEDGUYSHOUSE_PAPER
 	dw_const CeladonChiefHouseBookCaseLeftText, TEXT_CELADONCHIEFHOUSE_BOOKCASE_LEFT
 	dw_const CeladonChiefHousePlaqueText, TEXT_CELADONCHIEFHOUSE_PLAQUE
 	dw_const CeladonChiefHouseBookCaseRightText, TEXT_CELADONCHIEFHOUSE_BOOKCASE_RIGHT
+	dw_const CeladonSoftboiledGuysHouseEggStatueText, TEXT_SOFTBOILEDGUYSHOUSE_EGG_STATUE
+	dw_const CeladonSoftboiledGuysHouseBookcaseText, TEXT_SOFTBOILEDGUYSHOUSE_BOOKCASE
 
 CeladonChiefHouseChiefText:
 	text_far _CeladonChiefHouseChiefText
@@ -65,3 +69,45 @@ CeladonSeniorHouseGrampsText:
 CeladonSeniorHouseGrannyText:
 	text_far _CeladonSeniorHouseGrannyText
 	text_end
+
+CeladonSoftboiledGuysHouseChanseyText:
+	text_far _CopycatsHouse1FChanseyText
+	text_asm
+	ld a, CHANSEY
+	call PlayCry
+	ld c, DEX_CHANSEY - 1
+	callfar SetMonSeen
+	rst TextScriptEnd
+
+CeladonSoftboiledGuysHousePaperText:
+	text_far _CeladonSoftboiledGuysHousePaperText
+	text_asm
+	xor a
+	ldh [hMoney], a 
+	ldh [hMoney + 2], a
+	ld a, $30
+	ldh [hMoney + 1], a ; loads 3000 into the cost
+	ld de, CeladonMoveTutorMoves
+	callfar ShowMoveTutorMoveList
+	ld hl, .endText
+	rst _PrintText
+	rst TextScriptEnd
+.endText
+	text_far _CeladonSoftboiledGuysHousePaper2Text
+	text_end
+
+CeladonSoftboiledGuysHouseEggStatueText:
+	text_far _CeladonSoftboiledGuysHouseEggStatueText
+	text_end
+
+CeladonSoftboiledGuysHouseBookcaseText:
+	text_far _CeladonSoftboiledGuysHouseBookcaseText
+	text_far _FlippedToARandomPage
+	text_far _CeladonSoftboiledGuysHouseBookcase2Text
+	text_asm
+	CheckEvent FLAG_CHANSEY_LEARNSET
+	jr nz, .done
+	ld d, DEX_CHANSEY
+	jpfar KeepReadingBookLearnset
+.done
+	rst TextScriptEnd

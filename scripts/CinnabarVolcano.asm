@@ -1563,7 +1563,7 @@ CinnabarVolcanoBossMagmarText:
 	SetEvent EVENT_BATTLING_VOLCANO_MAGMAR
 	ld hl, .letsdothis
 	rst _PrintText
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic
 	rst TextScriptEnd
 .done
 	rst _PrintText
@@ -1908,7 +1908,7 @@ MoltresBattleAnimation:
 	ld [wEngagedTrainerSet], a
 	call InitBattleEnemyParameters
 	SetEvent EVENT_BATTLING_MOLTRES
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic
 	ld c, 100
 	rst _DelayFrames
 	jp HideAnimationSprite

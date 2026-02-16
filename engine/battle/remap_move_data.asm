@@ -1,5 +1,6 @@
 ; PureRGBnote: ADDED: Certain moves get better accuracy, power, or other effects when used by specific pokemon
 ; Also this list can be used to modify a move's data such as power/accuracy after selecting it based on the current state of battle.
+; TODO: make multiple pokemon able to receive remap for the same move
 CheckRemapMoveData::
 	call GetMoveRemapData
 	push de
@@ -13,6 +14,10 @@ CheckRemapMoveData::
 	cp -1
 	jr z, .donePokemonCheck
 	ld a, d
+	cp VOLCANIC_MAGMAR
+	jr nz, .notVolcanicMagmar
+	ld a, MAGMAR ; treat VOLCANIC_MAGMAR as MAGMAR when checking for signature moves
+.notVolcanicMagmar
 	cp [hl]
 	ret nz
 .donePokemonCheck
@@ -66,8 +71,8 @@ GetMoveRemapData2:
 
 ; byte 1 = move
 ; byte 2 = required pokemon for modifier or -1 for any pokemon
-; byte 4 = modified power or -1 if no change or -2 if the move uses a modifier function
-; byte 3 = modified accuracy or 0 if no accuracy change, or which modifier function to use if previous byte was -2
+; byte 3 = modified power or -1 if no change or -2 if the move uses a modifier function
+; byte 4 = modified accuracy or 0 if no accuracy change, or which modifier function to use if previous byte was -2
 RemappableMoves::
 	db SING, -1, -2, 1
 	db DOUBLESLAP, -1, -2, 0

@@ -371,7 +371,7 @@ DragonairEventCloysterText:
 	call DragonairEventOpenUpCloysterSprite
 	ld hl, .letsDoThis
 	rst _PrintText
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic
 	ld a, 1
 	ld [wIsAltPalettePkmnData], a
 	ld a, CLOYSTER

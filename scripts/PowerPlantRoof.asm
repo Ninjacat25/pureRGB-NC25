@@ -260,7 +260,7 @@ CheckDoZapdosLightningAnimation:
 	ld a, 50
 	ld [wEngagedTrainerSet], a
 	call InitBattleEnemyParameters
-	callfar PlayTrainerMusic
+	callfar PlayDefaultTrainerMusic ; TODO: adjust if making special rare pokemon encounter music
 	xor a
 	ld [wMuteAudioAndPauseMusic], a
 	ld c, 90

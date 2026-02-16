@@ -16,6 +16,7 @@ _Museum1FScientist1ThankYouText::
 	done
 
 _Museum1FScientist1DontHaveEnoughMoneyText::
+; TODO: reuse the one in text 7 or whatever
 	text "You don't have"
 	line "enough money."
 	prompt
