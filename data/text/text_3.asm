@@ -385,3 +385,18 @@ _SiphonSnagHealedPartyText::
 	text_ram wNameBuffer
 	text "!"
 	prompt
+
+_ScreechesEchoedText::
+	text "Screeches echoed"
+	line "everywhere!"
+	prompt
+
+_ScreechesPreventedSleepText::
+	text "Echoing screeches"
+	line "prevented sleep!"
+	prompt
+
+_LetOutAScreechText::
+	text "But <TARGET> let"
+	line "out a SCREECH!"
+	prompt

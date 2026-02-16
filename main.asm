@@ -390,6 +390,8 @@ INCLUDE "audio/check_bike_surf_music.asm"
 INCLUDE "engine/events/pokecenter.asm"
 ; moved from bank3
 INCLUDE "engine/menus/draw_badges.asm"
+; moved from battle core
+INCLUDE "engine/battle/move_effects/sleep.asm"
 
 SECTION "Party Sprites", ROMX, BANK[$34]
 ; PureRGBnote: ADDED: new menu sprite icons raw data
@@ -483,3 +485,4 @@ INCLUDE "engine/items/get_machine_name.asm"
 INCLUDE "engine/battle/get_trainer_name.asm"
 INCLUDE "engine/battle/move_effects/siphon_snag.asm"
 INCLUDE "engine/menus/map_wild_data.asm"
+INCLUDE "engine/battle/move_effects/screech.asm"

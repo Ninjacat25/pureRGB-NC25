@@ -25,6 +25,5 @@ INCLUDE "data/pokemon/tutor_moves/dream_eater.asm"
 INCLUDE "data/pokemon/tutor_moves/rest.asm"
 ; Old TM49
 INCLUDE "data/pokemon/tutor_moves/tri_attack.asm"
-
+INCLUDE "data/pokemon/tutor_moves/screech.asm"
 ; TODO: razor wind
-; TODO: screech?

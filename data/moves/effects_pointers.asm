@@ -97,4 +97,5 @@ MoveEffectPointerTable:
 	dw SiphonSnagEffect          ; SIPHON_SNAG_EFFECT
 	dw HeatRushEffect            ; HEAT_RUSH_EFFECT
 	dw MegaPunchEffect           ; MEGA_PUNCH_EFFECT
+	dw ScreechEffect             ; SCREECH_EFFECT
 	assert_table_length NUM_MOVE_EFFECTS

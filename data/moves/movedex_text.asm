@@ -1111,6 +1111,20 @@ _ScreechDexEntry::
 	bage "Greatly lowers"
 	next "foe's DEFENSE."
 	next "(-2 DEFENSE)"
+
+	bage "This weird screech"
+	next "will echo for the"
+	next "rest of battle."
+
+	bage "These echoes wake"
+	next "all #MON from"
+	next "sleep."
+
+	bage "This move is auto-"
+	next "used if the <user>"
+	next "is put to sleep."
+
+	bage "Never misses"
 	dex
 
 _DoubleTeamDexEntry::

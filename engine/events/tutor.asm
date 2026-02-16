@@ -17,7 +17,7 @@ SaffronMoveTutorMoves::
 	dbw SWIFT,      SwiftLearnset
 	dbw EGG_BOMB,   EggBombLearnset
 	dbw RAGE,       -1
-	; TODO: SCREECH?
+	dbw SCREECH,    ScreechLearnset
 	db -1
 
 ; input de = which move tutor move list will be used

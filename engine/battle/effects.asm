@@ -24,58 +24,7 @@ _JumpMoveEffect:
 INCLUDE "data/moves/effects_pointers.asm"
 
 SleepEffect:
-	ld de, wEnemyMonStatus
-	ld bc, wEnemyBattleStatus2
-	ldh a, [hWhoseTurn]
-	and a
-	jp z, .sleepEffect
-	ld de, wBattleMonStatus
-	ld bc, wPlayerBattleStatus2
-
-.sleepEffect
-	ld a, [bc]
-	bit NEEDS_TO_RECHARGE, a ; does the target need to recharge? (hyper beam)
-	res NEEDS_TO_RECHARGE, a ; target no longer needs to recharge
-	ld [bc], a
-	jr nz, .setSleepCounter ; if the target had to recharge, all hit tests will be skipped
-	                        ; including the event where the target already has another status
-	ld a, [de]
-	ld b, a
-	and $7
-	jr z, .notAlreadySleeping ; can't affect a mon that is already asleep
-	ld hl, AlreadyAsleepText
-	rst _PrintText
-	ret
-.notAlreadySleeping
-	ld a, b
-	and a
-	jr nz, .didntAffect ; can't affect a mon that is already statused
-	push de
-	call MoveHitTest ; apply accuracy tests
-	pop de
-	ld a, [wMoveMissed]
-	and a
-	jr nz, .didntAffect
-.setSleepCounter
-; set target's sleep counter to a random number between 1 and 7
-	call BattleRandom
-	and $7
-	jr z, .setSleepCounter
-	ld [de], a
-	call PlayCurrentMoveAnimation2
-	ld hl, FellAsleepText
-	rst _PrintText
-	ret
-.didntAffect
-	jp PrintDidntAffectText
-
-FellAsleepText:
-	text_far _FellAsleepText
-	text_end
-
-AlreadyAsleepText:
-	text_far _AlreadyAsleepText
-	text_end
+	jpfar _SleepEffect
 
 PoisonEffect:
 	ld hl, wEnemyMonStatus
@@ -1775,7 +1724,7 @@ ConditionalPrintButItFailed:
 	and a
 	ret nz ; return if the side effect failed, yet the attack was successful
 
-PrintButItFailedText_:
+PrintButItFailedText_::
 	ld hl, ButItFailedText
 	rst _PrintText
 	ret
@@ -1818,7 +1767,7 @@ CheckTargetSubstitute:
 	pop hl
 	ret
 
-PlayCurrentMoveAnimation2:
+PlayCurrentMoveAnimation2::
 ; animation at MOVENUM will be played unless MOVENUM is 0
 ; plays wAnimationType 3 or 6
 	ldh a, [hWhoseTurn]
@@ -2055,3 +2004,11 @@ MegaPunchEffect::
 .done
 	ld [hl], b
 	jp FlinchSideEffect
+
+ScreechEffect:
+	jpfar _ScreechEffect
+
+FarBattleRandom::
+	call BattleRandom
+	ld d, a
+	ret

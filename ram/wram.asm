@@ -1916,7 +1916,8 @@ wDexMinSeenMove::
 wWhatStat:: db ; contains the stat currently being modified by a stat changing move
 ; bit 0 = set to 1 when we should mark a move as seen in the movedex flags on showing its animation, 0 otherwise
 ; bit 1 = set if we ran from battle
-; bit 2-7 = unused
+; bit 2 = set if screeches are echoing
+; bit 3-7 = unused
 wBattleFunctionalFlags:: db
 ;;;
 

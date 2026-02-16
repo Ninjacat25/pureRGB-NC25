@@ -1625,6 +1625,7 @@ EnemySendOutFirstMon:
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry
 	call DrawEnemyHUDAndHPBar
+	callfar AutoWakeUpScreechEnemy
 	ld a, [wCurrentMenuItem]
 	and a
 	ret nz
@@ -2028,7 +2029,7 @@ ReadPlayerMonCurHPAndStatus:
 	ld bc, $4               ; 2 bytes HP, 1 byte unknown (unused?), 1 byte status
 	jp CopyData
 
-DrawHUDsAndHPBars:
+DrawHUDsAndHPBars::
 	call DrawPlayerHUDAndHPBar
 	jp DrawEnemyHUDAndHPBar
 
@@ -3642,8 +3643,7 @@ CheckPlayerStatusConditions:
 	rst _PrintText
 	jr .sleepDone
 .WakeUp
-	ld hl, WokeUpText
-	rst _PrintText
+	call PrintMonWokeUp
 .sleepDone
 	xor a
 	ld [wPlayerUsedMove], a
@@ -3894,6 +3894,11 @@ FastAsleepText:
 	text_far _FastAsleepText
 	text_end
 
+PrintMonWokeUp::
+	ld hl, WokeUpText
+	rst _PrintText
+	ret
+	
 WokeUpText:
 	text_far _WokeUpText
 	text_end
@@ -5813,7 +5818,7 @@ INCLUDE "data/types/type_matchups.asm"
 INCLUDE "data/battle/mist_blocked_moves.asm"
 
 ; some tests that need to pass for a move to hit
-MoveHitTest:
+MoveHitTest::
 ; player's turn
 	ld hl, wEnemyBattleStatus1
 	ld de, wPlayerMoveEffect
@@ -5835,11 +5840,11 @@ MoveHitTest:
 .swiftCheck
 	ld a, [de]
 	cp SWIFT_EFFECT
-	ret z ; Swift never misses (this was fixed from the Japanese versions)
-	call CheckTargetSubstitute ; substitute check (note that this overwrites a)
+	ret z ; Swift never misses
+	call CheckTargetSubstitute
 	jr z, .checkForDigOrFlyStatus
-; The fix for Swift broke this code. It's supposed to prevent HP draining moves from working on Substitutes.
-; Since CheckTargetSubstitute overwrites a with either $00 or $01, it never works.
+	; TODO: should the bug be fixed here or leave it?
+	ld a, [de]
 	cp DRAIN_HP_EFFECT
 	jp z, .moveMissed
 	cp DREAM_EATER_EFFECT
@@ -6283,8 +6288,7 @@ CheckEnemyStatusConditions:
 	call PlayMoveAnimation
 	jr .sleepDone
 .wokeUp
-	ld hl, WokeUpText
-	rst _PrintText
+	call PrintMonWokeUp
 .sleepDone
 	xor a
 	ld [wEnemyUsedMove], a
