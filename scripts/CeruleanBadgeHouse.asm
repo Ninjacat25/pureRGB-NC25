@@ -1,4 +1,24 @@
 CeruleanBadgeHouse_Script:
+	ld hl, wCurrentMapScriptFlags
+	bit BIT_CUR_MAP_LOADED_1, [hl]
+	res BIT_CUR_MAP_LOADED_1, [hl]
+	jr z, .notFirstLoad
+	CheckEvent FLAG_LEARNSETS_DISABLED
+	jr z, .notFirstLoad
+	; move papers offscreen if learnsets disabled
+	lb bc, SPRITESTATEDATA2_MAPY, CERULEANBADGEHOUSE_PAPER1
+	call GetFromSpriteStateData2
+	ld bc, wSprite02StateData2MapY - wSprite01StateData2MapY
+	ld d, 4
+.loop
+	ld [hl], -1
+	add hl, bc
+	dec d
+	jr nz, .loop
+	ASSERT CERULEANBADGEHOUSE_PAPER2 == (CERULEANBADGEHOUSE_PAPER1 + 1)
+	ASSERT CERULEANBADGEHOUSE_PAPER3 == (CERULEANBADGEHOUSE_PAPER2 + 1)
+	ASSERT CERULEANBADGEHOUSE_PAPER4 == (CERULEANBADGEHOUSE_PAPER3 + 1)
+.notFirstLoad
 	jp EnableAutoTextBoxDrawing
 
 CeruleanBadgeHouse_TextPointers:
