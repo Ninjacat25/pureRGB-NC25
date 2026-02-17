@@ -592,6 +592,8 @@ ArmoredMewtwoPicBackSW:: INCBIN "gfx/pokemon/back_sw/armored_mewtwob.pic"
 ArmoredMewtwoPicFrontAlt:: INCBIN "gfx/pokemon/front_alt/armored_mewtwo.pic"
 
 WinterDragonairPicBackSW:: INCBIN "gfx/pokemon/back_sw/winter_dragonairb.pic"
+VolcanicMagmarPicBack:: INCBIN "gfx/pokemon/back/volcanic_magmarb.pic"
+WinterDragonairPicBack:: INCBIN "gfx/pokemon/back/winter_dragonairb.pic"
 
 ; used elsewhere
 KidPic::           INCBIN "gfx/unused_prototype_sprites/cool_kid.pic"

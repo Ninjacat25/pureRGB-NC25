@@ -48,8 +48,8 @@
 
 	db BANK(WinterDragonairPicFront)
 	db 0
-	db BANK(DragonairPicBack)
+	db BANK(WinterDragonairPicBack)
 	db BANK(WinterDragonairPicBackSW)
 
-	dw 0, DragonairPicBack
+	dw 0, WinterDragonairPicBack
 
