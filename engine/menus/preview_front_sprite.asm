@@ -11,44 +11,31 @@ PreviewFrontSprite::
 	ld a, [hl] ; which pokemon to show the sprite of
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
-	push af
 	ld b, SET_PAL_MIDDLE_SCREEN_MON_BOX
 	call RunPaletteCommand
 	call .displayPopup
 	hlcoord 2, 14
 	lb bc, 2, 15
 	call TextBoxBorder
-	pop af
-	cp JYNX
-	ld hl, RedGreenText
-	ld de, SpaceworldText
-	jr z, .printSpriteType
-	ld hl, RedBlueDefaultYellowAltSprites
-	call IsInSingleByteArray
-	ld hl, RedBlueText
-	ld de, YellowText
-	jr c, .printSpriteType
-	ld a, c
-	ld hl, YellowDefaultRedBlueAltSprites
-	call IsInSingleByteArray
-	ld hl, YellowText
-	ld de, RedBlueText
-	jr c, .printSpriteType
-	ld a, c
-	ld hl, RedGreenDefaultRedBlueAltSprites
-	call IsInSingleByteArray
-	ld hl, RedGreenText
-	ld de, RedBlueText
-	jr c, .printSpriteType
-	ld hl, RedBlueText
-	ld de, RedGreenText
-.printSpriteType
+	hlcoord 0, 0
 	ld a, [wTopMenuItemX]
-	cp 16
-	jr z, .alt
-	ld d, h
-	ld e, l
-.alt
+	ld d, 0
+	ld e, a
+	add hl, de
+	ld a, [wTopMenuItemY]
+	ld bc, SCREEN_WIDTH
+	call AddNTimes
+	inc hl
+	inc hl
+	ld a, [hl]
+	ld hl, SpriteTypeMapping
+	ld de, 3
+	call IsInArray
+	ld de, YellowText
+	jr nc, .printSpriteType
+	inc hl
+	de_deref
+.printSpriteType
 	ld hl, hUILayoutFlags
 	set BIT_SINGLE_SPACED_LINES, [hl]
 	push hl
@@ -114,21 +101,12 @@ ShowWhichSpriteList:
 	db ZAPDOS
 	db MEWTWO
 
-YellowDefaultRedBlueAltSprites:
-	db GOLBAT
-	db EXEGGUTOR
-	db -1
-
-RedGreenDefaultRedBlueAltSprites:
-	db FARFETCHD
-	db KOFFING
-	db -1
-
-RedBlueDefaultYellowAltSprites:
-	db GENGAR
-	db EXEGGCUTE
-	db ARTICUNO
-	db -1
+; based on what character is +2 x-index from the cursor, we choose what text will display when viewing the sprite
+SpriteTypeMapping:
+	dbw "B", RedBlueText
+	dbw "G", RedGreenText
+	dbw "W", SpaceworldText
+	db -1 
 
 RedBlueText:
 	db "International"
