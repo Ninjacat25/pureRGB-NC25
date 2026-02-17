@@ -397,6 +397,8 @@ _ScreechesPreventedSleepText::
 	prompt
 
 _LetOutAScreechText::
-	text "But <TARGET> let"
+	text "But wait! At the"
+	line "last moment,"
+	para "<TARGET> let"
 	line "out a SCREECH!"
 	prompt
