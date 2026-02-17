@@ -206,3 +206,20 @@ _GenericMovePowerIncreasesText::
 	text_decimal w2CharStringBuffer, 1, 3
 	text "!"
 	done
+
+_MoveMysticInfoText::
+	text "If ON, a new house"
+	line "will be available"
+	cont "in SAFFRON CITY."
+	para "The MOVE MYSTIC"
+	line "here will tell"
+	cont "you about #MON"
+	cont "SIGNATURE MOVEs."
+	para "Some #MON will"
+	line "have bonus power"
+	cont "or accuracy when"
+	cont "using some moves."
+	para "If turned OFF,"
+	line "these bonuses are"
+	cont "turned off too."
+	prompt

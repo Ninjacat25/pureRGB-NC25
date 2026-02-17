@@ -80,12 +80,13 @@
 
 	; pureRGBnote: ~9 bits of unused event space
 
-; World Options ; PureRGBnote: ADDED: flags for the world options menu (only 1 at the moment)
+; World Options ; PureRGBnote: ADDED: flags for the world options menu
 	const_next $80
 DEF EVENT_OPTIONS_START1 EQU const_value
 	const FLAG_VOLCANO_AREA_TURNED_OFF
 	const FLAG_CATCHUP_CLUBS_TURNED_OFF
 	const FLAG_BALL_DESIGNER_TURNED_OFF
+	const FLAG_SIGNATURE_MOVES_TURNED_OFF
 
 	const_next $88
 	const FLAG_LEARNSETS_DISABLED

@@ -1,5 +1,17 @@
 SaffronCity_Script:
 	ResetEvent EVENT_SUPER_NERD_GOING_TO_CINNABAR ; PureRGBnote: ADDED: this will make it so the super nerd finishes reviving your fossil.
+	ld hl, wCurrentMapScriptFlags
+	bit BIT_CUR_MAP_LOADED_1, [hl]
+	res BIT_CUR_MAP_LOADED_1, [hl]
+	jr z, .notFirstLoad
+	; if signature moves turned off, hide move mystic's house door on map load.
+	CheckEvent FLAG_SIGNATURE_MOVES_TURNED_OFF
+	jr z, .notFirstLoad
+	xor a ; block 0
+	ld [wNewTileBlockID], a
+	lb bc, 1, 19
+	predef ReplaceTileBlock
+.notFirstLoad
 	jp EnableAutoTextBoxDrawing
 
 SaffronCity_TextPointers:

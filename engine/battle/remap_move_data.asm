@@ -13,6 +13,9 @@ CheckRemapMoveData::
 	ld a, [hl]
 	cp -1
 	jr z, .donePokemonCheck
+	; the move has a specific pokemon required (it is a signature move)
+	CheckEvent FLAG_SIGNATURE_MOVES_TURNED_OFF
+	ret nz
 	ld a, d
 	cp VOLCANIC_MAGMAR
 	jr nz, .notVolcanicMagmar
@@ -82,6 +85,7 @@ RemappableMoves::
 	db TOXIC, -1, -2, 4
 	db SKULL_BASH, -1, -2, 5
 	db SLAM, -1, -2, 6 ; FILTHY SLAM
+	; signature moves start here
 	db POISON_STING, BEEDRILL, 45, 0
 	db TWINEEDLE, BEEDRILL, 65, 0 
 	db ACID, ARBOK, 100, 0
@@ -144,6 +148,8 @@ DoubleSlapModifierPart2::
 	ret
 
 SingModifier::
+	CheckEvent FLAG_SIGNATURE_MOVES_TURNED_OFF
+	ret nz
 	call GetMoveRemapData
 	ld a, d
 	cp WIGGLYTUFF
