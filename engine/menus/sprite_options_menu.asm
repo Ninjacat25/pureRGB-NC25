@@ -87,6 +87,12 @@ SpriteOptionsAButton:
 	ld a, SFX_PRESS_AB
 	rst _PlaySound
 	call DisplayFrontSpriteOptions
+	ld a, [wNewInGameFlags]
+	bit IN_GAME, a
+	jr z, .noTilesetReload ; if we're not in game yet, no need to reload
+	CheckAndResetEvent FLAG_RELOAD_TILESET_IN_OPTION_MENU
+	call nz, ReloadMapData
+.noTilesetReload
 	hlcoord 14, PAGE_CONTROLS_Y_COORD
 	ld a, " "
 	ld [hli], a

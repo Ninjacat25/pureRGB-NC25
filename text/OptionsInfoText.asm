@@ -150,23 +150,23 @@ _FrontSpriteText::
 	cont "option menus."
 	prompt
 
-_FrontSpriteGenericText::
-	text "Choose which front"
-	line "sprite to use for"
-	cont "this #MON."
-	para "RG: Japanese"
-	line "RED/GREEN sprite."
-	para "RB: International"
-	line "RED/BLUE sprite."
-	para "Y: YELLOW version"
-	line "sprite."
-	para "SW: Spaceworld 97"
-	line "sprite."
-	para "Some sprites have"
-	line "been tweaked a"
-	cont "bit visually from"
-	cont "their originals."
-	prompt
+;_FrontSpriteGenericText::
+;	text "Choose which front"
+;	line "sprite to use for"
+;	cont "this #MON."
+;	para "RG: Japanese"
+;	line "RED/GREEN sprite."
+;	para "RB: International"
+;	line "RED/BLUE sprite."
+;	para "Y: YELLOW version"
+;	line "sprite."
+;	para "SW: Spaceworld 97"
+;	line "sprite."
+;	para "Some sprites have"
+;	line "been tweaked a"
+;	cont "bit visually from"
+;	cont "their originals."
+;	prompt
 
 _VolcanoInfoText::
 	text "If ON, a new cave"
