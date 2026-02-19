@@ -3,18 +3,18 @@
 This is a ROM hack that aims to enhance the graphics of the  Pokémon Red, Green, and Blue for the Gameboy, whilst still maintaining the general artstyle of the game and better reflecting Ken Sugimori's designs featured in the game's promotional art. This hack is a labour of love for a game that I hold so dearly to my heart. I hope you enjoy it. (Also, this hack uses Vortriene's PureRGB v.2.6.4 as a base, so the graphical tweaks extend to some of those which PureRGB introduces to the game.)
 
 Tweaks include:
-> Every trainer battle sprite (Including two completely ones, and two redesigned ones outside of those featured in the original game)
-> Many, if not all overworld sprites
-> Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, and likely more)
-> Many tilesets
+- Every trainer battle sprite (Including two completely ones, and two redesigned ones outside of those featured in the original game)
+- Many, if not all overworld sprites
+- Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, and likely more)
+- Many tilesets
 
 After the release of this version of the hack, I'll release an extra version of the hack that reverts the names of towns and human characters back to their original Japanese versions, along some other small dialogue changes. Also, it will change the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
 
 Acknowledgements:
-> Thank you to both GuiGui and Vortriene for their guidance.
-> Thank you to my good friend Fudge for compiling the project for me.
+- Thank you to both GuiGui and Vortriene for their guidance.
+- Thank you to my good friend Fudge for compiling the project for me.
 
 ----------------------------------------------
 Base hack:
