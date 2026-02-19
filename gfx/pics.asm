@@ -112,8 +112,6 @@ NidoranMPicBackSW::    INCBIN "gfx/pokemon/back_sw/nidoranmb.pic"
 
 SECTION "Pics 3", ROMX, BANK[PICS_3]
 
-ArticunoPicFront::    INCBIN "gfx/pokemon/front/articuno.pic"
-ArticunoPicBackSW::   INCBIN "gfx/pokemon/back_sw/articunob.pic"
 ZapdosPicFront::      INCBIN "gfx/pokemon/front/zapdos.pic"
 ZapdosPicBackSW::     INCBIN "gfx/pokemon/back_sw/zapdosb.pic"
 ZapdosPicFrontAlt::   INCBIN "gfx/pokemon/front_alt/zapdos.pic"
@@ -164,8 +162,6 @@ ZubatPicBackSW::      INCBIN "gfx/pokemon/back_sw/zubatb.pic"
 
 SECTION "Pics 4", ROMX, BANK[PICS_4]
 
-DodrioPicFront::       INCBIN "gfx/pokemon/front/dodrio.pic"
-DodrioPicBackSW::      INCBIN "gfx/pokemon/back_sw/dodriob.pic"
 DugtrioPicFront::      INCBIN "gfx/pokemon/front/dugtrio.pic"
 DugtrioPicBackSW::     INCBIN "gfx/pokemon/back_sw/dugtriob.pic"
 VenomothPicFront::     INCBIN "gfx/pokemon/front/venomoth.pic"
@@ -221,7 +217,6 @@ PidgeotPicBack::       INCBIN "gfx/pokemon/back/pidgeotb.pic"
 
 SECTION "Pics 5", ROMX, BANK[PICS_5]
 
-BulbasaurPicFront::    INCBIN "gfx/pokemon/front/bulbasaur.pic"
 BulbasaurPicBackSW::   INCBIN "gfx/pokemon/back_sw/bulbasaurb.pic"
 BulbasaurPicFrontAlt::  INCBIN "gfx/pokemon/front_alt/bulbasaur.pic"
 VenusaurPicFront::     INCBIN "gfx/pokemon/front/venusaur.pic"
@@ -613,6 +608,12 @@ GolduckPicFrontAlt:: INCBIN "gfx/pokemon/front_alt/golduck.pic"
 WinterDragonairPicFront:: INCBIN "gfx/pokemon/front_alt/dragonair.pic"
 VolcanicMagmarPicFront:: INCBIN "gfx/pokemon/front_alt/volcanic_magmar.pic"
 VolcanicMagmarPicBackSW:: INCBIN "gfx/pokemon/back_sw/volcanic_magmarb.pic"
+ArticunoPicFront::    INCBIN "gfx/pokemon/front/articuno.pic"
+ArticunoPicBackSW::   INCBIN "gfx/pokemon/back_sw/articunob.pic"
+DodrioPicFront::       INCBIN "gfx/pokemon/front/dodrio.pic"
+DodrioPicBackSW::      INCBIN "gfx/pokemon/back_sw/dodriob.pic"
+BulbasaurPicFront::    INCBIN "gfx/pokemon/front/bulbasaur.pic"
+
 
 ; spirits
 TorchedPicFront:: INCBIN "gfx/battle/spirit_torched.pic"
