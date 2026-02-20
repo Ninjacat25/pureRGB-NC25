@@ -151,7 +151,7 @@ _SafariZoneWestManiacAfterBattleText::
 	line "complete."
 
 	para "Failure cause:"
-	line "Skill issue."
+	line "I screwed up."
 	done
 
 _SafariZoneWestRockerText::
