@@ -40,8 +40,8 @@ _SafariZoneRestHouse2TextFreeRoam2::
 	cont "ZONE."
 	para "Trainers were"
 	line "getting so fed up"
-	cont "with using BAIT"
-	cont "and ROCKs to"
+	cont "with having to"
+	cont "use BAIT to"
 	cont "catch #MON."
 	para "What a pain!"
 	done

@@ -65,8 +65,8 @@ _SafariZoneEastPsychicAfterBattleText::
 	line "make a mental"
 	cont "note of my total"
 	cont "failure as the"
-	cont "trainer looked on"
-	cont "in disgust."
+	cont "trainer stood"
+	cont "victorious."
 	done
 
 _SafariZoneEastRockerText::

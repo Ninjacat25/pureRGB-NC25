@@ -1,5 +1,5 @@
 _SafariZoneWestRestHouseScientistText::
-	text "Tossing ROCKs at"
+	text "Getting close to"
 	line "#MON might"
 	cont "make them run,"
 	cont "but they'll be"

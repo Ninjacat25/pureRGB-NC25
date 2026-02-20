@@ -26,7 +26,7 @@ _SafariZoneEntranceWhatGame::
 _SafariZoneClassic::
 	text "Hunt for #MON"
 	line "to catch using"
-	cont "bait and rocks!"
+	cont "bait!"
 
 	para "Try to find the"
 	line "SECRET HOUSE"
