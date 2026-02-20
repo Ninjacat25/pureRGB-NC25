@@ -8,8 +8,9 @@ Tweaks include:
 - Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, and likely more)
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
+-  Changes the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical
 
-After the release of this version of the hack, I'll release an extra version that reverts the names of towns and human characters back to their original Japanese versions, along some other small dialogue changes. Also, it will change the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical. I'll also release a version of this hack that allows you to play as a female character.
+After the release of this version of the hack, I'll release an extra version that reverts the names of towns and human characters back to their original Japanese versions, along some other small dialogue changes. I'll also release a version of this hack that allows you to play as a female character.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
 
