@@ -1345,7 +1345,7 @@ _SafariZoneAngryText::
 	text "Wild @"
 	text_ram wEnemyMonNick
 	text_start
-	line "is angry!"
+	line "watches you."
 	prompt
 
 ; money related

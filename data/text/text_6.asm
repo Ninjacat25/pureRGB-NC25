@@ -164,8 +164,8 @@ _ThrewBaitText::
 	done
 
 _ThrewRockText::
-	text "<PLAYER> threw a"
-	line "ROCK."
+	text "<PLAYER> drew"
+	line "closer..."
 	done
 
 _PlayedFluteNoEffectText::
