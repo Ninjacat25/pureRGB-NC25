@@ -74,7 +74,7 @@ _BillsGardenErikaText2No::
 	done
 
 _BillsGardenErikaText3::
-	text "ERIKA: Oh poo!"
+	text "ERIKA: Oh dear!"
 	para "SABRINA is a bit"
 	line "shy when it comes"
 	cont "to swimwear."
@@ -99,10 +99,10 @@ _BillsGardenSabrinaText::
 	line "detect a twinge"
 	cont "of hopefulness in"
 	cont "your mind, too."
-	para "That's the amusing"
-	line "part to me."
-	para "Keep on dreaming,"
-	line "CHAMP."
+	para "I'm only joking."
+	line "..."
+	para "Or am I?"
+	line "..."
 	para "It's time we GYM"
 	line "LEADERS had fun"
 	cont "at the beach."
