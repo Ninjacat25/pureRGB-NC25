@@ -480,8 +480,8 @@ _RivalLostText::
 	prompt
 
 _RivalWonText::
-	text "Get"
-	line "wrecked!"
+	text "In"
+	line "your face!"
 	para "Feel it,"
 	line "<PLAYER>!"
 	prompt
