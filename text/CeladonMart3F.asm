@@ -119,10 +119,10 @@ _CeladonMartTMKidFlavor::
 	line "some of the cash"
 	cont "I made selling"
 	cont "<TM>s to buy a"
-	cont "GAME BOY COLOR."
+	cont "GAME BOY."
 	
 	para "I heard that"
-	line "WARIO LAND 3 is"
+	line "MARIO LAND 2 is"
 	cont "the best game!"
 	
 	para "Catch you later!"
