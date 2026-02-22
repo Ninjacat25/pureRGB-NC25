@@ -9,6 +9,7 @@ Tweaks include:
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
 -  Changes the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical
+- Some minor text changes to ensure that the game still feels like it's from the '90s
 
 After the release of this version of the hack, I'll release an extra version that reverts the names of towns and human characters back to their original Japanese versions, along some other small dialogue changes. I'll also release a version of this hack that allows you to play as a female character.
 
