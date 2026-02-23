@@ -17,18 +17,22 @@ Other tweaks:
 - Some text references to other videogames that I'm fond of
 - The player is slightly more polite to Copycat
 - A hiker is high on mushrooms, like in the Japanese version
+- Translated the bird wordplay in Erik/Koji and Sara/Atsuko's Japanese dialogue into English (In the Japanese version, Atsuko says "Pokémon tori", meaning "obtain Pokémon", while Koji says "tori Pokémon", meaning "bird Pokémon". This wordplay was omitted in the English version, as the joke was specifically reliant on the Japanese language. My attempt to translate the joke was making Sara/Atsuko say "I wanna win Pokémon here", with Erik/Koji mishearing it as "I wanna winged Pokemon here". Maybe there's a better way to translate the joke, but hopefully my attempt works well enough)
 - Seafoam Islands/Twins Island is now referred to as a single island, like in the Japanese version
 - One of the bikers now says "Think you're sneaky, pipsqueak?!" instead of "Come out and play, little mouse!" in order to make him sound less creepy
-- Changed some of Sabrina/Natsume's dialogue in Bill's/Masaki's Garden has been changed (PureRGB adds an area called "Bill's Garden" to the game)
+- Some of Sabrina/Natsume's dialogue in Bill's/Masaki's Garden has been changed (PureRGB adds an area called "Bill's Garden" to the game)
 - Changes to the protagonist's dad's dialogue and appearance, based on my own father (PureRGB adds the protagonist's dad as an interactable character)
-- Extra version with a playable female character
+
+Playable girl version:
+- Replaces all of Red's sprites with a female character (One with the same design as Blue/Green from the Pokémon Special/Adventures manga)
+- Changes dialogue to accomodate for playing as a girl
 
 Acknowledgements:
 - I believe the Clefairy overworld sprites might be my edit of the ones from SourApple's Sour Crystal?
 - Thank you to both GuiGui and Vortiene for their guidance.
 - Thank you to my good friend Fudge for compiling the project for me.
 - Thank you to my dad for his help with rephrasing the protagonist's dad's dialogue.
-- Thank you to Bulbapedia for documenting the Japanese character and town names.
+- Thank you to Bulbapedia for documenting localisation changes.
 - Playable female character sprites created by Madame Frog (aka. Hatsun) with some of my own edits.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
