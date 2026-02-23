@@ -2,17 +2,24 @@
 
 This is a ROM hack that aims to enhance the graphics of the  Pokémon Red, Green, and Blue for the Gameboy, whilst still maintaining the general artstyle of the game and better reflecting Ken Sugimori's designs featured in the game's promotional art. Also, the names for the towns and human characters have been reverted back to their Japanese versions, as I felt that would make sense for a region based on one located in real-world Japan. (With the exception of Lt.Surge for the most part. As he's American with a non-Japanese name in the Japanese version, and I personally find the name Lt. Surge to sound far cooler than Matisse. Besides, perhaps Matisse could be thought of as his first name with Surge being his surname. Though, I have referred to him as "Lt. Matisse Surge" on the Gym sign in Vermilion/Kuchiba city.) Also included, is an additional version of the hack that allows the player to play as a girl. This hack is a labour of love for a game that I hold so dearly to my heart. I hope you enjoy it. (Also, this hack uses Vortiene's PureRGB v.2.6.4 as a base, so the graphical tweaks extend to some of those which PureRGB introduces to the game.)
 
-Tweaks include:
+Graphical tweaks:
 - Every trainer battle sprite (Including two completely ones, and two redesigned ones outside of those featured in the original game)
 - Many, if not all overworld sprites
 - Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, and likely more)
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
+
+Other tweaks:
+- Restored the towns' Japanese names
+- Restored the human characters' Japanese names
 - Changes the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical
 - Some minor text changes to ensure that the game still feels like it's from the '90s
 - Some text references to other videogames that I'm fond of
-- Restored the towns' Japanese names
-- Restored the human characters' Japanese names
+- The player is slightly more polite to Copycat
+- A hiker is high on mushrooms, like in the Japanese version
+- Seafoam Islands/Twins Island is now referred to as a single island, like in the Japanese version
+- One of the bikers now says "Think you're sneaky, pipsqueak?!" instead of "Come out and play, little mouse!" in order to make him sound less creepy
+- Changed some of Sabrina/Natsume's dialogue in Bill's/Masaki's Garden has been changed (PureRGB adds an area called "Bill's Garden" to the game)
 - Changes to the protagonist's dad's dialogue and appearance, based on my own father (PureRGB adds the protagonist's dad as an interactable character)
 - Extra version with a playable female character
 
