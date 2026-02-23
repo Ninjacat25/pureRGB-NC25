@@ -21,6 +21,7 @@ Acknowledgements:
 - Thank you to both GuiGui and Vortiene for their guidance.
 - Thank you to my good friend Fudge for compiling the project for me.
 - Thank you to my dad for his help with rephrasing the protagonist's dad's dialogue.
+- Thank you to Bulbapedia for documenting the Japanese character and town names.
 - Playable female character sprites created by Madame Frog (aka. Hatsun) with some of my own edits.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
