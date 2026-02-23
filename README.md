@@ -17,6 +17,7 @@ Other tweaks:
 - Some minor text changes to ensure that the game still feels like it's from the '90s
 - Some text references to other videogames that I'm fond of
 - The player is slightly more polite to Copycat
+- The Great Ball has been renamed to Super Ball, the Ultra Ball has been renamed to Hyper Ball, and PureRGB's Hyper Ball has been renamed to Mega Ball
 - A hiker is high on mushrooms, like in the Japanese version
 - Translated the bird wordplay in Erik/Koji and Sara/Atsuko's Japanese dialogue into English (In the Japanese version, Atsuko says "Pokémon tori", meaning "obtain Pokémon", while Koji says "tori Pokémon", meaning "bird Pokémon". This wordplay was omitted in the English version, as the joke was specifically reliant on the Japanese language. My attempt to translate the joke was making Sara/Atsuko say "I wanna win Pokémon here", with Erik/Koji mishearing it as "I wanna winged Pokemon here". Maybe there's a better way to translate the joke, but hopefully my attempt works well enough)
 - Seafoam Islands/Twins Island is now referred to as a single island, like in the Japanese version
