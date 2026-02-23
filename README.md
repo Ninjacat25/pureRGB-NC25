@@ -27,6 +27,10 @@ Playable girl version:
 - Replaces all of Red's sprites with a female character (One with the same design as Blue/Green from the Pokémon Special/Adventures manga)
 - Changes dialogue to accomodate for playing as a girl
 
+Genderless/non-binary version:
+- Replaces all of Red's sprites with that of Yellow from the Pokémon Special/Adventures manga (I'm aware that Yellow as a character is not non-binary, but she does appear androgynous)
+- Changes dialogue so that it no longer uses gendered terms for the player
+
 Acknowledgements:
 - I believe the Clefairy overworld sprites might be my edit of the ones from SourApple's Sour Crystal?
 - Thank you to both GuiGui and Vortiene for their guidance.
