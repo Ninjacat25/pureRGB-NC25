@@ -9,6 +9,7 @@ Graphical tweaks:
 - Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, and likely more)
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
+(Note: I'm not entirely sure, but the front sprites I edited might be disabled if the front sprite options are changed at all. PureRGB allows for swapping between different versions of Pokémon's front sprites.)
 
 Other tweaks:
 - Restored the towns' Japanese names
