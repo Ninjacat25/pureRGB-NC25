@@ -1,6 +1,6 @@
 # Pokémon Red/Green/Blue - NC Revision
 
-This is a ROM hack that aims to enhance the graphics of the  Pokémon Red, Green, and Blue for the Gameboy, whilst still maintaining the general artstyle of the game and better reflecting Ken Sugimori's designs featured in the game's promotional art. This hack is a labour of love for a game that I hold so dearly to my heart. I hope you enjoy it. (Also, this hack uses Vortriene's PureRGB v.2.6.4 as a base, so the graphical tweaks extend to some of those which PureRGB introduces to the game.)
+This is a ROM hack that aims to enhance the graphics of the  Pokémon Red, Green, and Blue for the Gameboy, whilst still maintaining the general artstyle of the game and better reflecting Ken Sugimori's designs featured in the game's promotional art. Also, the names for the towns and human characters have been reverted back to their Japanese versions, as I felt that would make sense for a region based on one located in real-world Japan. (With the exception of Lt.Surge for the most part. As he's American with a non-Japanese name in the Japanese version, and I personally find the name Lt. Surge to sound far cooler than Matisse. Besides, perhaps Matisse could be thought of as his first name with Surge being his surname. Though, I have referred to him as "Lt. Matisse Surge" on the Gym sign in Vermilion/Kuchiba city.) Also included, is an additional version of the hack that allows the player to play as a girl. This hack is a labour of love for a game that I hold so dearly to my heart. I hope you enjoy it. (Also, this hack uses Vortriene's PureRGB v.2.6.4 as a base, so the graphical tweaks extend to some of those which PureRGB introduces to the game.)
 
 Tweaks include:
 - Every trainer battle sprite (Including two completely ones, and two redesigned ones outside of those featured in the original game)
@@ -8,16 +8,24 @@ Tweaks include:
 - Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, and likely more)
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
--  Changes the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical
+- Changes the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical
 - Some minor text changes to ensure that the game still feels like it's from the '90s
+- Some text references to other videogames that I'm fond of
+- Restored the towns' Japanese names
+- Restored the human characters' Japanese names
+- Changes to the protagonist's dad's dialogue and appearance, based on my own father (PureRGB adds the protagonist's dad as an interactable character)
+- Extra version with a playable female character
 
-After the release of this version of the hack, I'll release an extra version that reverts the names of towns and human characters back to their original Japanese versions, along some other small dialogue changes. I'll also release a version of this hack that allows you to play as a female character.
+Acknowledgements:
+- I believe the Clefairy overworld sprites might be my edit of the ones from SourApple's Sour Crystal?
+- Thank you to both GuiGui and Vortriene for their guidance.
+- Thank you to my good friend Fudge for compiling the project for me.
+- Thank you to my dad for his help with rephrasing the protagonist's dad's dialogue.
+- Playable female character sprites created by Madame Frog (aka. Hatsun) with some of my own edits.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
 
-Acknowledgements:
-- Thank you to both GuiGui and Vortriene for their guidance.
-- Thank you to my good friend Fudge for compiling the project for me.
+Please feel free to use the sprites I've edited in your own hacks, as long as credit is given. Though, although most of the sprites I've edited seem to have simply been the original sprites from Pokemon RGBY, some of those which I've edited have been some of Vortriene's own sprites, so please give credit to him as well.
 
 ----------------------------------------------
 Base hack:
