@@ -18,14 +18,14 @@ Tweaks include:
 
 Acknowledgements:
 - I believe the Clefairy overworld sprites might be my edit of the ones from SourApple's Sour Crystal?
-- Thank you to both GuiGui and Vortriene for their guidance.
+- Thank you to both GuiGui and Vortiene for their guidance.
 - Thank you to my good friend Fudge for compiling the project for me.
 - Thank you to my dad for his help with rephrasing the protagonist's dad's dialogue.
 - Playable female character sprites created by Madame Frog (aka. Hatsun) with some of my own edits.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
 
-Please feel free to use the sprites I've edited in your own hacks, as long as credit is given. Though, although most of the sprites I've edited seem to have simply been the original sprites from Pokemon RGBY, some of those which I've edited have been some of Vortriene's own sprites, so please give credit to him as well.
+Please feel free to use the sprites I've edited in your own hacks, as long as credit is given. Though, although most of the sprites I've edited seem to have simply been the original sprites from Pokemon RGBY, some of those which I've edited have been some of Vortiene's own sprites, so please give credit to him as well. As for both the male and female ranger battle sprites, I've made those completely from scratch.
 
 ----------------------------------------------
 Base hack:
