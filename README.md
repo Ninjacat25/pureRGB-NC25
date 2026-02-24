@@ -13,7 +13,8 @@ Graphical tweaks:
 
 Other tweaks:
 - Restored the towns' Japanese names
-- Restored the human characters' Japanese names
+- Restored/retranslated most human characters' Japanese names
+- Retranslated the badge names (The Japanese Kanto badge names are color-themed. For example, the Boulderbadge is referred to as the "Grey Badge", so I decided to name the badges after the English names of their respective towns)
 - Changes the option to throw rocks at Safari Zone Pokémon to simply going near them, though the option will be mechanically identical
 - Some minor text changes to ensure that the game still feels like it's from the '90s
 - Some text references to other videogames that I'm fond of
