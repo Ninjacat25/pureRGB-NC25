@@ -6,7 +6,7 @@ This hack is a labour of love for a game that I hold so dearly to my heart. I ho
 Graphical tweaks:
 - Every trainer battle sprite (Including two completely ones, and two redesigned ones outside of those featured in the original game)
 - Many, if not all overworld sprites
-- Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, Jigglypuff, Wigglytuff, and perhaps more)
+- Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, Jigglypuff, Wigglytuff, the PureRGB Tower Catacombs Pokémon, and perhaps more)
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
 (Note: I'm not entirely sure, but the front sprites I edited might be disabled if the front sprite options are changed at all. PureRGB allows for swapping between different versions of Pokémon's front sprites.)
@@ -41,6 +41,7 @@ Acknowledgements:
 - Thank you to my dad for his help with rephrasing the protagonist's dad's dialogue.
 - Thank you to Bulbapedia for documenting localisation changes.
 - Playable female character sprites created by Madame Frog (aka. Hatsun) with some of my own edits.
+- Thank you to my good friend Myst3ryMan666 for ideas on how to tweak the Tower Catacombs Pokémon sprites.
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
 
