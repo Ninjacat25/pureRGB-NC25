@@ -25,6 +25,8 @@ Other tweaks:
 - One of the bikers now says "Think you're sneaky, pipsqueak?!" instead of "Come out and play, little mouse!" in order to make him sound less creepy
 - Some of Sabrina/Natsume's dialogue in Bill's/Masaki's Garden has been changed (PureRGB adds an area called "Bill's Garden" to the game)
 - Changes to the protagonist's dad's dialogue and appearance, based on my own father (PureRGB adds the protagonist's dad as an interactable character)
+- Prof.Oak/Dr.Okido now talks to you on the phone about Pokémon Box storage, as opposed to the Pokémon Snap reference seen in PureRGB
+- The upper classroom featured in PureRGB is no longer referred to as "Detention", as Japanese schools might not have detention
 
 Playable girl version:
 - Replaces all of Red's sprites with a female character (One with the same design as Blue/Green from the Pokémon Special/Adventures manga)
