@@ -9,7 +9,6 @@ Graphical tweaks:
 - Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, Jigglypuff, Wigglytuff, Pidgey, the PureRGB Tower Catacombs Pokémon, and perhaps more)
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
-(Note: I'm not entirely sure, but the front sprites I edited might be disabled if the front sprite options are changed at all. PureRGB allows for swapping between different versions of Pokémon's front sprites.)
 - New logos for the title screen, varying between the Red, Green, and Blue versions, using the Pokémon Gold and Silver logos as a base
 - I believe some of the Gym Leader overworld sprites might be edited versions of Gen 2 ones?
 
