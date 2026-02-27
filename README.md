@@ -49,7 +49,7 @@ Acknowledgements:
 
 Thank you for checking out my hack, and please share it with your fellow Pokémon fans!
 
-Please feel free to use the sprites I've edited in your own hacks, as long as credit is given. Though, although most of the sprites I've edited seem to have simply been the original sprites from Pokemon RGBY, some of those which I've edited have been some of Vortiene's own sprites, so please give credit to him as well. As for both the male and female ranger battle sprites, I've remade those completely from scratch.
+Please feel free to use the sprites I've edited in your own hacks, as long as credit is given. Though, although most of the sprites I've edited seem to have simply been the original sprites from Pokemon RGBY, some of those which I've edited have been some of Vortiene's own sprites, so please give credit to him as well. As for both the male and female ranger battle sprites, I've remade those completely from scratch. Also, the player sprite for Yellow (seen in the genderless version of my hack) has been made from scratch, while the Yellow overworld and back sprites have been made with Red's as a base. 
 
 ----------------------------------------------
 Base hack:
