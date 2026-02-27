@@ -1,6 +1,6 @@
 # Pokémon Red/Green/Blue - NC Revision
 
-This is a ROM hack that aims to enhance the graphics of the  Pokémon Red, Green, and Blue for the Gameboy, whilst still maintaining the general artstyle of the game and better reflecting Ken Sugimori's designs featured in the game's promotional art. Also, the names for the towns and human characters have been reverted back to their Japanese versions, as I felt that would make sense for a region based on one located in real-world Japan. (With the exception of Lt.Surge for the most part. As he's American with a non-Japanese name in the Japanese version, and I personally find the name Lt. Surge to sound far cooler than Matisse. Besides, perhaps Matisse could be thought of as his first name with Surge being his surname. Though, I have referred to him as "Lt. Matisse Surge" on the Gym sign in Vermilion/Kuchiba city.) Also included, is an additional version of the hack that allows the player to play as a girl, and also a genderless version. (NOTE: THESE ADDITIONAL VERSIONS MIGHT NOT RELEASE AT THE SAME TIME AS THE REGULAR VERSION OF THE HACK, AND INSTEAD BE ADDED LATER.) 
+Happy 30th Anniversary!!! This is a ROM hack that aims to enhance the graphics of the  Pokémon Red, Green, and Blue for the Gameboy, whilst still maintaining the general artstyle of the game and better reflecting Ken Sugimori's designs featured in the game's promotional art. Also, the names for the towns and human characters have been reverted back to their Japanese versions, as I felt that would make sense for a region based on one located in real-world Japan. (With the exception of Lt.Surge for the most part. As he's American with a non-Japanese name in the Japanese version, and I personally find the name Lt. Surge to sound far cooler than Matisse. Besides, perhaps Matisse could be thought of as his first name with Surge being his surname. Though, I have referred to him as "Lt. Matisse Surge" on the Gym sign in Vermilion/Kuchiba city.) Also included, is an additional version of the hack that allows the player to play as a girl, and also a genderless version. (NOTE: THESE ADDITIONAL VERSIONS MIGHT NOT RELEASE AT THE SAME TIME AS THE REGULAR VERSION OF THE HACK, AND INSTEAD BE ADDED LATER.) 
 This hack is a labour of love for a game that I hold so dearly to my heart. I hope you enjoy it. (Also, this hack uses Vortiene's PureRGB v.2.6.4 as a base, so the graphical tweaks extend to some of those which PureRGB introduces to the game.)
 
 Graphical tweaks:
@@ -10,6 +10,8 @@ Graphical tweaks:
 - Many tilesets
 - Title screen, trainer card, and back sprites for the player character
 (Note: I'm not entirely sure, but the front sprites I edited might be disabled if the front sprite options are changed at all. PureRGB allows for swapping between different versions of Pokémon's front sprites.)
+- New logos for the title screen, varying between the Red, Green, and Blue versions, using the Pokémon Gold and Silver logos as a base
+- I believe some of the Gym Leader overworld sprites might be edited versions of Gen 2 ones?
 
 Other tweaks:
 - Restored the towns' Japanese names
@@ -30,11 +32,11 @@ Other tweaks:
 
 Playable girl version:
 - Replaces all of Red's sprites with a female character (One with the same design as Blue/Green from the Pokémon Special/Adventures manga)
-- Changes dialogue to accomodate for playing as a girl
+- Changes dialogue and default names to accomodate for playing as a girl
 
 Genderless/non-binary version:
 - Replaces all of Red's sprites with that of Yellow from the Pokémon Special/Adventures manga (I'm aware that Yellow as a character is not non-binary, but she does appear androgynous)
-- Changes dialogue so that it no longer uses gendered terms for the player
+- Changes dialogue and default names so that it no longer uses gendered terms or names for the player
 
 Acknowledgements:
 - I believe the Clefairy overworld sprites might be my edit of the ones from SourApple's Sour Crystal?
