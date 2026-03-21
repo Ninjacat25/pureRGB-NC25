@@ -4,7 +4,7 @@ Happy 30th Anniversary!!! This is a ROM hack that aims to enhance the graphics o
 This hack is a labour of love for a game that I hold so dearly to my heart. I hope you enjoy it. (Also, this hack uses Vortiene's PureRGB v.2.6.4 as a base, so the graphical tweaks extend to some of those which PureRGB introduces to the game.)
 
 Graphical tweaks:
-- Every trainer battle sprite (Including two completely ones, and two redesigned ones outside of those featured in the original game)
+- Every trainer battle sprite (Including two completely new ones, and two redesigned ones outside of those featured in the original game)
 - Many, if not all overworld sprites
 - Some of the Pokémon's front sprites (Including the full starter Pokémon lines, Pikachu, Raichu, Oddish, Machop, Golem, Ekans, Dratini, Dragonair, Dragonite, Jigglypuff, Wigglytuff, Pidgey, the PureRGB Tower Catacombs Pokémon, and perhaps more)
 - Many tilesets
